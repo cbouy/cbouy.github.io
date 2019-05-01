@@ -1,0 +1,12 @@
+- name: Mail
+  icon: fas fa-at
+  link: mailto:cedric.bouysset@unice.fr
+- name: LinkedIn
+  icon: fab fa-linkedin
+  link: https://www.linkedin.com/in/cedric-bouysset/
+- name: ResearchGate
+  icon: fab fa-researchgate
+  link: https://www.researchgate.net/profile/Cedric_Bouysset
+- name: GitHub
+  icon: fab fa-github
+  link: https://github.com/cbouy

@@ -1,0 +1,28 @@
+---
+layout: head
+title: Blog
+---
+<body>
+  {% include navigation.html %}
+  <main id="home-container" class="container-fluid">
+    <div id="particles-js"></div>
+
+    <div class="container py-3">
+      <div class="card">
+        <p class="h1 pl-3 py-3">Latest Posts</p>
+
+        {% for post in site.posts %}
+        <div class="card-header">
+          <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        </div>
+        <div class="card-body">
+          <p>{{ post.excerpt }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <script src="/assets/js/particles.js"></script>
+    <script src="/assets/js/particles-app.js"></script>
+  </main>
+</body>

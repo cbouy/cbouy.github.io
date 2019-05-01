@@ -1,0 +1,21 @@
+url: "https://cbouy.github.io"
+plugins:
+  - jekyll-sitemap
+  - jemoji
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "assets/**/*.pdf"
+    values:
+      sitemap: false

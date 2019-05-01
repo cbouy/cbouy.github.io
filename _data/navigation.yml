@@ -1,0 +1,14 @@
+- name: <i class="fas fa-home"></i>
+  link: /
+- name: CV
+  link: /cv.html
+- name: Education
+  link: /education.html
+- name: Experience
+  link: /experience.html
+- name: Digital
+  link: /digital.html
+- name: Projects
+  link: /projects.html
+- name: Blog
+  link: /blog.html
