@@ -16,6 +16,6 @@ defaults:
       layout: "default"
   -
     scope:
-      path: "assets/**/*.pdf"
+      path: "assets/"
     values:
       sitemap: false
