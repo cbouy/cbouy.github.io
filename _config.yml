@@ -19,3 +19,6 @@ defaults:
       path: "assets/"
     values:
       sitemap: false
+tag_page_layout: tag_page
+tag_page_dir: tags
+ignored_tags: []

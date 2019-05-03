@@ -1,7 +1,5 @@
 /*
-
 General
-
 */
 *,
 *:before,
@@ -24,10 +22,48 @@ p {
   overflow-wrap:break-word;
   white-space: normal;
 }
+#cursor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: #007bff;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-left: .5em solid;
+
+  -webkit-animation: typing 10s steps(16) infinite,
+      blinking 1s step-end infinite;
+  animation: typing 10s steps(16) infinite,
+      blinking 1s step-end infinite;
+}
+#cursor-container {
+  position: relative;
+}
+#brand {
+  font-family: monospace;
+}
+@-webkit-keyframes typing {
+  0% { width: 100% }
+  40% { width: 0 }
+  100% { width: 0 }
+}
+@keyframes typing {
+  0% { width: 100% }
+  40% { width: 0 }
+  100% { width: 0 }
+}
+@-webkit-keyframes blinking {
+  from, to { border-color: transparent; }
+  50% { border-color: #fff; }
+}
+@keyframes blinking {
+  from, to { border-color: transparent; }
+  50% { border-color: #fff; }
+}
 /*
-
 CV
-
 */
 .col-4 table {
 	margin-left: 20px;
@@ -37,9 +73,7 @@ CV
 	padding-right: 30px;
 }
 /*
-
 Main
-
 */
 #home-container {
   position: absolute;
@@ -79,6 +113,25 @@ Main
 	z-index: 0;
   padding: 0;
   margin: 0;
+}
+.highlighter-rouge a {
+  color: #bf616a;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.tags a {
+  margin-left: 10px;
+}
+.tags {
+  padding-right: 10px;
+}
+#search-results-container {
+  position: absolute;
+  top: 1;
+  background-color: rgba(240,240,240,0.98);;
+  border-radius: 5px;
+  z-index: 10;
 }
 .cv {
 	width: 100%;
@@ -120,47 +173,4 @@ Bootstrap
 */
 .card-body p {
   padding-left: 1rem;
-}
-/*
-
-Footer
-
-*/
-.footer {
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  vertical-align: middle;
-  width: 100%;
-  height: 68px;
-	background-color: black;
-}
-.footer p {
-   margin-bottom: 0;
-}
-/* Icons for social media */
-#contact {
-	text-align: 	center;
-}
-#contact a {
-	text-shadow: 	0px 0px 12px #cfcfcf;
-	margin: 	0 20px 20px 20px;
-	font-size: 	22pt;
-	color: 	black;
-}
-#contact a:hover {
-	text-shadow: 	none;
-}
-#contact .fa-envelope:hover{
-	color: #F22C25;
-}
-#contact .fa-linkedin:hover{
-	color: #0176B4;
-}
-#contact .fa-registered:hover{
-	color: #01CFAE;
-}
-#contact .fa-github:hover{
-	color: #252A2E;
 }

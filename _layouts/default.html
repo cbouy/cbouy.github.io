@@ -3,7 +3,11 @@ layout: head
 ---
 <body>
   {% include navigation.html %}
-	<main class="container py-3">
+  <main id="home-container" class="container-fluid">
+    <div id="particles-js"></div>
   	{{ content }}
-	</main>
+
+    <script src="/assets/js/particles.js"></script>
+    <script src="/assets/js/particles-app.js"></script>
+  </main>
 </body>
