@@ -22,6 +22,9 @@ p {
   overflow-wrap:break-word;
   white-space: normal;
 }
+/*
+Blinking cursor and typing text in navbar
+*/
 #cursor {
   position: absolute;
   top: 0;
@@ -46,12 +49,14 @@ p {
 }
 @-webkit-keyframes typing {
   0% { width: 100% }
-  40% { width: 0 }
+  20% { width: 100% }
+  60% { width: 0 }
   100% { width: 0 }
 }
 @keyframes typing {
   0% { width: 100% }
-  40% { width: 0 }
+  20% { width: 100% }
+  50% { width: 0 }
   100% { width: 0 }
 }
 @-webkit-keyframes blinking {
@@ -110,7 +115,6 @@ Main
 	background-size: cover;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
-	z-index: 0;
   padding: 0;
   margin: 0;
 }
@@ -132,41 +136,6 @@ Main
   background-color: rgba(240,240,240,0.98);;
   border-radius: 5px;
   z-index: 10;
-}
-.cv {
-	width: 100%;
-	background-color: #fff;
-	border-radius: 8px;
-	margin-top: 30px;
-}
-.cv header {
-	text-align: center;
-	color: #fff;
-	background: #434343;
-	padding-bottom: 15px;
-	padding-top: 15px;
-	border-top-right-radius: 6px;
-	border-top-left-radius: 6px;
-}
-.bar-plot {
-	text-align: center;
-	width: 100%;
-}
-.bar-plot br {
-   display: block;
-   margin: 3px 0;
-	 line-height:22px;
-	 content: " ";
-}
-.programming {
-  background: #FF4B4B;
-  color:#fff;
-  border-radius: 10px;
-}
-.languages {
-  background: #4842FF;
-  color:#fff;
-  border-radius: 10px;
 }
 /*
 Bootstrap

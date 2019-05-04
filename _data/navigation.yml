@@ -3,12 +3,12 @@
 - name: CV
   link: /cv.html
 - name: Education
-  link: /education.html
+  link: /portfolio/education.html
 - name: Experience
-  link: /experience.html
+  link: /portfolio/experience.html
 - name: Digital
-  link: /digital.html
+  link: /portfolio/digital.html
 - name: Projects
-  link: /projects.html
+  link: /portfolio/projects.html
 - name: Blog
-  link: /blog.html
+  link: /blog/

@@ -1,0 +1,12 @@
+{% if page.comments %}
+<script id="dsq-count-scr" src="//cbouy-github-io.disqus.com/count.js" async></script>
+<div class="card-body">
+  <a href="{{ page.url }}#disqus_thread" class="btn btn-info btn-lg btn-block"
+  role="button" data-toggle="collapse" data-target="#comments" aria-expanded="false" aria-controls="comments">Loading comments...</a>
+  <div class="collapse" id="comments">
+    <div id="disqus_thread" class="pt-3"></div>
+    <script src="/assets/js/disqus.js"></script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+{% endif %}

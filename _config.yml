@@ -2,18 +2,27 @@ url: "https://cbouy.github.io"
 plugins:
   - jekyll-sitemap
   - jemoji
+  - jekyll/tagging
 defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "/blog.html"
+    values:
+      permalink: "/blog/"
   -
     scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
-  -
-    scope:
-      path: ""
-    values:
-      layout: "default"
+      author: "Cédric Bouysset"
+      comments: true
+      permalink: "/blog/:year-:month-:day/:slug"
   -
     scope:
       path: "assets/"

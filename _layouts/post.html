@@ -11,10 +11,11 @@ layout: default
         <a href="/tags/{{ tag }}"><code><nobr>#{{ tag }}</nobr></code></a>
       {% endfor %}
       </span>]
-      <p class="float-right">{{ page.date | date_to_long_string }} - Cédric Bouysset</p>
+      <p class="float-right">{{ page.date | date_to_long_string }} - {{ page.author }}</p>
     </div>
     <div class="card-body">
       <p>{{ content }}</p>
     </div>
+    {% include comments.html %}
   </div>
 </div>
