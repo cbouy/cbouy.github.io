@@ -22,6 +22,9 @@ p {
   overflow-wrap:break-word;
   white-space: normal;
 }
+#topbar {
+  font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
 /*
 Blinking cursor and typing text in navbar
 */
@@ -68,14 +71,20 @@ Blinking cursor and typing text in navbar
   50% { border-color: #fff; }
 }
 /*
-CV
+Particle.js
 */
-.col-4 table {
-	margin-left: 20px;
-}
-.col-4 td:first-child {
-	text-align: center;
-	padding-right: 30px;
+* { z-index: 2; }
+.particle, .particle > canvas { z-index: 1 !important; }
+#particles-js {
+	position: absolute;
+  bottom: 1;
+  width: 100%;
+  height: 99%;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
 }
 /*
 Main
@@ -88,35 +97,8 @@ Main
   padding: 0;
   margin: 0;
 }
-.home-p {
+.whitespace-pre-line {
   white-space: pre-line;
-  text-align: justify;
-  -moz-text-align-last: justify;
-  text-align-last: justify;
-}
-.center-content {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.center-y {
-  position: absolute;
-  bottom: 0;
-  min-height: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
-#particles-js {
-	position: absolute;
-  bottom: 1;
-  width: 100%;
-  height: 99%;
-	background-size: cover;
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
-  padding: 0;
-  margin: 0;
 }
 .highlighter-rouge a {
   color: #bf616a;

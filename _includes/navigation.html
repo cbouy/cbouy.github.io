@@ -4,15 +4,23 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-		<div class="navbar-nav center-content mr-auto">
+		<div class="navbar-nav center-content mx-auto">
     {% for item in site.data.navigation %}
     {% if page.url == item.link %}
       <a href="{{ item.link }}" class="nav-item nav-link active">
-        {{ item.name }}
+        {% if item.link == "/" %}
+          {{ item.name }}
+        {% else %}
+          {{ item.name | upcase }}
+        {% endif %}
       </a>
     {% else %}
       <a href="{{ item.link }}" class="nav-item nav-link">
-        {{ item.name }}
+        {% if item.link == "/" %}
+          {{ item.name }}
+        {% else %}
+          {{ item.name | upcase }}
+        {% endif %}
       </a>
     {% endif %}
     {% endfor %}

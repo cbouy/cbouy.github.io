@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<div class="container py-3">
+  <div class="card">
+    <h2 class="py-3 card-footer text-muted"><code>#{{ page.tag }}</code></h2>
+    <ul>
+    {% for post in site.tags[page.tag] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a> {{ post.date | date_to_string }} · Tags: {{ post.tags | array_to_sentence_string: "" }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="card" id="tag-cloud" style="margin-top: 15px">
+    <h2 class="py-3 card-footer text-muted">Tags</h2>
+    <p class="highlighter-rouge px-3">
+    {% assign tags = site.tags | sort %}
+    {% for tag in tags %}
+    {% if forloop.last == false %}
+      {% assign tag_name = tag[0] | append: ' |' %}
+    {% else %}
+      {% assign tag_name = tag[0] %}
+    {% endif %}
+    <a href="/tags/{{ tag[0] }}/" style="font-size: {{ tag[1] | size | times: 3.1 | plus: 12 }}px">
+      <code>{{ tag_name }}</code>
+    </a>
+    {% endfor %}
+    </p>
+  </div>
+</div>
