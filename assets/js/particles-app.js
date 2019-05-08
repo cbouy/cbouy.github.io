@@ -3,7 +3,7 @@ particlesJS('particles-js',
   {
     "particles": {
       "number": {
-        "value": 60,
+        "value": 50,
         "density": {
           "enable": true,
           "value_area": 800
@@ -13,7 +13,7 @@ particlesJS('particles-js',
           "value": "#c83b3b"
         },
       "shape": {
-        "type": ["C","C","C","C","C","C","H","H","H","O","O","N","N","S","F"],
+        "type": ["C","C","C","C","C","C","H","H","H","O","O","O","N","N","S","F"],
         "stroke": {
           "width": 8,
           "color": "#0930e3"

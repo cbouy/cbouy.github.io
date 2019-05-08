@@ -2,13 +2,13 @@
   link: /
 - name: CV
   link: /cv.html
-- name: Education
-  link: /portfolio/education.html
-- name: Experience
+- name: CHEMISTRY
+  link: /portfolio/chemistry.html
+- name: COMPUTER SCIENCE
+  link: /portfolio/computer-science.html
+- name: EXPERIENCE
   link: /portfolio/experience.html
-- name: Digital
-  link: /portfolio/digital.html
-- name: Projects
+- name: PROJECTS
   link: /portfolio/projects.html
-- name: Blog
+- name: BLOG
   link: /blog/

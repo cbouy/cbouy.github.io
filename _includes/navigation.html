@@ -1,26 +1,18 @@
 <nav id="topbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
   <a id="brand" class="navbar-brand" href="{{ site.url }}">cbouy@home:~$ <span id="cursor-container">Cédric Bouysset&nbsp;<span id="cursor">&nbsp;</span></span></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-		<div class="navbar-nav center-content mx-auto">
+		<div class="navbar-nav mx-auto">
     {% for item in site.data.navigation %}
     {% if page.url == item.link %}
       <a href="{{ item.link }}" class="nav-item nav-link active">
-        {% if item.link == "/" %}
-          {{ item.name }}
-        {% else %}
-          {{ item.name | upcase }}
-        {% endif %}
+        {{ item.name }}
       </a>
     {% else %}
       <a href="{{ item.link }}" class="nav-item nav-link">
-        {% if item.link == "/" %}
-          {{ item.name }}
-        {% else %}
-          {{ item.name | upcase }}
-        {% endif %}
+        {{ item.name }}
       </a>
     {% endif %}
     {% endfor %}

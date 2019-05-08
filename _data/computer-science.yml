@@ -1,0 +1,240 @@
+- name: Machine learning
+  skills: |
+    <ul>
+      <li>Implementing supervised and unsupervised learning methods:
+        <ul>
+          <li>Support Vector Machines</li>
+          <li>Artificial Neural Network</li>
+          <li>Multiple Linear Regression</li>
+          <li>k Nearest Neighbors</li>
+          <li>Decision Tree</li>
+          <li>Random Forest</li>
+          <li>Ensemble learning: Bagging, Boosting</li>
+        </ul>
+      </li>
+      <li>Optimizing hyperparameters of an algorithm</li>
+      <li>Applying best-practices in machine learning</li>
+    </ul>
+  tools: |
+    Scikit-learn, Weka, KNIME
+  context : |
+    <ul>
+      <li>Lectures and practicals:
+        <ul>
+          <li>"Data Mining" by Nicolas Lachiche and Gilles Marcou</li>
+          <li>"Chemoinformatics 2" by Alexandre Varnek</li>
+        </ul>
+      </li>
+      <li>
+        MOOC: <a href="https://www.coursera.org/learn/machine-learning">"Machine Learning"</a> by Andrew Ng (Stanford University) on Coursera
+      </li>
+    </ul>
+- name: Deep learning
+  skills: |
+    <ul>
+      <li>Utilizing Google's framework: Tensorflow</li>
+      <li>Parametrizing Deep Neural Networks: softmax, one-hot encoding, cross entropy, gradient descent</li>
+      <li>Implementing convolutional neural networks, autoencoders, and other deep neural networks with Keras</li>
+    </ul>
+  tools: |
+    Python: Jupyter-notebook, Numpy, Scikit-learn, Tensorflow, Keras
+  context : |
+    <ul>
+      <li>MOOC: <a href="https://classroom.udacity.com/courses/ud730">"Deep Learning"</a> by Vincent Vanhoucke (Google Brain) on Udacity</li>
+      <li>PhD thesis</li>
+    </ul>
+- name: High performance computing
+  skills: |
+    <ul>
+      <li>Launching calculations in parallel on a compute cluster</li>
+      <li>Describing the architecture of a supercomputer</li>
+      <li>Applying the different paradigms for parallel computing: process interaction and problem decomposition</li>
+    </ul>
+  tools: |
+    MPI, SLURM, PBS, OAR
+  context : |
+    <ul>
+      <li>Internships: <a href="/portfolio/experience.html#intern-chemosim-lab">ChemoSim Lab</a>, <a href="/portfolio/experience.html#intern-ifm-lab">IFM Lab</a></li>
+      <li>MOOC: <a href="https://www.futurelearn.com/courses/supercomputing">"Supercomputing"</a> by PRACE (Partnership for Advanced Computing in Europe) on FutureLearn</li>
+    </ul>
+- name: Web development
+  skills: |
+    <ul>
+      <li>Utilizing XHTML, HTML5 and CSS3 to organize and style a dynamic webpage</li>
+      <li>Creating a responsive webpage with <a href="https://getbootstrap.com">Bootstrap</a></li>
+      <li>Scripting with PHP and Javascript</li>
+      <li>Developing a web app with <a href="https://www.djangoproject.com">Django</a> framework, and deploying it with <a href="http://gunicorn.org">Gunicorn</a> and <a href="https://www.nginx.com/">Nginx</a></li>
+      <li>Integrating a website with a MySQL or PostgreSQL database</li>
+      <li>Complying with the W3C standards</li>
+    </ul>
+  context : |
+    <ul>
+      <li>Lectures and practicals: "Internet Technology" by Eric Christoffel</li>
+      <li>Internship: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a></li>
+      <li>This website !</li>
+    </ul>
+- name: Python
+  skills: |
+    <ul>
+      <li>Conceptualizing, developing, documenting and delevering a functionnal app</li>
+      <li>Designing an object-oriented program</li>
+      <li>Implementing parallelism with the "concurrent" package</li>
+      <li>Creating a friendly user interface:
+        <ul>
+          <li>Command-line: "argparse" package</li>
+          <li>Graphical: <a href="https://www.qt.io">Qt</a> with "PyQt5", or "TkInter" packages</li>
+          <li>Web: <a href="https://bokeh.pydata.org/en/latest/">"Bokeh"</a> package</li>
+        </ul>
+      </li>
+      <li>Packaging an app as a single-file executable with "PyInstaller" package</li>
+      <li>Uploading a project to the <a href="https://pypi.org/">Python Package Index (PyPI)</a></li>
+    </ul>
+  tools : |
+    <ul>
+      <li>Package manager: Conda, Pip</li>
+      <li>Interactive environment: IPython, Jupyter-notebook</li>
+      <li>Packages: pandas, numpy, scipy, sklearn, keras, rdkit, matplotlib, seaborn, bokeh, django, PyQt5, PyInstaller, subprocess, concurrent, argparse, lxml</li>
+    </ul>
+  context : |
+    <ul>
+      <li>Projects: <a href="/portfolio/projects.html#chemflow">ChemFlow</a>, <a href="/portfolio/projects.html#prolif">ProLIF</a>, <a href="/portfolio/projects.html#interference-of-h-sub-2-sub-with-the-e-sup-sup-transfer-to-colloidal-pt-catalyst">Interference of H<sub>2</sub> with the e<sup>-</sup> transfer to colloidal Pt catalyst</a></li>
+      <li>Internships: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a>, <a href="/portfolio/experience.html#intern-ifm-lab">IFM Lab</a></li>
+      <li>Lectures and practicals: "Programming 1 : Interpreted Languages" by Mariem Saied and Laurent Mazouin</li>
+    </ul>
+- name: Bash
+  skills: |
+    <ul>
+      <li>Scripting with awk, sed, and other UNIX tools</li>
+      <li>Developing workflows</li>
+      <li>Using the SSH protocol to connect to a remote machine, and for port forwarding</li>
+    </ul>
+  context : |
+    <ul>
+      <li>Projects: <a href="/portfolio/projects.html#chemflow">ChemFlow</a></li>
+      <li>Internships: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a>, <a href="/portfolio/experience.html#intern-ifm-lab">IFM Lab</a></li>
+      <li>Lectures and practicals: "Programming 2 : Imperative Languages" by Dragos Horvath</li>
+    </ul>
+- name: JavaScript
+  skills: |
+    <ul>
+      <li>Adapting a script to perform a desired action</li>
+      <li>Making simple queries and linking them to functions</li>
+      <li>Updating the content of a webpage automatically or on a user event with Ajax</li>
+    </ul>
+  tools : |
+    JQuery
+  context : |
+    <ul>
+      <li>Internship: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a></li>
+      <li>This website !</li>
+    </ul>
+- name: C
+  skills: |
+    <ul>
+      <li>Writing simple programs to perform standard operations (reading and writing from/to standard input/output or a file, making calculations)</li>
+    </ul>
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Introduction to C programming" by Franck Guingne and Francis Avnaim</li>
+      <li>"Disciplinary Informatics" by Sébastien Fiorucci</li>
+    </ul>
+- name: PHP
+  skills: |
+    <ul>
+      <li>Managing HTML forms with the POST and GET methods</li>
+      <li>Making operations and calculations from an input</li>
+      <li>Querying a MySQL database</li>
+    </ul>
+  tools : |
+    <ul>
+      <li>LAMP server</li>
+      <li>phpMyAdmin</li>
+    </ul>
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Internet Technology" by Eric Christoffel</li>
+    </ul>
+- name: Java
+  skills: |
+    <ul>
+      <li>Writing a simple Object-oriented program</li>
+      <li>Understanding encapsulation, polymorphism, and method overloading</li>
+      <li>Following the SOLID guidelines</li>
+      <li>Recognizing design patterns</li>
+      <li>Drawing a UML diagram</li>
+    </ul>
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Object Oriented Programming" by Léa Raya Decornod</li>
+    </ul>
+- name: Pascal
+  skills: |
+    <ul>
+      <li>Writing a simple program to perform standard operations</li>
+      <li>Modifying an existing program to perform a desired action</li>
+    </ul>
+  tools : |
+    Lazarus
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Programming 2 : Imperative Languages" by Dragos Horvath</li>
+    </ul>
+- name: System administration
+  skills: |
+    <ul>
+      <li>Building and maintaining a computer</li>
+      <li>Configuring BIOS settings</li>
+      <li>Installing an operating system:
+        <ul>
+          <li>Windows 7, Windows 10</li>
+          <li>GNU/Linux: Ubuntu, OpenSUSE, Arch</li>
+        </ul>
+      </li>
+      <li>Installing drivers</li>
+      <li>Installing CUDA and OpenMPI for a more efficient use of the resources</li>
+      <li>Troubleshooting</li>
+    </ul>
+  context : |
+    <ul>
+      <li>Personal experience as a geek !</li>
+      <li>MOOC: <a href="https://www.netacad.com/fr/courses/ndg-linux-essentials/">"NDG Linux Essentials 1116m"</a> by Cisco Networking Academy</li>
+      <li>Internship: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a></li>
+      <li>Lectures and practicals: "Operating systems and networks" by Jean-Olivier Dalbavie</li>
+    </ul>
+- name: Database
+  skills: |
+    <ul>
+      <li>Designing a relational database</li>
+      <li>Creating a conceptual data model and drawing data structure diagram: entity-relationship model</li>
+      <li>Submitting queries to a MySQL database</li>
+    </ul>
+  tools: |
+    MySQL, PostgreSQL, Django
+  context : |
+    <ul>
+      <li>Lectures and practicals: "Database 1" by Stella Marc-Zwecker, and "Internet Technology" by Eric Christoffel</li>
+      <li>Internship: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a></li>
+    </ul>
+- name: Software Engineering
+  skills: |
+    <ul>
+      <li>Writing unit and integration tests, automatize their execution with Travis-CI, and assess the coverage of the test suite with Coveralls</li>
+      <li>Outlining the different phases of a system development life cycle</li>
+      <li>Following a software development methodology</li>
+      <li>Creating UML diagrams</li>
+    </ul>
+  tools : |
+    Git, GitHub, Travis-CI, Coveralls
+  context : |
+    <ul>
+      <li>Lectures and practicals:
+        <ul>
+          <li>"Software Engineering" by Régis Witz</li>
+        </ul>
+      </li>
+      <li>Project: <a href="/portfolio/projects.html#prolif">ProLIF</a></li>
+    </ul>

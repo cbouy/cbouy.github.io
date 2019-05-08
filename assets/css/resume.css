@@ -94,7 +94,7 @@ p.lead {
   color: #007bff;
 }
 
-#sideNav .navbar-nav .nav-item .nav-link {
+#sideNav .navbar-nav .nav-link {
   font-weight: 800;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
@@ -215,3 +215,16 @@ a:hover, a:focus, a:active {
 #skills-tag-canvas a.blue 		{ color: #0072c6;}
 #skills-tag-canvas a.black 	{ color: inherit;}
 #skills-tag-canvas a.purple 	{ color: #9000e8;}
+
+@media (max-width: 992px) {
+  #sideNav {
+    width: 50%;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: fixed;
+    right: 0;
+    top: 50px;
+    float: right;
+    text-align: right;
+  }
+}

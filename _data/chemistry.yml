@@ -1,0 +1,263 @@
+- name: Molecular modeling
+  skills: |
+    <ul>
+      <li>Working with biological systems: structure, protein functional dynamics, macromolecular interactions</li>
+      <li>Evaluating molecular interactions with force fields:
+        <ul>
+          <li>Bonded interactions</li>
+          <li>Non-bonded interactions</li>
+          <li>Cross terms</li>
+          <li>Polarizable and reactive force fields</li>
+        </ul>
+      </li>
+      <li>Computing with molecular mechanics:
+        <ul>
+          <li>Solvation: implicit/explicit solvation, water models</li>
+          <li>Potential energy surface:
+            <ul>
+              <li>Energy minimization: steepest-descent, conjugate gradient, Newton-Raphson</li>
+              <li>Molecular dynamics</li>
+              <li>Monte-Carlo simulations</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Extracting properties with statistical mechanics:
+        <ul>
+          <li>Normal Mode Analysis</li>
+          <li>Binding affinity:
+            <ul>
+              <li>MM/PBSA</li>
+              <li>FEP</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  tools: |
+    Amber16, CHARMM, Wordom, PLANTS, VMD
+  context: |
+    Lectures and practicals:
+    <ul>
+      <li>"Molecular Simulations" by Rachel Schurhammer</li>
+      <li>"Biostructure and Modeling" by Marco Cecchini and Roland Stote</li>
+    </ul>
+- name: Chemoinformatics
+  skills: |
+    <ul>
+      <li>Using and storing molecular structure representations on a computer</li>
+      <li>Calculating structural and physicochemical descriptors:
+        <ul>
+          <li>Molecular properties: energy, geometry, surface</li>
+          <li>Topological indices</li>
+          <li>Autocorrelation descriptors</li>
+          <li>ISIDA and CATS fragment descriptors</li>
+          <li>Molecular fields: CoMFA</li>
+        </ul>
+      </li>
+      <li>Designing QSAR/QSPR classification and regression models:
+        <ul>
+          <li>Development: data curation, feature normalisation/scaling, feature selection, machine-learning methods</li>
+          <li>Validation: chance correlation, preparation of training and test sets, N-fold cross-validation</li>
+          <li>Application: applicability, reliability, and decidability domains</li>
+        </ul>
+      </li>
+      <li>Operating a virtual screening campaign: Ligand-based and Structure-based approaches
+        <ul>
+          <li>Filters:
+            <ul>
+              <li>ADME (oral bioavailability): Lipinski, Veber</li>
+              <li>Structural alerts: toxicity, reactivity, PAINs</li>
+              <li>Synthetic feasibility</li>
+            </ul>
+            </li>
+          <li>Similarity: structure, shape, field</li>
+          <li>QSAR</li>
+          <li>Pharmacophore</li>
+          <li>Docking: AutoDock Vina, PLANTS</li>
+          <li>Interaction Fingerprints</li>
+        </ul>
+      </li>
+      <li>Integrating and managing a chemical database:
+        <ul>
+          <li>Structural search: exact match, substructural search (fingerprints, molecular graphs), similarity search</li>
+          <li>Chemical reaction search: exact match, substructural search, similarity search, condensed graph of reaction</li>
+          <li>Markush structures: chemistry patents, combinatorial chemistry</li>
+          <li>Database creation: relational model, InstantJChem</li>
+        </ul>
+      </li>
+      <li>Analyzing similarity and diversity:
+        <ul>
+          <li>Fingerprints</li>
+          <li>Descriptors</li>
+          <li>3D alignment: FlexS, ROCS, Pharmacophore</li>
+          <li>Clustering: hierarchical, k-means, MaxMin, Sphere exclusion</li>
+        </ul>
+      </li>
+      <li>Visualizing a chemical space:
+        <ul>
+          <li>Graph-based: Scaffolds, Maximal Commom Substructures, Matched Molecular Pairs</li>
+          <li>Descriptor-based: Activity cliffs, Chemical Space Networks, Principal Component Analysis, Self Organizing Maps (Kohonen Neural Networks), Generative Topographic Mapping, t-distributed Stochastic Neighbor Embedding</li>
+        </ul>
+      </li>
+      <li>Performing computer-aided synthesis design:
+        <ul>
+          <li>Retrosynthetic analysis: prediction of reactants</li>
+          <li>Reaction mechanism elucidation</li>
+          <li>Reaction outcome prediction</li>
+        </ul>
+      </li>
+    </ul>
+  tools: |
+    <ul>
+      <li>Schrödinger: Maestro 11</li>
+      <li>ChemAxon: MarvinView, MarvinSketch, Standardizer, InstantJChem</li>
+      <li>ISIDA</li>
+      <li>Jatoon</li>
+    </ul>
+  context : |
+    Lectures and practicals
+    <ul>
+      <li>"Chemoinformatics 1", "Chemoinformatics 2" and "In Silico Chemical Diversity" by Alexandre Varnek, Hanoch Senderowitz, Igor Baskin, João Aires de Sousa</li>
+    </ul>
+- name: Drug design
+  skills: |
+    <ul>
+      <li>Understanding molecular recognition: binding affinity of protein-ligand complexes, non-bonded interactions</li>
+      <li>Studying protein structures: sequence - structure - function relationship</li>
+      <li>Detecting and examining binding sites</li>
+      <li>Designing pharmacophores</li>
+      <li>Performing docking experiments</li>
+    </ul>
+  tools: |
+    MOE (Molecular Operating Environment, Chemical Computing Group)
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Structure-Based Computer-Aided Drug Design" by Esther Kellenberger</li>
+    </ul>
+- name: Drug discovery
+  skills: |
+    <ul>
+      <li>Apprehending the stages in drug development: research, production, preclinical and clinical trials, marketing, drug safety monitoring</li>
+      <li>Establishing strategies in hit identification: rational drug design, screening</li>
+      <li>Performing hit to lead optimization: improving potency, bioavailability, patentability, toxicity</li>
+    </ul>
+  context : |
+    Lectures:
+    <ul>
+      <li>"Drug Discovery" by Marcel Hibert, Line Bourel, Catherine Vonthron, Marie-Claude Kilhoffer</li>
+    </ul>
+- name: Quantum chemistry
+  skills: |
+    <ul>
+      <li>Understanding the concepts behind the variational principle:
+        <ul>
+          <li>Hartree-Fock approximation</li>
+          <li>Configuration interaction</li>
+          <li>Multi-Configurational Self-Consistent Field</li>
+        </ul>
+      </li>
+      <li>Interpreting the concepts behind non-variational methods:
+        <ul>
+          <li>Many-Body Perturbation Theory</li>
+          <li>Coupled Cluster</li>
+        </ul>
+      </li>
+      <li>Comprehending Density Functional Theory</li>
+      <li>Applying second quantization</li>
+    </ul>
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Advanced Quantum Chemistry" by Emmanuel Fromager</li>
+      <li>"Quantum Chemistry" by Vincent Robert</li>
+    </ul>
+- name: Organic chemistry
+  skills: |
+    <ul>
+      <li>Studying organic chemistry reactions and mechanism: alcanes, alkenes, alkynes, halogen derivatives, alcohols, epoxydes, ethers, thiols, thioethers, amines, aldehydes, ketones, carboxylic acids, arenes</li>
+      <li>Understanding nucleophilic substitution (SN1, SN2), β-elimination (E1, E1CB, E2), aromatic substitution</li>
+    </ul>
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Systematic Organic Chemistry" by Nadia Patino</li>
+      <li>"Organic Chemistry" by Nicolas Giuseppone</li>
+    </ul>
+- name: Inorganic chemistry
+  skills: |
+    <ul>
+      <li>Studying transition metals</li>
+      <li>Understanding the coordination of tetrahedral and octahedral complexes</li>
+      <li>Comprehending the effects of weak/strong field - high/low spin</li>
+      <li>Producing Orgel and Tanabe-Sugano diagrams</li>
+    </ul>
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Inorganic Chemistry" by Jean-Pierre Le Ny</li>
+    </ul>
+- name: Thermodynamics
+  skills: |
+    <ul>
+      <li>Calculating thermodynamic quantities at the standard state: chemical potential, entropy, enthalpy</li>
+      <li>Studying chemical equilibrium and temperature influence on real solutions using the activity coefficient</li>
+      <li>Predicting the kinetic/thermodynamic reaction control</li>
+    </ul>
+  context : |
+    Lectures:
+    <ul>
+      <li>"Kinetics and thermodynamics" by Remi Barillon</li>
+    </ul>
+- name: Chemical kinetics
+  skills: |
+    <ul>
+      <li>Formulating rate laws from experimental results</li>
+      <li>Analyzing the reaction rate of complex reactions and coupled reactions: enzymatic catalysis, gas phase reactions, chained reactions, excited states kinetics</li>
+    </ul>
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Kinetics of complex systems" by Thomas Ebbesen</li>
+      <li>"Kinetics and thermodynamics" by Remi Barillon</li>
+    </ul>
+- name: Material chemistry
+  skills: |
+    <ul>
+      <li>Metals: understanding the extraction and processing techniques, the properties, the crystallographic structure and defects of metals, alloys and their phase diagrams.</li>
+      <li>Ceramics: naming the structure, synthesis procedures, and the properties of ceramic materials.</li>
+      <li>Polymers: comprehending the structure and properties of polymeric materials.</li>
+    </ul>
+  context : |
+    Lectures:
+    <ul>
+      <li>"Materials - Introduction" by Sylvie Ferlay, Nathalie Viart and Gero Decher</li>
+    </ul>
+- name: Spectroscopy
+  skills: |
+    <ul>
+      <li>Understanding the theory and approximations behind IR, UV, Raman, vibrational, rotational, ro-vibrational, NMR and mass spectroscopies.</li>
+      <li>Interpreting spectra using absorption and chemical shift tables.</li>
+      <li>Elucidating a structure from spectra.</li>
+    </ul>
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Optical spectroscopies" by Petra Hellwig and Roberto Marquardt</li>
+      <li>"NMR spectroscopy and structural elucidation" by Burkhard Bechinger</li>
+      <li>"Cross-disciplinary practicals" by Quentin Raffy, Matthias Pauly, Aurelie Guenet, Véronique Bulach, Laurent Raibaut, Jordi Rull Barrull</li>
+    </ul>
+- name: Electrochemistry
+  skills: |
+    <ul>
+      <li>Balancing redox reactions and predicting their spontaneity</li>
+      <li>Understanding how electrochemical cells and batteries work</li>
+      <li>Describing the main methods to prevent corrosion</li>
+    </ul>
+  context : |
+    Lectures and practicals:
+    <ul>
+      <li>"Electrochemistry" by Petra Hellwig</li>
+      <li>"Electrochemistry" by Hervé Michel</li>
+    </ul>

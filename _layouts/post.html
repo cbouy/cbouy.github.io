@@ -14,6 +14,13 @@ layout: default
       </span>]
       <p class="float-right">{{ page.date | date_to_long_string }} - {{ page.author }}</p>
     </div>
+
+    {% if page.img %}
+    <div class="card-body pb-0">
+      <img class="card-img-top" src="{{ page.img }}" alt="Card image cap">
+    </div>
+    {% endif %}
+
     <div class="card-body">
       <p>{{ content }}</p>
     </div>

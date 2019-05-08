@@ -1,0 +1,152 @@
+- name: Intern - Chemosim Lab
+  place: |
+    Aroma Perfume Synthesis and Modelling (APSM) Group<br />
+    Institut de Chimie de Nice (ICN), Mixed research unit (UMR) 7272<br />
+    Université Côte d'Azur (UCA), Nice, France
+  date: February 2018 - July 2018
+  description: Molecular and numerical models of chemosensory perceptions
+  skills: |
+    <ul>
+      <li>
+        Web-development:
+        <ul>
+          <li>Creating a responsive webpage with <a href="https://getbootstrap.com">Bootstrap</a></li>
+          <li>Developing a web server with <a href="https://www.djangoproject.com">Django</a> framework, and deploying it with <a href="http://gunicorn.org">Gunicorn</a> and <a href="https://www.nginx.com/">Nginx</a></li>
+          <li>Integrating a website with a relational PostgreSQL database</li>
+          <li>Implementing a distributed job queue with <a href="http://www.celeryproject.org/">Celery</a></li>
+        </ul>
+      </li>
+      <li>
+        Machine-learning:
+        <ul>
+          <li>
+            Designing QSAR/QSPR classification and regression models:
+            <ul>
+              <li>Development: data curation, feature normalisation/scaling, feature selection, machine-learning methods</li>
+              <li>Validation: chance correlation, preparation of training and test sets, N-fold cross-validation</li>
+              <li>Application: applicability domain</li>
+            </ul>
+          </li>
+          <li>Benchmarking and optimizing different classifiers</li>
+          <li>Visualizing high-dimensional data with PCA and SOM</li>
+        </ul>
+        <li>
+          Chemoinformatics:
+          <ul>
+            <li>Calculating structural and physicochemical descriptors</li>
+            <li>Extracting a diverse subset of molecules from a large dataset</li>
+          </ul>
+        </li>
+        <li>Bioinformatics: constructing multiple sequence alignment of proteins</li>
+        <li>
+          Molecular Modelling:
+          <ul>
+            <li>Creating homology models of proteins from sequence alignments</li>
+            <li>Embedding a protein in a membrane</li>
+            <li>
+              Running molecular dynamics (MD) simulations with AmberTools and Amber:
+              <ul>
+                <li>Constructing topology and coordinates files with tLEaP</li>
+                <li>Submitting simulations with pmemd on multiple CPUs or GPUs</li>
+                <li>Analyzing simulations with cpptraj</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>System Administration: installing a Linux operating system, drivers, and compiling programs on a computer</li>
+      </li>
+    </ul>
+  tools: |
+    <ul>
+      <li>Web: Bootstrap, Django, Celery, Gunicorn, Nginx</li>
+      <li>Python programming: jupyter, django, rdkit, pandas, numpy, sklearn, somoclu, seaborn, matplotlib, pubchempy, standardiser, subprocess</li>
+      <li>Machine-learning: <a href="https://www.cs.waikato.ac.nz/ml/weka/">Weka 3</a>, LibSVM</li>
+      <li>Chemoinformatics: <a href="http://www.talete.mi.it/products/dragon_molecular_descriptors.htm">Dragon 6</a>, <a href="projects.php#headingCITools">ChemoinformaticsTools</a></li>
+      <li>Bioinformatics: <a href="http://www.jalview.org/">Jalview</a></li>
+      <li>Molecular Modelling: <a href="https://salilab.org/modeller/">Modeller</a>, <a href="http://ambermd.org/AmberTools.php">AmberTools 17</a>, <a href="http://ambermd.org/AmberMD.php">Amber 16</a></li>
+    </ul>
+  coworkers: |
+    Internship supervisor: Sébastien Fiorucci<br />
+    Members: Serge Antonczak, Jérôme Golebiowski, Jérémie Topin, Xiaojing Cong, Caroline Bushdid<br />
+    Interns: Ourvashi Kissoondoyal, Armelle Cugnod, Laura Darner, Bertille Fourel, Xiaojun Mao
+- name: Technician - IFM Lab
+  place: |
+    Laboratoire d'Ingénierie des fonctions moléculaires (IFM Lab)<br />
+    Institut de Sciences et d'Ingénierie Supramoléculaires (ISIS), UMR 7006<br />
+    Université de Strasbourg, France
+  date: July 2017 - August 2017
+  description: Development of computational chemistry workflows
+  skills: See <a href="/portfolio/projects.html#chemflow">ChemFlow</a> for more details
+  coworkers: |
+    Supervisor: Marco Cecchini<br />
+    Members: Diego Enry Barreto Gomes, Nicolas Martin, Adrien Cerdan, Florian Blanc, Joel Montalvo Acosta<br />
+    Interns: Paulina Pacak
+- name: Intern - IFM Lab
+  place: |
+    Laboratoire d'Ingénierie des fonctions moléculaires (IFM Lab)<br />
+    Institut de Sciences et d'Ingénierie Supramoléculaires (ISIS), UMR 7006<br />
+    Université de Strasbourg, France
+  date: March 2017 - June 2017
+  description: Rescoring of docking results by end-point free energy approaches. Application to the Myosin molecular motor
+  skills: |
+    <ul>
+      <li>Screening a library of compounds</li>
+      <li>Performing large-scale docking experiments</li>
+      <li>Scripting with bash and python 3</li>
+      <li>
+        Running MD simulations with AmberTools and Amber:
+        <ul>
+          <li>Computing AM1-BCC charges with antechamber</li>
+          <li>Constructing topology and coordinates files with tLEaP</li>
+          <li>Submitting short simulations with sander and pmemd on multiple CPUs</li>
+          <li>Calculating binding free energies with MM/PBSA</li>
+        </ul>
+      </li>
+      <li>Analyzing chemistry data</li>
+      <li>Implementing an algorithm from a publication to solve a problem</li>
+      <li>Launching calculations on a compute cluster</li>
+      <li>Communicating in English on a daily basis</li>
+    </ul>
+  tools: |
+    <ul>
+      <li>
+        Programming:
+        <ul>
+          <li>Shell: bash, awk, sed</li>
+          <li>Python: Jupyter-notebooks, pandas, numpy, scipy, rdkit, matplotlib, seaborn</li>
+        </ul>
+      </li>
+      <li>Docking: PLANTS</li>
+      <li>Molecular Dynamics: Amber 16</li>
+      <li>Visualization: PyMOL, VMD</li>
+      <li>Job scheduler: PBS</li>
+    </ul>
+  coworkers: |
+    Internship supervisor: Marco Cecchini<br />
+    Members: Diego Enry Barreto Gomes, Nicolas Martin, Adrien Cerdan, Florian Blanc, Joel Montalvo Acosta<br />
+    Interns: Paulina Pacak
+- name: Intern - APSM Group
+  place: |
+    Aroma Perfume Synthesis and Modelling (APSM) Group<br />
+    Institut de Chimie de Nice (ICN), Mixed research unit (UMR) 7272<br />
+    Université Nice Sophia Antipolis, Nice, France
+  date: June 2016
+  description: |
+    Molecular modeling of bitter taste perception: sequence alignment, homology modelling, docking
+  skills: |
+    <ul>
+      <li>Extracting data from publications</li>
+      <li>Constructing multiple sequence alignment of proteins</li>
+      <li>Creating homology models of proteins from sequence alignments</li>
+      <li>Running docking experiments</li>
+    </ul>
+  tools: |
+    <ul>
+      <li>Docking: <a href="http://autodock.scripps.edu/">AutoDock 4</a></li>
+      <li>Bioinformatics: <a href="http://www.jalview.org/">Jalview</a></li>
+      <li>Molecular Modelling: <a href="https://salilab.org/modeller/">Modeller</a>
+    </ul>
+  coworkers: |
+    Internship supervisor: Sébastien Fiorucci<br />
+    Members: Serge Antonczak, Jérôme Golebiowski, Jérémie Topin, Xiaojing Cong, Caroline Bushdid, Jean-Baptiste Chéron
+- name: Summer jobs

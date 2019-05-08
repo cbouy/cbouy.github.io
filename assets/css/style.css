@@ -25,6 +25,14 @@ p {
 #topbar {
   font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
+@media (max-width: 496px) {
+  #brand {
+    font-size: 9pt;
+  }
+  #home-text {
+    font-size: 24pt;
+  }
+}
 /*
 Blinking cursor and typing text in navbar
 */
