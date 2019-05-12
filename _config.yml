@@ -3,6 +3,7 @@ plugins:
   - jekyll-sitemap
   - jemoji
   - jekyll-seo-tag
+  - jekyll-paginate
 defaults:
   -
     scope:
@@ -17,12 +18,13 @@ defaults:
       layout: "post"
       author: "Cédric Bouysset"
       comments: true
-      permalink: "/blog/:year-:month-:day/:slug/"
   -
     scope:
       path: "assets/"
     values:
       sitemap: false
+paginate: 5
+paginate_path: "/blog/page:num/"
 google_analytics: UA-139606105-1
 title: cbouy
 description: Cédric Bouysset's personnal website

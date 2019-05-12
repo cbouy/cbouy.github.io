@@ -11,7 +11,7 @@ layout: default
       {% for tag in page.tags %}
         <a href="/tags/{{ tag }}"><code><nobr>#{{ tag }}</nobr></code></a>
       {% endfor %}
-      </span>]
+      ]</span>
       <p class="float-right">{{ page.date | date_to_long_string }} - {{ page.author }}</p>
     </div>
 
@@ -24,6 +24,30 @@ layout: default
     <div class="card-body">
       <p>{{ content }}</p>
     </div>
+
+    <!-- Navigate through posts -->
+    <ul class="pagination justify-content-center">
+    {% if page.previous.url %}
+    <li class="page-item">
+      <a class="page-link" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+    </li>
+    {% else %}
+    <li class="page-item disabled">
+      <span class="page-link"">&laquo; You've reached the first post</span>
+    </li>
+    {% endif %}
+    {% if page.next.url %}
+    <li class="page-item">
+      <a class="page-link" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+    </li>
+    {% else %}
+    <li class="page-item disabled">
+      <span class="page-link"">You've reached the latest post &raquo;</span>
+    </li>
+    {% endif %}
+    </ul>
+
+    <!-- Comments -->
     {% include comments.html %}
   </div>
 </div>
