@@ -21,7 +21,7 @@ layout: default
     {% else %}
       {% assign tag_name = tag[0] %}
     {% endif %}
-    <a href="/tags/{{ tag[0] }}/" style="font-size: {{ tag[1] | size | times: 3.1 | plus: 12 }}px">
+    <a href="/tags/{{ tag[0] }}" style="font-size: {{ tag[1] | size | times: 3.1 | plus: 12 }}px">
       <code>{{ tag_name }}</code>
     </a>
     {% endfor %}
