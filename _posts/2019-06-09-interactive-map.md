@@ -20,7 +20,7 @@ To download it: `Right-click > Save link as` [here](/assets/blog/2019/06/09/obes
 
 You can download my jupyter-notebook with instructions [here](/assets/blog/2019/06/09/obesity-trends.ipynb "Download link").
 
-<object data="/assets/blog/2019/06/09/notebook.html" type="text/html" style="overflow:hidden; height: 8550px; width: 100%">
+<object data="/assets/blog/2019/06/09/notebook.html" type="text/html" style="overflow:hidden; height: 800px; width: 100%">
     Your browser doesn’t support the object tag.
 </object>
 
