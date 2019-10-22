@@ -1,6 +1,9 @@
 - name: Mail
   icon: fas fa-at
   link: mailto:cedric.bouysset@unice.fr
+- name: Twitter
+  icon: fab fa-twitter
+  link: https://twitter.com/cedricbouysset
 - name: LinkedIn
   icon: fab fa-linkedin
   link: https://www.linkedin.com/in/cedric-bouysset/
