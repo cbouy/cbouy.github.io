@@ -47,7 +47,7 @@
       <li>Encoding chemistry/biology information as a bit string</li>
     </ul>
   tools: |
-    Python: rdkit, unittest, setuptools, argparse
+    Python: rdkit, unittest, setuptools, argparse<br />
     Web: <a href="https://travis-ci.org/">Travis-CI</a>, <a href="https://coveralls.io">Coveralls.io</a>
 - name: Interference of H<sub>2</sub> with the e<sup>-</sup> transfer to colloidal Pt catalyst
   description: |
