@@ -21,8 +21,8 @@ layout: default
       {% for post in paginator.posts %}
       <!-- Blog Post -->
       <div class="card mb-4 mx-4">
-				{% if post.img %}
-        <img class="card-img-top" src="{{ post.img }}" alt="Card image cap">
+				{% if post.image %}
+        <img class="card-img-top" src="{{ post.image }}" alt="Card image cap">
 				{% endif %}
         <div class="card-body">
           <h2 class="card-title">{{ post.title }}</h2>

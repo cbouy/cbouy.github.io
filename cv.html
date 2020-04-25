@@ -1,6 +1,7 @@
 ---
 layout: blank
 title: CV
+permalink: /cv/
 ---
 <head>
 	{% include head.html %}
@@ -45,7 +46,7 @@ title: CV
           <span class="text-primary">Bouysset</span>
         </h1>
         <div class="subheading mb-5">Nice, France · (+33)6 11 99 27 73 ·
-          <a href="mailto:cedric.bouysset@unice.fr">cedric.bouysset@unice.fr</a>
+          <a href="mailto:cedric.bouysset@univ-cotedazur.fr">cedric.bouysset@univ-cotedazur.fr</a>
         </div>
         <p class="lead mb-5">
 					I am a PhD student at the Institute of Chemistry of Nice, in the south of France.
@@ -55,7 +56,7 @@ title: CV
         <div class="social-icons">
 					{% for item in site.data.social %}
 		      <a href="{{ item.link }}" class="nav-item nav-link">
-		        <i class="align-top pt-2 {{ item.icon }}"></i>
+		        <i class="{{ item.icon }}"></i>
 		      </a>
 		      {% endfor %}
         </div>
@@ -237,6 +238,10 @@ title: CV
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">{{ publication.date }}</span>
+            <div class="w-100"></div>
+            <a class="text-primary" href="{{ publication.pdf }}">
+              <img src="/assets/img/pdf.png" style="width: 36px;" alt="PDF"/>
+            </a>
           </div>
         </div>
 				{% endfor %}
@@ -279,7 +284,7 @@ title: CV
             <div class="subheading mb-3">Lectures and practicals</div>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary">2019</span>
+            <span class="text-primary">2019-2020</span>
           </div>
         </div>
 
@@ -299,19 +304,30 @@ title: CV
             <div class="subheading mb-3">Exercices</div>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary">2018 and 2019</span>
+            <span class="text-primary">2018-2019</span>
           </div>
         </div>
 
+				<hr />
 				<p>For second year bachelor students (L2)</p>
 
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
-            <h4 class="mb-0">Solution Chemistry</h4>
+            <h4 class="mb-0">Chemistry of Solutions</h4>
             <div class="subheading mb-3">Exercices</div>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">2019</span>
+          </div>
+        </div>
+
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+          <div class="resume-content">
+            <h4 class="mb-0">Molecular structure and macroscopic properties</h4>
+            <div class="subheading mb-3">Exercices and Practicals</div>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">2020</span>
           </div>
         </div>
 
@@ -383,10 +399,10 @@ Job schedulers: PBS, Slurm, OAR'></i>
 			            <i class="fab fa-js-square" data-container="body" data-toggle="popover" data-placement="bottom" data-title="JavaScript" data-content='
 <i class="fas fa-star text-warning"></i>
 <i class="fas fa-star text-warning"></i>
-<i class="fas fa-star-half-alt text-warning"></i>
+<i class="fas fa-star text-warning"></i>
 <i class="far fa-star text-warning"></i>
 <i class="far fa-star text-warning"></i><br/>
-Libraries: jQuery'></i>
+Libraries: jQuery, DataTables'></i>
 								</li>
 								<li class="list-inline-item mr-4">
 			            <i class="fas fa-copyright" data-container="body" data-toggle="popover" data-placement="bottom" data-title="C" data-content='

@@ -54,7 +54,7 @@
     MPI, SLURM, PBS, OAR
   context : |
     <ul>
-      <li>Internships: <a href="/portfolio/experience.html#intern-chemosim-lab">ChemoSim Lab</a>, <a href="/portfolio/experience.html#intern-ifm-lab">IFM Lab</a></li>
+      <li>Internships: <a href="/portfolio/experience/#intern-chemosim-lab">ChemoSim Lab</a>, <a href="/portfolio/experience#intern-ifm-lab">IFM Lab</a></li>
       <li>MOOC: <a href="https://www.futurelearn.com/courses/supercomputing">"Supercomputing"</a> by PRACE (Partnership for Advanced Computing in Europe) on FutureLearn</li>
     </ul>
 - name: Web development
@@ -70,7 +70,7 @@
   context : |
     <ul>
       <li>Lectures and practicals: "Internet Technology" by Eric Christoffel</li>
-      <li>Internship: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a></li>
+      <li>Internship: <a href="/portfolio/experience/#intern-chemosim-lab">Chemosim Lab</a></li>
       <li>This website !</li>
     </ul>
 - name: Python
@@ -97,8 +97,8 @@
     </ul>
   context : |
     <ul>
-      <li>Projects: <a href="/portfolio/projects.html#chemflow">ChemFlow</a>, <a href="/portfolio/projects.html#prolif">ProLIF</a>, <a href="/portfolio/projects.html#interference-of-h-sub-2-sub-with-the-e-sup-sup-transfer-to-colloidal-pt-catalyst">Interference of H<sub>2</sub> with the e<sup>-</sup> transfer to colloidal Pt catalyst</a></li>
-      <li>Internships: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a>, <a href="/portfolio/experience.html#intern-ifm-lab">IFM Lab</a></li>
+      <li>Projects: <a href="/portfolio/projects/#chemflow">ChemFlow</a>, <a href="/portfolio/projects/#prolif">ProLIF</a>, <a href="/portfolio/projects/#interference-of-h-sub-2-sub-with-the-e-sup-sup-transfer-to-colloidal-pt-catalyst">Interference of H<sub>2</sub> with the e<sup>-</sup> transfer to colloidal Pt catalyst</a></li>
+      <li>Internships: <a href="/portfolio/experience/#intern-chemosim-lab">Chemosim Lab</a>, <a href="/portfolio/experience/#intern-ifm-lab">IFM Lab</a></li>
       <li>Lectures and practicals: "Programming 1 : Interpreted Languages" by Mariem Saied and Laurent Mazouin</li>
     </ul>
 - name: Bash
@@ -110,8 +110,8 @@
     </ul>
   context : |
     <ul>
-      <li>Projects: <a href="/portfolio/projects.html#chemflow">ChemFlow</a></li>
-      <li>Internships: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a>, <a href="/portfolio/experience.html#intern-ifm-lab">IFM Lab</a></li>
+      <li>Projects: <a href="/portfolio/projects/#chemflow">ChemFlow</a></li>
+      <li>Internships: <a href="/portfolio/experience/#intern-chemosim-lab">Chemosim Lab</a>, <a href="/portfolio/experience/#intern-ifm-lab">IFM Lab</a></li>
       <li>Lectures and practicals: "Programming 2 : Imperative Languages" by Dragos Horvath</li>
     </ul>
 - name: JavaScript
@@ -125,7 +125,7 @@
     JQuery
   context : |
     <ul>
-      <li>Internship: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a></li>
+      <li>Internship: <a href="/portfolio/experience/#intern-chemosim-lab">Chemosim Lab</a></li>
       <li>This website !</li>
     </ul>
 - name: C
@@ -202,7 +202,7 @@
     <ul>
       <li>Personal experience as a geek !</li>
       <li>MOOC: <a href="https://www.netacad.com/fr/courses/ndg-linux-essentials/">"NDG Linux Essentials 1116m"</a> by Cisco Networking Academy</li>
-      <li>Internship: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a></li>
+      <li>Internship: <a href="/portfolio/experience/#intern-chemosim-lab">Chemosim Lab</a></li>
       <li>Lectures and practicals: "Operating systems and networks" by Jean-Olivier Dalbavie</li>
     </ul>
 - name: Database
@@ -217,7 +217,7 @@
   context : |
     <ul>
       <li>Lectures and practicals: "Database 1" by Stella Marc-Zwecker, and "Internet Technology" by Eric Christoffel</li>
-      <li>Internship: <a href="/portfolio/experience.html#intern-chemosim-lab">Chemosim Lab</a></li>
+      <li>Internship: <a href="/portfolio/experience/#intern-chemosim-lab">Chemosim Lab</a></li>
     </ul>
 - name: Software Engineering
   skills: |
@@ -236,5 +236,5 @@
           <li>"Software Engineering" by Régis Witz</li>
         </ul>
       </li>
-      <li>Project: <a href="/portfolio/projects.html#prolif">ProLIF</a></li>
+      <li>Project: <a href="/portfolio/projects/#prolif">ProLIF</a></li>
     </ul>

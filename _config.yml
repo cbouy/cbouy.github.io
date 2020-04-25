@@ -1,15 +1,17 @@
-url: "https://cbouy.github.io"
+# jekyll
 plugins:
   - jekyll-sitemap
   - jemoji
   - jekyll-seo-tag
   - jekyll-paginate
+# default front-matter
 defaults:
   -
     scope:
       path: ""
     values:
       layout: "default"
+      image: /assets/img/logoCB.png
   -
     scope:
       path: ""
@@ -23,16 +25,25 @@ defaults:
       path: "assets/"
     values:
       sitemap: false
+# blog pagination
 paginate: 5
 paginate_path: "/blog/page:num/"
+# analytics
 google_analytics: UA-139606105-1
-title: cbouy
+# seo
+url: "https://cbouy.github.io"
+title: Cédric Bouysset
 description: Cédric Bouysset's personnal website
 author: Cédric Bouysset
 logo: /assets/img/logoCB.png
+lang: en_US
+twitter:
+  username: cedricbouysset
+  card: summary_large_image
 social:
   name: Cédric Bouysset
   links:
     - https://www.linkedin.com/in/cedric-bouysset/
     - https://www.researchgate.net/profile/Cedric_Bouysset
     - https://github.com/cbouy
+    - https://twitter.com/cedricbouysset

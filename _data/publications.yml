@@ -1,5 +1,18 @@
+- title: Novel scaffold of natural compound eliciting sweet taste revealed by machine learning
+  url: https://doi.org/10.1016/j.foodchem.2020.126864
+  journal: Food Chemistry
+  date: April 2020
+  pdf: /assets/pdf/FoodChem2020.pdf
+  authors: <strong>Cédric Bouysset</strong>, Christine Belloir, Serge Antonczak, Loïc Briand, Sébastien Fiorucci
+- title: Machine learning decodes chemical features to identify novel agonists of a moth odorant receptor
+  url: https://doi.org/10.1038/s41598-020-58564-9
+  journal: Scientific Reports
+  date: February 2020
+  pdf: https://www.nature.com/articles/s41598-020-58564-9.pdf
+  authors: Gabriela Caballero-Vidal<sup>+</sup>, <strong>Cédric Bouysset</strong><sup>+</sup>, Hubert Grunig, Sébastien Fiorucci, Nicolas Montagné, Jérôme Golebiowski, Emmanuelle Jacquin-Joly
 - title: Metal ions activate the human taste receptor TAS2R7
   url: https://doi.org/10.1093/chemse/bjz024
   journal: Chemical Senses
   date: April 2019
+  pdf: https://academic.oup.com/chemse/article-pdf/44/5/339/28736059/bjz024.pdf
   authors: Yi Wang, Amanda L Soohoo, Weiwei Lei, Carol Christensen, Robert F Margolskee, <strong>Cédric Bouysset</strong>, Jerome Golebiowski, Huabin Zhao, Sébastien Fiorucci, Peihua Jiang

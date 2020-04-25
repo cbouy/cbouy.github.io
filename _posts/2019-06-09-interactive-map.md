@@ -1,5 +1,5 @@
 ---
-img: /assets/blog/2019/06/09/bokeh_plot.png
+image: /assets/blog/2019/06/09/bokeh_plot.png
 tags: python bokeh interactive
 title: Interactive Choropleth Maps with Bokeh
 ---

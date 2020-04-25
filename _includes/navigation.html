@@ -1,5 +1,5 @@
 <nav id="topbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-  <a id="brand" class="navbar-brand" href="{{ site.url }}">cbouy@home:~$ <span id="cursor-container">Cédric Bouysset&nbsp;<span id="cursor">&nbsp;</span></span></a>
+  <a id="brand" class="navbar-brand" href="{{ site.url }}">cbouy@{{ page.title | slugify }}:~$ <span id="cursor-container">Cédric Bouysset&nbsp;<span id="cursor">&nbsp;</span></span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,11 +7,11 @@
 		<div class="navbar-nav mx-auto">
     {% for item in site.data.navigation %}
     {% if page.url == item.link %}
-      <a href="{{ item.link }}" class="nav-item nav-link active">
+      <a href="{{ item.link }}" class="text-uppercase nav-item nav-link active">
         {{ item.name }}
       </a>
     {% else %}
-      <a href="{{ item.link }}" class="nav-item nav-link">
+      <a href="{{ item.link }}" class="text-uppercase nav-item nav-link">
         {{ item.name }}
       </a>
     {% endif %}
@@ -20,7 +20,7 @@
     <div class="navbar-nav ml-auto nav-flex-icons">
       {% for item in site.data.social %}
       <a href="{{ item.link }}" class="nav-item nav-link">
-        <i class="fa-lg {{ item.icon }}"></i>
+        <i class="{{ item.icon }} {{ item.large }}"></i>
       </a>
       {% endfor %}
     </div>

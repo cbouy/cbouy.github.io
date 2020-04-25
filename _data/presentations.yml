@@ -1,8 +1,18 @@
-- event: XXIX ECRO Meeting
+- event: 9<sup>th</sup> meeting of the French Chemoinformatics Society
+  url: https://sfci2019.sciencesconf.org/
+  type: Oral presentation
+  title: Decoding sweet taste from chemical structures
+  date: November 21, 2019
+- event: GDR-O3 2019 annual meeting
+  url: http://www.gdr-o3.cnrs.fr/rencontre-annuelle-2019-toulouse/
+  type: Poster
+  title: Molecular insights into the structure-function relationships of bitter taste receptors
+  date: November 7-8, 2019
+- event: European Chemoreception Research Organization annual meeting
   url: https://www.ecro.online/meetings/ecro-2019-trieste/
   type: Poster
   title: Molecular insights into the structure-function relationships of bitter taste receptors
-  date: September 13, 2019
+  date: September 11-14, 2019
 - event: 26<sup>th</sup> PACA Chemistry Day
   url: http://journees-chimie-paca.fr/JCPaca_2019.html
   type: Poster
@@ -16,7 +26,7 @@
   date: April 24 &amp; May 15, 2019
 - event: 21<sup>st</sup> GGMM congress
   url: https://ggmm2019.sciencesconf.org/
-  type: Lecture
+  type: Oral presentation
   title: Numerical model of structure-taste relationships
   date: April 5, 2019
 - event: 2<sup>nd</sup> UCA Complex Days meeting

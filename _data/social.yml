@@ -1,12 +1,28 @@
 - name: Mail
   icon: fas fa-at
-  link: mailto:cedric.bouysset@unice.fr
+  large: fa-lg
+  link: mailto:cedric.bouysset@univ-cotedazur.fr
+- name: Twitter
+  icon: fab fa-twitter
+  large: fa-lg
+  link: https://twitter.com/cedricbouysset
 - name: LinkedIn
   icon: fab fa-linkedin
+  large: fa-lg
   link: https://www.linkedin.com/in/cedric-bouysset/
+- name: GoogleScholar
+  icon: ai ai-google-scholar
+  large: ai-lg
+  link: https://scholar.google.fr/citations?user=Ao29wE8AAAAJ
+- name: ORCID
+  icon: ai ai-orcid
+  large: ai-lg
+  link: https://orcid.org/0000-0002-7814-8158
 - name: ResearchGate
-  icon: fab fa-researchgate
+  icon: ai ai-researchgate
+  large: ai-lg
   link: https://www.researchgate.net/profile/Cedric_Bouysset
 - name: GitHub
   icon: fab fa-github
+  large: fa-lg
   link: https://github.com/cbouy
