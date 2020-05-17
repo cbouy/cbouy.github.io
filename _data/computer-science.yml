@@ -54,7 +54,7 @@
     MPI, SLURM, PBS, OAR
   context : |
     <ul>
-      <li>Internships: <a href="/portfolio/experience/#intern-chemosim-lab">ChemoSim Lab</a>, <a href="/portfolio/experience#intern-ifm-lab">IFM Lab</a></li>
+      <li>Internships: <a href="/portfolio/experience/#intern-chemosim-lab">ChemoSim Lab</a>, <a href="/portfolio/experience/#intern-ifm-lab">IFM Lab</a></li>
       <li>MOOC: <a href="https://www.futurelearn.com/courses/supercomputing">"Supercomputing"</a> by PRACE (Partnership for Advanced Computing in Europe) on FutureLearn</li>
     </ul>
 - name: Web development
