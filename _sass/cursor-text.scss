@@ -78,7 +78,7 @@ html, body { height: 100%; }
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 36pt;
+	font-size: min(max(20px, 8vw), 54px);
 	font-family: 'VT323', monospace, sans-serif;
 	color: #fff;
 	-webkit-font-smoothing: antialiased;
@@ -90,7 +90,7 @@ html, body { height: 100%; }
 		@media (max-width: 575px) { top: -33px; }
 		display: inline-block;
 		padding-right: 4px;
-		border-right: 24px solid rgba(#fff, 0.75);
+		border-right: min(max(8px, 3vw), 26px) solid rgba(#fff, 0.75);
 		text-shadow: 0 0 5px rgba(255, 255, 255, 0.75);
 		white-space: nowrap;
 		animation: typed #{$durTotal + "s"} linear 1s infinite, beam-blink 1s infinite;
