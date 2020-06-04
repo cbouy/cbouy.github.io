@@ -1,3 +1,6 @@
+---
+---
+@import "syntax";
 /*
 General
 */
@@ -114,12 +117,6 @@ Main
 }
 .whitespace-pre-line {
   white-space: pre-line;
-}
-.highlighter-rouge a {
-  color: #bf616a;
-  background-color: #f9f9f9;
-  border-radius: 3px;
-  text-decoration: none;
 }
 .tags a {
   margin-left: 5px;

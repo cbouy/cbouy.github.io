@@ -20,6 +20,7 @@ defaults:
       layout: "post"
       author: "Cédric Bouysset"
       comments: true
+      permalink: /blog/:year/:month/:day/:title
   -
     scope:
       path: "assets/"
