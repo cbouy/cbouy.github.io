@@ -60,7 +60,7 @@ Here are the main lines of the project:
   * Bonds (indices, bond order)
   * Protein-related attrs (residues, segments, chains…)
   * Others (angles, dihedrals…)
-* Create new topology attributes and appropriate guessers:
+* Create new topology attributes:
   * Aromaticity
   * Partial charges
 * Tests and docs
@@ -131,6 +131,9 @@ mol = lig.convert_to('RDKIT')
 ---
 *From July 27th to August 21st*
 
+* New guessers:
+  * Aromaticity
+  * Partial and formal charges
 * Molecular descriptors and fingerprints
   > A wrapper to commonly used descriptors and fingerprints:
   ```python
