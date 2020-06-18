@@ -1,6 +1,6 @@
 code { 
     color: #555555; 
-    background-color: #f8f8f8;
+    background-color: #f0f0f0;
 }
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 .highlight table td { padding: 5px; }
@@ -66,9 +66,10 @@ code {
 .highlight .o { color: #000000; font-weight: bold; }
 .highlight .w { color: #bbbbbb; }
 .highlight { 
-    background-color: #f8f8f8; 
+    background-color: #f0f0f0; 
     border-radius: 10px;
-    padding: 1px 5px;
+    padding: 1px 5px 0px 5px;
+    margin-bottom: 12px;
 }
 .main-content code { padding: 2px 4px; font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 0.9rem; color: #567482; background-color: #f3f6fa; border-radius: 0.3rem; }
 .main-content pre { padding: 0.8rem; margin-top: 0; margin-bottom: 1rem; font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace; color: #567482; word-wrap: normal; background-color: #f3f6fa; border: solid 1px #dce6f0; border-radius: 0.3rem; }
