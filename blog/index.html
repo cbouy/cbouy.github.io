@@ -18,33 +18,40 @@ layout: default
 
       <h1 class="px-4">Latest Posts</h1>
 
+      <!-- Blog Posts -->
       {% for post in paginator.posts %}
-      <!-- Blog Post -->
-      <div class="card mb-4 mx-4">
-				{% if post.image %}
-        <img class="card-img-top" src="{{ post.image }}" alt="Card image cap">
-				{% endif %}
-        <div class="card-body">
-          <h2 class="card-title">{{ post.title }}</h2>
-          <p class="card-text">{{ post.excerpt }}</p>
-          <a href="{{ post.url }}" class="btn btn-primary">Read More &rarr;</a>
-          <span class="float-right tags highlighter-rouge">[
-          {% for tag in post.tags %}
-            <a href="/tags/{{ tag }}"><code><nobr>#{{ tag }}</nobr></code></a>
-          {% endfor %}
-          ]</span>
+      <!-- Post #{{ forloop.index }} -->
+      <div class="card my-3 mx-5">
+        <div class="card-body row">
+          <div class="col-lg-6">
+            <a href="{{ post.url }}">
+              <img class="card-img-top card-thumbnail" src="{{ post.image | default: '/assets/img/logo.png' }}" alt="Card image cap"/>
+            </a>
+          </div>
+          <div class="col-lg-6 d-flex flex-column">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-text">{{ post.excerpt }}</p>
+            <a href="{{ post.url }}" class="btn btn-primary mt-auto px-1">Read More &rarr;</a>
+          </div>
         </div>
-        <div class="card-footer text-muted">
-          Posted on
-            {% assign d = post.date | date: "%-d"  %}
-            {{ post.date | date: "%B" }}
-            {% case d %}
-              {% when '1' or '21' or '31' %}{{ d }}st
-              {% when '2' or '22' %}{{ d }}nd
-              {% when '3' or '23' %}{{ d }}rd
-              {% else %}{{ d }}th
-              {% endcase %},
-            {{ post.date | date: "%Y" }}
+        <div class="card-footer text-muted pb-0">
+          {% capture date_str %}
+          {{ post.date | date: "%B" }}
+          {% assign d = post.date | date: "%-d"  %}
+          {% case d %}
+            {% when '1' or '21' or '31' %}{{ d }}st
+            {% when '2' or '22' %}{{ d }}nd
+            {% when '3' or '23' %}{{ d }}rd
+            {% else %}{{ d }}th
+          {% endcase %},
+          {{ post.date | date: "%Y" }}
+          {% endcapture %}
+          <p class="float-left">Posted on {{ date_str }}</p>
+          <span class="float-right tags highlighter-rouge">
+            [{% for tag in post.tags %}
+            <a href="/tags/{{ tag }}"><code><nobr>#{{ tag }}</nobr></code></a>
+            {% endfor %}]
+          </span>
         </div>
       </div>
       {% endfor %}

@@ -125,6 +125,11 @@ Main
 .tags {
   padding-right: 10px;
 }
+.card-thumbnail {
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 10px;
+}
 /*
 Search
 */

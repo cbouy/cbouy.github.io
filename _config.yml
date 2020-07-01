@@ -11,7 +11,7 @@ defaults:
       path: ""
     values:
       layout: "default"
-      image: /assets/img/logo_64.png
+      image: /assets/img/logo_banner.png
   -
     scope:
       path: ""
@@ -27,7 +27,7 @@ defaults:
     values:
       sitemap: false
 # blog pagination
-paginate: 5
+paginate: 4
 paginate_path: "/blog/page:num/"
 # analytics
 google_analytics: UA-139606105-1
