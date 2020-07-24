@@ -135,6 +135,12 @@ Main
   object-fit: contain;
   border-radius: 10px;
 }
+blockquote {
+  padding: 0 1em;
+  line-height: 1.5;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
 /*
 Search
 */
