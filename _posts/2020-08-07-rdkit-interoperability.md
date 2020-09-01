@@ -4,7 +4,8 @@ tags: gsoc mdanalysis rdkit python
 title: Adding new features to MDAnalysis
 ---
 
-This week I've been attending my first ever virtual meeting, which means I haven't got a lot of time to implement new things since my last post. Despite that, I've learnt a lot of things and I hope this blog post will be valuable to you.
+This week I've been attending my first ever virtual meeting, the International Symposium on Olfaction and Taste (ISOT for short).  
+While technically this means I didn't have a lot of time to implement new things, I still managed to get some work done and I hope that you will learn a lot of things from this blog post.
 
 &nbsp;
 ### Bringing MD trajectories to RDKit
