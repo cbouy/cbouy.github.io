@@ -1,7 +1,12 @@
+- event: 9th RDKit UGM
+  url: https://github.com/rdkit/UGM_2020
+  type: Oral presentation
+  title: "From RDKit to the Universe and back"
+  date: October 6-8, 2020
 - event: International Symposium on Olfaction and Taste
   url: https://achems.org/ISOT/
-  type: Virtual Poster
-  title: "Bitter-Taste Receptors: From Sequence to Structure"
+  type: Poster
+  title: "Functional Microswitches of Mammalian G Protein-Coupled Bitter-Taste Receptors"
   date: August 3-7, 2020
 - event: 9<sup>th</sup> meeting of the French Chemoinformatics Society
   url: https://sfci2019.sciencesconf.org/
