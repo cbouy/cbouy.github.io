@@ -93,7 +93,7 @@
     <ul>
       <li>Package manager: Conda, Pip</li>
       <li>Interactive environment: IPython, Jupyter-notebook</li>
-      <li>Packages: pandas, numpy, scipy, sklearn, keras, rdkit, matplotlib, seaborn, bokeh, django, PyQt5, PyInstaller, subprocess, concurrent, argparse, lxml</li>
+      <li>Packages: pandas, numpy, scipy, sklearn, keras, rdkit, mdanalysis, matplotlib, seaborn, bokeh, django, PyQt5, PyInstaller, subprocess, concurrent, argparse, lxml</li>
     </ul>
   context : |
     <ul>

@@ -1,3 +1,19 @@
+- name: ProLIF
+  description: |
+    <a href="https://github.com/chemosim-lab/ProLIF">ProLIF</a> is a tool designed to generate interaction fingerprints for protein-ligand and protein-protein interactions extracted from molecular dynamics trajectories and docking simulations. It also supports DNA-ligand, DNA-protein and DNA-DNA interactions.
+  skills: |
+    <ul>
+      <li>Developping an object oriented program</li>
+      <li>Writing unit and integration tests with pytest</li>
+      <li>Deploying a continuous integration pipeline with GitHub Actions</li>
+      <li>Documenting code with sphinx and publishing it on ReadTheDocs</li>
+      <li>Adding interactive notebooks through Binder</li>
+      <li>Uploading a module to the <a href="https://pypi.org/">Python Package Index (PyPI)</a></li>
+      <li>Approximating interactions between molecules from structural data</li>
+    </ul>
+  tools: |
+    Python: rdkit, mdanalysis, pandas, numpy, pytest, sphinx, setuptools<br />
+    CI: GitHub Actions, ReadTheDocs, Binder
 - name: ChemFlow
   description: |
     <a href="https://github.com/IFMlab/ChemFlow">ChemFlow</a> is a series of computational chemistry workflows:
@@ -34,21 +50,6 @@
     </ul>
   contributors: |
     Diego Enry Barreto Gomes, Paulina Pacak, Nicolas Martin, and Adrien Cerdan. Supervised by Marco Cecchini.
-- name: ProLIF
-  description: |
-    <a href="https://github.com/cbouy/ProLIF">ProLIF</a> is a tool designed to generate Interaction FingerPrints (IFP) and compute similarity scores for protein-ligand interactions, given a reference ligand and a list of binding-site residues.
-  skills: |
-    <ul>
-      <li>Writing an object oriented program</li>
-      <li>Designing a command line interface</li>
-      <li>Developping unit and integration tests, automatize their execution with Travis-CI, and assess the coverage of the test suite with Coveralls.io</li>
-      <li>Uploading a project to the <a href="https://pypi.org/">Python Package Index (PyPI)</a></li>
-      <li>Approximating interactions between a protein and a ligand from structural data</li>
-      <li>Encoding chemistry/biology information as a bit string</li>
-    </ul>
-  tools: |
-    Python: rdkit, unittest, setuptools, argparse<br />
-    Web: <a href="https://travis-ci.org/">Travis-CI</a>, <a href="https://coveralls.io">Coveralls.io</a>
 - name: Interference of H<sub>2</sub> with the e<sup>-</sup> transfer to colloidal Pt catalyst
   description: |
     This work is based on the following publication: <i><a href="https://pubs.acs.org/doi/abs/10.1021/j150662a055">J. Phys. Chem. 88, 18, 4131-4135</a></i>.<br />
