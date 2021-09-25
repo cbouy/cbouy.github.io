@@ -6,19 +6,21 @@ tag_generator.py
 Copyright 2017 Long Qian
 Contact: lqian8@jhu.edu
 
+Modified by Cédric Bouysset (@cbouy) - 2021
+
 This script creates tags for your Jekyll blog hosted by Github page.
 No plugins required.
 '''
 
-import glob, os, urllib.parse
+import os
+from pathlib import Path
 
-post_dir = '_posts/'
-tag_dir = 'tags/'
-
-filenames = glob.glob(post_dir + '*md')
+root_dir = Path("..")
+post_dir = root_dir / '_posts'
+tag_dir = root_dir / 'tags'
 
 total_tags = []
-for filename in filenames:
+for filename in post_dir.glob('*md'):
     with open(filename, 'r', encoding='utf-8') as f:
         crawl = False
         for line in f:
@@ -36,18 +38,17 @@ for filename in filenames:
                     crawl = False
                     break
 total_tags = set(total_tags)
-print(total_tags)
+print(f"{len(total_tags)} unique tags to generate:", total_tags)
 
-old_tags = glob.glob(tag_dir + '*.md')
-for tag in old_tags:
-    os.remove(tag)
-
-if not os.path.exists(tag_dir):
-    os.makedirs(tag_dir)
+if not tag_dir.is_dir():
+    tag_dir.mkdir()
+else:
+    for tag in tag_dir.glob('*.md'):
+        os.remove(tag)
 
 for tag in total_tags:
-    tag_filename = tag_dir + tag + '.md'
-    with open(tag_filename, 'a') as f:
+    filename = tag_dir / f"{tag}.md"
+    with open(filename, 'w') as f:
         write_str = f'''\
 ---
 layout: tagpage
@@ -57,4 +58,5 @@ robots: noindex
 ---
 '''
         f.write(write_str)
-print("Tags generated, count", total_tags.__len__())
+
+print(f"Wrote {len(tag_dir.glob('*.md'))} tag pages")
