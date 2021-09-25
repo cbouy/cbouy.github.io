@@ -15,7 +15,7 @@ No plugins required.
 import os
 from pathlib import Path
 
-root_dir = Path("..")
+root_dir = Path(".")
 post_dir = root_dir / '_posts'
 tag_dir = root_dir / 'tags'
 
@@ -59,4 +59,5 @@ robots: noindex
 '''
         f.write(write_str)
 
-print(f"Wrote {len(tag_dir.glob('*.md'))} tag pages")
+n_tags_created = len(list(tag_dir.glob('*.md')))
+print(f"Wrote {n_tags_created} tag pages")
