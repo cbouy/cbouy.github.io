@@ -29,7 +29,9 @@ jobs:
         python-version: 3.8.5
 
     - name: Fetch CV
-      run: wget -O assets/pdf/Bouysset-CV.pdf https://github.com/cbouy/cv/raw/main/cv.pdf
+      run: |
+        wget -O assets/pdf/Bouysset-CV.pdf https://github.com/cbouy/cv/raw/main/cv.pdf
+        ls -l assets/pdf/Bouysset-CV.pdf
     
     - name: Build "tags" pages
       run: python _scripts/tag_generator.py
