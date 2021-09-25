@@ -18,10 +18,10 @@ jobs:
     - name: Cache gems
       uses: actions/cache@v2
       with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+        path: ${{ github.workspace }}/vendor
+        key: ${{ runner.os }}-vendor-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
-          ${{ runner.os }}-gems-
+          ${{ runner.os }}-vendor-
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -37,7 +37,7 @@ jobs:
       run: python _scripts/tag_generator.py
 
     - name: Build and deploy
-      uses: helaili/jekyll-action@v2
+      uses: helaili/jekyll-action@2.2
       with:
         target_branch: 'gh-pages'
         token: ${{ secrets.GITHUB_TOKEN }}
