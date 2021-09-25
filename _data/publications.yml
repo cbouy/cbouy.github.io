@@ -1,30 +1,53 @@
+- title: Functional Molecular Switches of Mammalian G Protein-Coupled Bitter-Taste Receptors
+  first_author: true
+  authors: Topin J., Bouysset C., Pacalon J., Kim Y., Rhyu M., Fiorucci S. & Golebiowski, J.
+  date: Under review
+  url: https://doi.org/10.1101/2020.10.23.348706
+  pdf: https://www.biorxiv.org/content/10.1101/2020.10.23.348706v2.full.pdf
+- title: "ProLIF: a library to encode molecular interactions as fingerprints"
+  first_author: true
+  authors: Bouysset C. & Fiorucci S.
+  date: Accepted
+  journal: Journal of Cheminformatics
+- title: "Reverse chemical ecology in a moth: machine learning on odorant receptors identifies new behaviorally active agonists"
+  first_author: true
+  authors: Caballero-Vidal G., Bouysset C., Gévar J., Mbouzid H., Nara C., Delaroche J., Golebiowski J., Montagné N., Fiorucci S. & Jacquin-Joly E.
+  date: August 2021
+  journal: Cellular and Molecular Life Sciences
+  url: https://doi.org/10.1007/s00018-021-03919-2
+  pdf: https://link.springer.com/content/pdf/10.1007/s00018-021-03919-2.pdf
 - title: Recent smell loss is the best predictor of COVID-19 among individuals with recent respiratory symptoms
+  first_author: false
   url: https://doi.org/10.1093/chemse/bjaa081
   journal: Chemical Senses
   date: December 2020
   pdf: https://academic.oup.com/chemse/advance-article-pdf/doi/10.1093/chemse/bjaa081/35137502/bjaa081.pdf
-  authors: Richard C Gerkin, Kathrin Ohla, Maria G Veldhuizen, Paule V Joseph, Christine E Kelly, Alyssa J Bakke, Kimberley E Steele, Michael C Farruggia, Robert Pellegrino, Marta Y Pepino, <strong>Cédric Bouysset</strong>, ..., GCCR Group Author
+  authors: Gerkin R. C. and 128 colleagues
 - title: More Than Smell—COVID-19 Is Associated With Severe Impairment of Smell, Taste, and Chemesthesis
+  first_author: false
   url: https://doi.org/10.1093/chemse/bjaa041
   journal: Chemical Senses
   date: September 2020
   pdf: https://academic.oup.com/chemse/article-pdf/45/7/609/33855529/bjaa041.pdf
-  authors: Valentina Parma, Kathrin Ohla, Maria G Veldhuizen, Masha Y Niv, Christine E Kelly, Alyssa J Bakke, Keiland W Cooper, <strong>Cédric Bouysset</strong>, ..., GCCR Group Author, Danielle R Reed, Thomas Hummel, Steven D Munger, John E Hayes
+  authors: Parma V. and 121 colleagues
 - title: Novel scaffold of natural compound eliciting sweet taste revealed by machine learning
+  first_author: true
   url: https://doi.org/10.1016/j.foodchem.2020.126864
   journal: Food Chemistry
   date: April 2020
   pdf: /assets/pdf/FoodChem2020.pdf
-  authors: <strong>Cédric Bouysset</strong>, Christine Belloir, Serge Antonczak, Loïc Briand, Sébastien Fiorucci
+  authors: Bouysset C., Belloir C., Antonczak S., Briand L. & Fiorucci S.
 - title: Machine learning decodes chemical features to identify novel agonists of a moth odorant receptor
+  first_author: true
   url: https://doi.org/10.1038/s41598-020-58564-9
   journal: Scientific Reports
   date: February 2020
   pdf: https://www.nature.com/articles/s41598-020-58564-9.pdf
-  authors: Gabriela Caballero-Vidal<sup>+</sup>, <strong>Cédric Bouysset</strong><sup>+</sup>, Hubert Grunig, Sébastien Fiorucci, Nicolas Montagné, Jérôme Golebiowski, Emmanuelle Jacquin-Joly
+  authors: Caballero-Vidal G., Bouysset C., Grunig H., Fiorucci S., Montagné N., Golebiowski J. & Jacquin-Joly E.
 - title: Metal ions activate the human taste receptor TAS2R7
+  first_author: false
   url: https://doi.org/10.1093/chemse/bjz024
   journal: Chemical Senses
   date: April 2019
   pdf: https://academic.oup.com/chemse/article-pdf/44/5/339/28736059/bjz024.pdf
-  authors: Yi Wang, Amanda L Soohoo, Weiwei Lei, Carol Christensen, Robert F Margolskee, <strong>Cédric Bouysset</strong>, Jerome Golebiowski, Huabin Zhao, Sébastien Fiorucci, Peihua Jiang
+  authors: Wang Y., Soohoo A. L., Lei W., Christensen C., Margolskee R. F., Bouysset C., Golebiowski J., Zhao H., Fiorucci S. & Jiang P.

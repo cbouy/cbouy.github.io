@@ -1,3 +1,17 @@
+- event: 10th RDKit UGM
+  title: "Interactive visualization and filtering of small molecule datasets with mols2grid"
+  type: Tutorial session
+  date: October 14-15, 2021
+- event: ECRO XXXI meeting
+  url: https://www.ecro.online/meetings/ecro-2021-portugal/
+  type: Poster
+  title: "Functional Molecular Switches of Mammalian G Protein-Coupled Bitter-Taste Receptors"
+  date: September 14-16, 2021
+- event: 16th Weurman Flavour Research Symposium
+  url: https://symposium.inrae.fr/weurman2020/Programme
+  type: Poster
+  title: "Bitter-Taste Receptors: From Sequence to Structure"
+  date: May 4-6, 2021
 - event: 9th RDKit UGM
   url: https://github.com/rdkit/UGM_2020
   type: Oral presentation
@@ -18,7 +32,7 @@
   type: Poster
   title: Molecular insights into the structure-function relationships of bitter taste receptors
   date: November 7-8, 2019
-- event: European Chemoreception Research Organization annual meeting
+- event: ECRO XXIX meeting
   url: https://www.ecro.online/meetings/ecro-2019-trieste/
   type: Poster
   title: Molecular insights into the structure-function relationships of bitter taste receptors
