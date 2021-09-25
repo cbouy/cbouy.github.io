@@ -1,4 +1,5 @@
 # jekyll
+repository: cbouy/cbouy.github.io
 plugins:
   - jekyll-sitemap
   - jemoji
