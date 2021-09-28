@@ -30,7 +30,7 @@ jobs:
 
     - name: Fetch CV
       run: |
-        wget -O assets/pdf/Bouysset-CV.pdf https://github.com/cbouy/cv/raw/pdf/Bouysset-CV.pdf
+        wget -O assets/pdf/Bouysset-CV.pdf https://github.com/cbouy/cv/raw/main/cv.pdf
     
     - name: Build "tags" pages
       run: python _scripts/tag_generator.py
