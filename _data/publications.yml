@@ -7,8 +7,10 @@
 - title: "ProLIF: a library to encode molecular interactions as fingerprints"
   first_author: true
   authors: Bouysset C. & Fiorucci S.
-  date: Accepted
+  date: September 2021
   journal: Journal of Cheminformatics
+  url: https://doi.org/10.1186/s13321-021-00548-6
+  pdf: https://link.springer.com/content/pdf/10.1186/s13321-021-00548-6.pdf
 - title: "Reverse chemical ecology in a moth: machine learning on odorant receptors identifies new behaviorally active agonists"
   first_author: true
   authors: Caballero-Vidal G., Bouysset C., Gévar J., Mbouzid H., Nara C., Delaroche J., Golebiowski J., Montagné N., Fiorucci S. & Jacquin-Joly E.
