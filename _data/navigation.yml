@@ -2,7 +2,7 @@
   link: /
 - name: CV
   link: /cv/
-- name: Portfolio
-  link: /portfolio/
+# - name: Portfolio
+#   link: /portfolio/
 - name: Blog
   link: /blog/
