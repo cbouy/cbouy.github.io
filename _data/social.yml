@@ -1,7 +1,7 @@
 - name: Mail
   icon: fas fa-at
   large: fa-lg
-  link: mailto:cedric.bouysset@univ-cotedazur.fr
+  link: mailto:cedric@bouysset.net
 - name: Twitter
   icon: fab fa-twitter
   large: fa-lg
@@ -18,10 +18,6 @@
   icon: ai ai-orcid
   large: ai-lg
   link: https://orcid.org/0000-0002-7814-8158
-- name: ResearchGate
-  icon: ai ai-researchgate
-  large: ai-lg
-  link: https://www.researchgate.net/profile/Cedric_Bouysset
 - name: GitHub
   icon: fab fa-github
   large: fa-lg

@@ -1,4 +1,5 @@
 - event: 10th RDKit UGM
+  url: https://github.com/rdkit/UGM_2021
   title: "Interactive visualization and filtering of small molecule datasets with mols2grid"
   type: Tutorial session
   date: October 14-15, 2021
