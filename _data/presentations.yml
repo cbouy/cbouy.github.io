@@ -1,3 +1,8 @@
+- event: 11th RDKit UGM
+  url: https://github.com/rdkit/UGM_2022
+  title: "Encoding molecular interactions as fingerprints with ProLIF"
+  type: Poster
+  date: October 12-14, 2022
 - event: 10th RDKit UGM
   url: https://github.com/rdkit/UGM_2021
   title: "Interactive visualization and filtering of small molecule datasets with mols2grid"
