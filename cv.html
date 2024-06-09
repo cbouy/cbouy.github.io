@@ -4,8 +4,8 @@ title: CV
 permalink: /cv/
 ---
 <head>
-	{% include head.html %}
-	<link href="https://fonts.googleapis.com/css?family=Saira+Condensed:500,700" rel="stylesheet">
+  {% include head.html %}
+  <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:500,700" rel="stylesheet">
   <link href="/assets/css/resume.css" rel="stylesheet">
   <script src="/assets/js/jquery.easing.min.js"></script>
 </head>
@@ -26,13 +26,13 @@ permalink: /cv/
       <div class="navbar-nav">
         <a class="nav-item nav-link js-scroll-trigger" href="#about">About</a>
         <a class="nav-item nav-link js-scroll-trigger" href="#experience">Experience</a>
-        <a class="nav-item nav-link js-scroll-trigger" href="#research">Research</a>
+        <a class="nav-item nav-link js-scroll-trigger" href="#research">Projects</a>
         <a class="nav-item nav-link js-scroll-trigger" href="#awards">Awards</a>
         <a class="nav-item nav-link js-scroll-trigger" href="#education">Education</a>
         <a class="nav-item nav-link js-scroll-trigger" href="#publications">Publications</a>
         <a class="nav-item nav-link js-scroll-trigger" href="#presentations">Presentations</a>
-        <a class="nav-item nav-link js-scroll-trigger" href="#teaching">Teaching</a>
         <a class="nav-item nav-link js-scroll-trigger" href="#skills">Skills</a>
+        <a class="nav-item nav-link js-scroll-trigger" href="#teaching">Teaching</a>
         <a class="nav-item nav-link js-scroll-trigger" href="#interests">Interests</a>
       </div>
     </div>
@@ -42,26 +42,28 @@ permalink: /cv/
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
       <div class="w-100">
-        <h1 class="mb-0">Cedric
+        <h1 class="mb-0">Cédric
           <span class="text-primary">Bouysset</span>
         </h1>
         <div class="subheading mb-5">Oxford, UK ·
           <a href="mailto:cedric@bouysset.net">cedric@bouysset.net</a>
         </div>
         <p class="lead mb-5">
-					I received my PhD in chemistry from the Université Côte D'Azur, France, in 2021.
-          I'm specialized in chemoinformatics and machine-learning, as well as molecular modeling of G Protein-Coupled Receptors (GPCRs).
-					My PhD project tackled taste perception and olfaction using computational approaches, as well as software development side-projects and teaching.
-				</p>
+          Enthusiastic cheminformatics researcher with a passion for developing reliable
+          and user-friendly software for drug design. Possesses a strong foundation in
+          computational chemistry coupled with advanced skills in software development
+          and engineering, and experience in AI-driven design. Committed to accelerating
+          and automating drug discovery through innovative research and collaboration.
+        </p>
         <div class="social-icons">
-					{% for item in site.data.social %}
-		      <a href="{{ item.link }}" class="nav-item nav-link">
-		        <i class="{{ item.icon }}"></i>
-		      </a>
-		      {% endfor %}
+          {% for item in site.data.social %}
+          <a href="{{ item.link }}" class="nav-item nav-link">
+            <i class="{{ item.icon }}"></i>
+          </a>
+          {% endfor %}
         </div>
         <div class="mt-5">
-          📄 <a href="/assets/pdf/Bouysset-CV.pdf">PDF version</a>
+          📄 <a href="/assets/pdf/Resume.pdf">Resume</a>
         </div>
       </div>
     </section>
@@ -76,10 +78,31 @@ permalink: /cv/
           <div class="resume-content">
             <h3 class="mb-0">Cheminformatics Research Scientist</h3>
             <div class="subheading mb-3"><a href="https://www.exscientia.ai">Exscientia</a></div>
-            <!--  -->
+            <p>
+              <ul>
+                <li>
+                  Implementing cheminformatics algorithms: filtering, scoring,
+                  clustering, compound selection, chemical space visualisation
+                </li>
+                <li>Maintaining critical software for our drug design platform</li>
+                <li>Project support for cheminformatics and data science tasks</li>
+              </ul>
+            </p>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">April 2022 - Now</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Google Summer of Code Mentor</h3>
+            <div class="subheading mb-3"><a href="https://www.mdanalysis.org/">MDAnalysis</a></div>
+            <p>Co-mentoring two students in projects related to MDAnalysis and cheminformatics packages (RDKit and OpenBabel).
+            </p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">June 2024 - November 2024</span>
           </div>
         </div>
 
@@ -92,7 +115,7 @@ permalink: /cv/
             </p>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary">March 2020 - Now</span>
+            <span class="text-primary">March 2020 - July 2022</span>
           </div>
         </div>
 
@@ -100,13 +123,14 @@ permalink: /cv/
           <div class="resume-content">
             <h3 class="mb-0">Google Summer of Code participant</h3>
             <div class="subheading mb-3"><a href="https://www.mdanalysis.org/">MDAnalysis</a></div>
-            <p>Development for the Python module MDAnalysis. In charge of the RDKit interoperability project:
-							<ul>
+            <p>Developed a new Python module for the MDAnalysis package:
+              <ul>
                 <li>Conversion between MDAnalysis atom groups and RDKit molecules</li>
+                <li>Designed an algorithm to infer bond orders and charges from a topology with explicit hydrogens</li>
                 <li>Leverage RDKit functionalities (SMARTS queries, molecular descriptors calculations... etc.) directly from MDAnalysis</li>
               </ul>
               Link: <a href="https://summerofcode.withgoogle.com/archive/2020/projects/5646492108324864/">bit.ly/37uNr9C</a>
-						</p>
+            </p>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">June 2020 - August 2020</span>
@@ -117,14 +141,14 @@ permalink: /cv/
           <div class="resume-content">
             <h3 class="mb-0">Technician</h3>
             <div class="subheading mb-3"><a href="http://institut-chimie.unistra.fr/equipes-de-recherche/ifm-laboratoire-dingenierie-des-fonctions-moleculaires/">IFM Lab</a>, Institut de Science et d'Ingénierie Supramoléculaires, UMR 7006,
-						Université de Strasbourg, France</div>
+            Université de Strasbourg, France</div>
             <p>Developped ChemFlow, a series of computational chemistry workflows:
-							<ul>
-								<li>designed to automatize and simplify the drug discovery pipeline and scoring function benchmarking</li>
-								<li>including extensive data analysis and reporting tools for rapid decision making</li>
-								<li>adapted to work locally or on compute clusters</li>
-							</ul>
-						</p>
+              <ul>
+                <li>designed to automatize and simplify the drug discovery pipeline and scoring function benchmarking</li>
+                <li>including extensive data analysis and reporting tools for rapid decision making</li>
+                <li>adapted to work locally or on compute clusters</li>
+              </ul>
+            </p>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">July 2017 - August 2017</span>
@@ -137,131 +161,156 @@ permalink: /cv/
 
     <hr class="m-0">
 
-		<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="research">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="projects">
       <div class="w-100">
-        <h2 class="mb-5">Research</h2>
+        <h2 class="mb-5">Projects</h2>
 
-				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-4">
+        {% for project in site.data.open-source-projects %}
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
           <div class="resume-content">
-            <h4 class="mb-0">PhD Student and Teaching Assistant</h4>
-            <div class="subheading mb-3"><a href="http://chemosim.unice.fr/">ChemoSim Lab</a>, Institut de Chimie de Nice, UMR 7272,
-						Université Côte d'Azur, France</div>
-            <p>Title: <a href="https://www.theses.fr/2021COAZ4062">Molecular basis of chemosensory perception</a></p>
-            <p>Smell and taste perception consists in a chemical stimulation of transmembrane receptors lying on the surface of sensory cells located in the nasal or oral cavity. The receptors involved in olfaction and the perception of bitter, sweet and umami taste all belong to the well-studied G protein-coupled receptors (GPCR) family, yet to date their exact tridimensional structure still eludes us. In this thesis, I study the molecular structures at the frontline of chemosensory perception, namely receptors and their ligands, through a computational lens.</p>
-            <p>Techniques: Molecular modeling, chemoinformatics, machine-learning, molecular dynamics, software and web development</p>
+            <h4 class="mb-0"><a href="{{ project.docs }}">{{ project.name }}</a></h4>
+            <div class="subheading mb-3">{{ project.description }}</div>
+            <div class="">
+              <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/{{ project.github_handle }}">
+              <img alt="GitHub forks" src="https://img.shields.io/github/forks/{{ project.github_handle }}">
+            </div>
+            <div>
+              <p>{{ project.role }}</p>
+              {% if project.paper %}
+              <p><a href="{{ project.doi }}">{{ project.paper }}</a></p>
+              {% endif %}
+            </div>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary">October 2018 - September 2021</span>
+            <span class="text-primary">{{ project.date }}</span>
           </div>
         </div>
-
-				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-4">
-          <div class="resume-content">
-            <h4 class="mb-0">Internship</h4>
-            <div class="subheading mb-3"><a href="http://chemosim.unice.fr/">ChemoSim Lab</a>, Institut de Chimie de Nice, UMR 7272,
-						Université Côte d'Azur, France</div>
-						<p>Development of <abbr title="Quantitative Structure-Activity Relationship" class="initialism">QSAR</abbr> models for the prediction of several gustative and olfactive properties</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">February 2018 - July 2018</span>
-          </div>
-        </div>
-
-				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-4">
-          <div class="resume-content">
-            <h4 class="mb-0">Internship</h4>
-            <div class="subheading mb-3"><a href="http://institut-chimie.unistra.fr/equipes-de-recherche/ifm-laboratoire-dingenierie-des-fonctions-moleculaires/">IFM Lab</a>, Institut de Science et d'Ingénierie Supramoléculaires, UMR 7006,
-						Université de Strasbourg, France</div>
-						<p>Calculation of binding affinities of ligand-receptor complexes from <abbr title="Molecular Dynamics" class="initialism">MD</abbr> simulations, using the <abbr title="Molecular Mechanics Poisson-Boltzmann Surface Area" class="initialism">MM/PBSA</abbr> approach</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">March 2017 - June 2017</span>
-          </div>
-        </div>
-
-				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-4">
-          <div class="resume-content">
-            <h4 class="mb-0">Internship</h4>
-            <div class="subheading mb-3"><a href="http://univ-cotedazur.fr/labs/icn/fr/equipes/APSM/page.html">Equipe Arômes Parfums Synthèse Modélisation</a>, Institut de Chimie de Nice, UMR 7272,
-						Université de Nice Sophia Antipolis, France</div>
-            <p>Construction of 3D models of several bitter taste receptors using homology modeling and multiple sequence alignment</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">June 2016</span>
-          </div>
-        </div>
+        <hr class="m-6">
+        {% endfor %}
 
       </div>
     </section>
 
     <hr class="m-0">
 
-		<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
       <div class="w-100">
         <h2 class="mb-5">Honours &amp; Awards</h2>
         <ul class="fa-ul mb-0">
-					{% for award in site.data.awards %}
-					<li class="mb-2">
+          {% for award in site.data.awards %}
+          <li class="mb-2">
             <i class="fa-li fa fa-trophy text-warning"></i>
-						{% if award.url %}
+            {% if award.url %}
             <a href="{{ award.url }}">{{ award.date }}</a>
-						{% else %}
-						{{ award.date }}
-						{% endif %} - {{ award.description }}
-					</li>
-					{% endfor %}
+            {% else %}
+            {{ award.date }}
+            {% endif %} - {{ award.description }}
+          </li>
+          {% endfor %}
         </ul>
       </div>
     </section>
 
-	  <hr class="m-0">
+    <hr class="m-0">
 
-		<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
       <div class="w-100">
         <h2 class="mb-5">Education</h2>
 
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
           <div class="resume-content">
-            <h3 class="mb-0">Université de Strasbourg, France</h3>
-            <div class="subheading text-uppercase mb-2">Master in Chemoinformatics</div>
-            <div>Diploma received with honors</div>
-            <p>GPA: M1 15.1/20 - M2 14.9/20</p>
+            <h3 class="mb-0">PhD Student and Teaching Assistant</h3>
+            <div class="subheading text-uppercase mb-2">Université Côte d'Azur, France</div>
+            <p>Affiliation: <a href="https://lab.chemsensim.fr/index.php">ChemoSim Lab</a>, Institut de Chimie de Nice, UMR 7272,
+            Université Côte d'Azur, France</p>
+            <p><a href="https://www.theses.fr/2021COAZ4062">Molecular basis of chemosensory perception</a></p>
+            <p>Molecular modeling, cheminformatics, machine-learning, data science, chemosensory GPCRs, software and web development</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">October 2018 - September 2021</span>
+          </div>
+        </div>
+        <hr class="m-6">
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Internship</h3>
+            <div class="subheading text-uppercase mb-2"><a href="https://lab.chemsensim.fr/index.php">ChemoSim Lab</a>, Institut de Chimie de Nice, UMR 7272,
+            Université Côte d'Azur, France</div>
+            <p>Development of <abbr title="Quantitative Structure-Activity Relationship" class="initialism">QSAR</abbr> models for the prediction of gustative and olfactive properties</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">February 2018 - July 2018</span>
+          </div>
+        </div>
+        <hr class="m-6">
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">MSc in Chemoinformatics</h3>
+            <div class="subheading text-uppercase mb-2">Université de Strasbourg, France</div>
+            <p>Diploma received with honors</p>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">2016 - 2018</span>
           </div>
         </div>
-				<hr class="m-6">
+        <hr class="m-6">
 
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
           <div class="resume-content">
-            <h3 class="mb-0">Université de Nice Sophia Antipolis, France</h3>
-            <div class="subheading text-uppercase mb-2">Bachelor in Chemistry</div>
-						<div>Diploma received with honors</div>
-            <p>GPA: L1 15.8/20 - L2 14.9/20 - L3 14.5/20</p>
+            <h3 class="mb-0">Internship</h3>
+            <div class="subheading text-uppercase mb-2"><a href="http://institut-chimie.unistra.fr/equipes-de-recherche/ifm-laboratoire-dingenierie-des-fonctions-moleculaires/">IFM Lab</a>, Institut de Science et d'Ingénierie Supramoléculaires, UMR 7006,
+            Université de Strasbourg, France</div>
+            <p>Calculation of binding affinities of ligand-receptor complexes from <abbr title="Molecular Dynamics" class="initialism">MD</abbr> simulations, using the <abbr title="Molecular Mechanics Poisson-Boltzmann Surface Area" class="initialism">MM/PBSA</abbr> approach</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">March 2017 - June 2017</span>
+          </div>
+        </div>
+        <hr class="m-6">
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Internship</h3>
+            <div class="subheading text-uppercase mb-2"><a href="http://univ-cotedazur.fr/labs/icn/fr/equipes/APSM/page.html">Equipe Arômes Parfums Synthèse Modélisation</a>, Institut de Chimie de Nice, UMR 7272,
+            Université de Nice Sophia Antipolis, France</div>
+            <p>Construction of 3D models of bitter taste receptors using homology modeling and <abbr title="Multiple Sequence Alignment" class="initialism">MSA</abbr></p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">June 2016</span>
+          </div>
+        </div>
+        <hr class="m-6">
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">BSc in Chemistry</h3>
+            <div class="subheading text-uppercase mb-2">Université de Nice Sophia Antipolis, France</div>
+            <div>Diploma received with honors</div>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">2013 - 2016</span>
           </div>
         </div>
-				<hr class="m-6">
+        <hr class="m-6">
 
-				<div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
           <div class="resume-content">
-            <h3 class="mb-0">Université de Nice Sophia Antipolis, France</h3>
-            <div class="subheading text-uppercase mb-2">First cycle of medical studies</div>
+            <h3 class="mb-0">First cycle of medical studies</h3>
+            <div class="subheading text-uppercase mb-2">Université de Nice Sophia Antipolis, France</div>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">2011 - 2013</span>
           </div>
         </div>
-				<hr class="m-6">
+        <hr class="m-6">
 
-				<div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
           <div class="resume-content">
-            <h3 class="mb-0">Lycée Albert Premier, Monaco</h3>
-            <div class="subheading text-uppercase mb-2">Scientific Baccalaureate</div>
-						<div>Diploma received with honors</div>
+            <h3 class="mb-0">Scientific Baccalaureate</h3>
+            <div class="subheading text-uppercase mb-2">Lycée Albert Premier, Monaco</div>
+            <div>Diploma received with honors</div>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">2011</span>
@@ -273,23 +322,23 @@ permalink: /cv/
 
     <hr class="m-0">
 
-		<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="publications">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="publications">
       <div class="w-100">
         <h2 class="mb-2">Publications</h2>
         {% assign first_pubs = site.data.publications | where: "first_author", true %}
         {% assign other_pubs = site.data.publications | where: "first_author", false %}
         <h3 class="mb-5">First-author publications</h3>
-				{% for publication in first_pubs %}
+        {% for publication in first_pubs %}
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <h4 class="mb-0">
               {% if publication.url %}
-							{{ forloop.rindex }}.&nbsp;
+              {{ forloop.rindex }}.&nbsp;
               <a href="{{ publication.url }}">{{ publication.title }}</a>
               {% else %}
               {{ forloop.rindex }}. {{ publication.title }}
               {% endif %}
-						</h4>
+            </h4>
             <div class="subheading mb-3">{{ publication.journal }}</div>
             <div>{{ publication.authors }}</div>
           </div>
@@ -303,20 +352,20 @@ permalink: /cv/
             {% endif %}
           </div>
         </div>
-				{% endfor %}
+        {% endfor %}
 
         <h3 class="mb-5">Other publications</h3>
-				{% for publication in other_pubs %}
+        {% for publication in other_pubs %}
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <h4 class="mb-0">
               {% if publication.url %}
-							{{ forloop.rindex }}.&nbsp;
+              {{ forloop.rindex }}.&nbsp;
               <a href="{{ publication.url }}">{{ publication.title }}</a>
               {% else %}
               {{ forloop.rindex }}. {{ publication.title }}
               {% endif %}
-						</h4>
+            </h4>
             <div class="subheading mb-3">{{ publication.journal }}</div>
             <div>{{ publication.authors }}</div>
           </div>
@@ -330,17 +379,17 @@ permalink: /cv/
             {% endif %}
           </div>
         </div>
-				{% endfor %}
+        {% endfor %}
 
       </div>
     </section>
 
     <hr class="m-0">
 
-		<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="presentations">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="presentations">
       <div class="w-100">
         <h2 class="mb-5">Presentations</h2>
-				{% for presentation in site.data.presentations %}
+        {% for presentation in site.data.presentations %}
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <h3 class="mb-0">
@@ -352,24 +401,165 @@ permalink: /cv/
             </h3>
             <div class="subheading mb-3">{{ presentation.type }}</div>
             <div>“{{ presentation.title }}”</div>
-						<p class="mb-0">{{ presentation.info }}</p>
+            <p class="mb-0">{{ presentation.info }}</p>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">{{ presentation.date }}</span>
           </div>
         </div>
-				{% endfor %}
+        {% endfor %}
 
       </div>
     </section>
 
     <hr class="m-0">
 
-		<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="teaching">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+      <div class="w-100">
+        <h2 class="mb-5">Skills</h2>
+
+        <div class="row">
+          <div class="col-sm">
+            <div class="subheading mb-1">Overview</div>
+            <script src="/assets/js/tagcanvas.min.js" type="text/javascript"></script>
+            <div id="skills-tag-canvas-container">
+              <canvas width="800" height="800" id="skills-tag-canvas" style="width: 100%;">
+                <ul>
+                 <li><a href="#" class="huge red">Programming</a></li>
+                 <li><a href="#" class="medium red">Software engineering</a></li>
+                 <li><a href="#" class="medium red">Webservices</a></li>
+                 <li><a href="#" class="huge blue">Molecular Modeling</a></li>
+                 <li><a href="#" class="medium blue">MM/PBSA</a></li>
+                 <li><a href="#" class="large blue">Molecular Dynamics</a></li>
+                 <li><a href="#" class="huge green">Cheminformatics</a></li>
+                 <li><a href="#" class="large green">QSAR</a></li>
+                 <li><a href="#" class="medium green">Similarity Analysis</a></li>
+                 <li><a href="#" class="medium green">Diversity Analysis</a></li>
+                 <li><a href="#" class="medium green">Chemical Space</a></li>
+                 <li><a href="#" class="medium green">Clustering</a></li>
+                 <li><a href="#" class="medium purple">Pharmacophores</a></li>
+                 <li><a href="#" class="huge purple">Drug Design</a></li>
+                 <li><a href="#" class="large purple">Docking</a></li>
+                 <li><a href="#" class="small purple">Interaction Fingerprints</a></li>
+                 <li><a href="#" class="small purple">ADMETox Filters</a></li>
+                 <li><a href="#" class="large purple">Virtual Screening</a></li>
+                 <li><a href="#" class="huge orange">Machine Learning</a></li>
+                 <li><a href="#" class="medium orange">Data Mining</a></li>
+                 <li><a href="#" class="medium orange">Active Learning</a></li>
+                </ul>
+              </canvas>
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div class="h-50">
+              <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+              <ul class="list-inline dev-icons">
+                <li class="list-inline-item mr-4">
+                  <i class="fab fa-python" data-container="body" data-toggle="popover" data-placement="bottom" data-title="Python" data-content='
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star-half-alt text-warning"></i><br/>
+Packages: rdkit, openeye, mdanalysis, pandas, numpy, scipy, scikit-learn, bokeh, django, pyqt5'></i>
+                </li>
+                <li class="list-inline-item mr-4">
+                  <i class="fas fa-terminal" data-container="body" data-toggle="popover" data-placement="bottom" data-title="Bash" data-content='
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i><br/>
+Tools: awk, sed, grep, ssh<br/>
+Job schedulers: PBS, Slurm, OAR'></i>
+                </li>
+                <li class="list-inline-item mr-4">
+                  <i class="fab fa-js-square" data-container="body" data-toggle="popover" data-placement="bottom" data-title="JavaScript" data-content='
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i><br/>
+Libraries: jQuery, DataTables, list.js, vis.js'></i>
+                </li>
+                <li class="list-inline-item mr-4">
+                  <i class="fas fa-copyright" data-container="body" data-toggle="popover" data-placement="bottom" data-title="C" data-content='
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i>'></i>
+                </li>
+                <li class="list-inline-item mr-4">
+                  <i class="fab fa-php" data-container="body" data-toggle="popover" data-placement="bottom" data-title="PHP" data-content='
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i>'></i>
+                </li>
+                <li class="list-inline-item mr-4">
+                  <i class="fab fa-git" data-container="body" data-toggle="popover" data-placement="bottom" data-title="Git" data-content='
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star-half-alt text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i><br/>
+GitHub, Bitbucket'></i>
+                </li>
+              </ul>
+            </div>
+
+            <div class="h-50">
+              <div class="subheading mb-3 mt-3">Languages</div>
+              <ul class="list-inline">
+                <li class="list-inline-item mr-5">
+                  <img src="/assets/img/blank.gif" class="flag flag-fr" alt="French"
+                  data-container="body" data-toggle="popover" data-placement="bottom" data-title="French" data-content='
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i><br/>
+Native speaker'/>
+                </li>
+                <li class="list-inline-item mr-5">
+                  <img src="/assets/img/blank.gif" class="flag flag-gb" alt="English"
+                  data-container="body" data-toggle="popover" data-placement="bottom" data-title="English" data-content='
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star-half-alt text-warning"></i><br/>
+CEF Level: C2 - Proficient'/>
+                </li>
+                <li class="list-inline-item mr-5">
+                  <img src="/assets/img/blank.gif" class="flag flag-it" alt="Italian"
+                  data-container="body" data-toggle="popover" data-placement="bottom" data-title="Italian" data-content='
+<i class="fas fa-star text-warning"></i>
+<i class="fas fa-star-half-alt text-warning"></i>
+<i class="far fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i>
+<i class="far fa-star text-warning"></i><br/>
+CEF Level: A2 - Elementary'/>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="teaching">
       <div class="w-100">
         <h2 class="mb-5">Teaching</h2>
 
-				<p>For first year bachelor students (L1)</p>
+        <p>For first year bachelor students (L1)</p>
 
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
@@ -381,7 +571,7 @@ permalink: /cv/
           </div>
         </div>
 
-				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
             <h4 class="mb-0">Microscopic structure of matter</h4>
             <div class="subheading mb-3">Practicals</div>
@@ -391,7 +581,7 @@ permalink: /cv/
           </div>
         </div>
 
-				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
             <h4 class="mb-0">Structure and representation of molecules</h4>
             <div class="subheading mb-3">Exercices</div>
@@ -401,10 +591,10 @@ permalink: /cv/
           </div>
         </div>
 
-				<hr />
-				<p>For second year bachelor students (L2)</p>
+        <hr />
+        <p>For second year bachelor students (L2)</p>
 
-				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
             <h4 class="mb-0">Chemistry of Solutions</h4>
             <div class="subheading mb-3">Exercices</div>
@@ -414,7 +604,7 @@ permalink: /cv/
           </div>
         </div>
 
-				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
             <h4 class="mb-0">Molecular structure and macroscopic properties</h4>
             <div class="subheading mb-3">Exercices and Practicals</div>
@@ -429,159 +619,13 @@ permalink: /cv/
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
-      <div class="w-100">
-        <h2 class="mb-5">Skills</h2>
-
-				<div class="row">
-					<div class="col-sm">
-						<div class="subheading mb-1">Overview</div>
-						<script src="/assets/js/tagcanvas.min.js" type="text/javascript"></script>
-						<div id="skills-tag-canvas-container">
-							<canvas width="800" height="800" id="skills-tag-canvas" style="width: 100%;">
-								<ul>
-								 <li><a href="#" class="huge red">Programming</a></li>
-								 <li><a href="#" class="huge blue">Molecular modeling</a></li>
-								 <li><a href="#" class="medium blue">MM/PBSA</a></li>
-								 <li><a href="#" class="large blue">Molecular Dynamics</a></li>
-								 <li><a href="#" class="huge green">Chemoinformatics</a></li>
-								 <li><a href="#" class="large green">QSAR</a></li>
-								 <li><a href="#" class="medium green">Similarity analysis</a></li>
-								 <li><a href="#" class="medium green">Diversity analysis</a></li>
-								 <li><a href="#" class="medium green">Chemical space</a></li>
-								 <li><a href="#" class="medium green">Clustering</a></li>
-								 <li><a href="#" class="small green">Descriptors</a></li>
-								 <li><a href="#" class="medium purple">Pharmacophores</a></li>
-								 <li><a href="#" class="huge purple">Drug Design</a></li>
-								 <li><a href="#" class="large purple">Docking</a></li>
-								 <li><a href="#" class="small purple">Interaction Fingerprints</a></li>
-								 <li><a href="#" class="small purple">ADMETox filters</a></li>
-								 <li><a href="#" class="large purple">Virtual Screening</a></li>
-								 <li><a href="#" class="huge orange">Machine Learning</a></li>
-								 <li><a href="#" class="medium orange">Data Mining</a></li>
-								 <li><a href="#" class="medium orange">Deep Learning</a></li>
-								</ul>
-							</canvas>
-						</div>
-					</div>
-
-					<div class="col-sm">
-						<div class="h-50">
-			        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-			        <ul class="list-inline dev-icons">
-								<li class="list-inline-item mr-4">
-			            <i class="fab fa-python" data-container="body" data-toggle="popover" data-placement="bottom" data-title="Python" data-content='
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star-half-alt text-warning"></i><br/>
-Packages: rdkit, openeye, mdanalysis, pandas, numpy, scipy, scikit-learn, bokeh, django, pyqt5'></i>
-			          </li>
-								<li class="list-inline-item mr-4">
-			            <i class="fas fa-terminal" data-container="body" data-toggle="popover" data-placement="bottom" data-title="Bash" data-content='
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i><br/>
-Tools: awk, sed, grep, ssh<br/>
-Job schedulers: PBS, Slurm, OAR'></i>
-			          </li>
-								<li class="list-inline-item mr-4">
-			            <i class="fab fa-js-square" data-container="body" data-toggle="popover" data-placement="bottom" data-title="JavaScript" data-content='
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i><br/>
-Libraries: jQuery, DataTables, list.js, vis.js'></i>
-								</li>
-								<li class="list-inline-item mr-4">
-			            <i class="fas fa-copyright" data-container="body" data-toggle="popover" data-placement="bottom" data-title="C" data-content='
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i>'></i>
-			          </li>
-								<li class="list-inline-item mr-4">
-			            <i class="fab fa-php" data-container="body" data-toggle="popover" data-placement="bottom" data-title="PHP" data-content='
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i>'></i>
-			          </li>
-								<li class="list-inline-item mr-4">
-			            <i class="fab fa-git" data-container="body" data-toggle="popover" data-placement="bottom" data-title="Git" data-content='
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star-half-alt text-warning"></i>
-<i class="far fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i><br/>
-Repository management: GitHub<br/>
-Tools: GitHub Actions'></i>
-			          </li>
-			        </ul>
-						</div>
-
-						<div class="h-50">
-							<div class="subheading mb-3 mt-3">Languages</div>
-			        <ul class="list-inline">
-								<li class="list-inline-item mr-5">
-									<img src="/assets/img/blank.gif" class="flag flag-fr" alt="French"
-									data-container="body" data-toggle="popover" data-placement="bottom" data-title="French" data-content='
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i><br/>
-Native speaker'/>
-			          </li>
-								<li class="list-inline-item mr-5">
-									<img src="/assets/img/blank.gif" class="flag flag-gb" alt="English"
-									data-container="body" data-toggle="popover" data-placement="bottom" data-title="English" data-content='
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star-half-alt text-warning"></i><br/>
-CEF Level: C2 - Proficient'/>
-			          </li>
-								<li class="list-inline-item mr-5">
-									<img src="/assets/img/blank.gif" class="flag flag-it" alt="Italian"
-									data-container="body" data-toggle="popover" data-placement="bottom" data-title="Italian" data-content='
-<i class="fas fa-star text-warning"></i>
-<i class="fas fa-star-half-alt text-warning"></i>
-<i class="far fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i>
-<i class="far fa-star text-warning"></i><br/>
-CEF Level: A2 - Elementary'/>
-			          </li>
-			        </ul>
-						</div>
-
-					</div>
-
-				</div>
-      </div>
-    </section>
-
-    <hr class="m-0">
-
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
       <div class="w-100 h5">
         <h2 class="mb-5">Interests</h2>
         <p class="mb-3">
-					I spend most of my free-time playing video-games.
-					I am a co-leader of a french speaking team with around 20 members. It involves vocal and game server configuration, competitive training, and participation to some events.
-					I also develop and contribute to open-source computational chemistry tools such as <a href="https://github.com/cbouy/mols2grid">mols2grid</a>, <a href="https://github.com/chemosim-lab/ProLIF">ProLIF</a>, or <a href="https://www.mdanalysis.org/">MDAnalysis</a>.
-				</p>
-				<p class="mb-3">
-					In the winter, I enjoy snowboarding :snowboarder:
-					The rest of the year, I regularly play badminton with friends.
-				</p>
+          Video-games, electric bass, snowboard, badminton.
+          I also develop and contribute to open-source computational chemistry tools such as <a href="https://github.com/cbouy/mols2grid">mols2grid</a>, <a href="https://github.com/chemosim-lab/ProLIF">ProLIF</a>, or <a href="https://www.mdanalysis.org/">MDAnalysis</a>.
+        </p>
       </div>
     </section>
 
@@ -593,16 +637,16 @@ $(function () {
   $('[data-toggle="popover"]').popover({ trigger: "hover", html: true })
 })
 var options = {
-	activeCursor: 'default',
-	decel: 0.99,
-	initial: [0.1,-0.05],
-	minBrightness: 0.3,
-	noSelect: true,
-	outlineMethod: 'none',
-	shuffleTags: true,
-	textColour: null,
-	textFont: null,
-	weight: true,
+  activeCursor: 'default',
+  decel: 0.99,
+  initial: [0.1,-0.05],
+  minBrightness: 0.3,
+  noSelect: true,
+  outlineMethod: 'none',
+  shuffleTags: true,
+  textColour: null,
+  textFont: null,
+  weight: true,
 };
 window.onload = function() {
 try {

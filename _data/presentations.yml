@@ -1,3 +1,8 @@
+- event: 1st MDAnalysis UGM
+  url: https://github.com/MDAnalysis/UGM2023
+  title: "Encoding interactions as fingerprints in MD simulations"
+  type: Keynote
+  date: September 27-29, 2023
 - event: 11th RDKit UGM
   url: https://github.com/rdkit/UGM_2022
   title: "Encoding molecular interactions as fingerprints with ProLIF"

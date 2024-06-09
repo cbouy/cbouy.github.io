@@ -1,0 +1,22 @@
+- name: ProLIF
+  description: Interaction fingerprint library for any molecular complex and input files
+  github_handle: chemosim-lab/ProLIF
+  docs: https://prolif.readthedocs.io/
+  role: Author and maintainer
+  date: 2017
+  paper: Bouysset C. & Fiorucci S. (2021) Journal of Cheminformatics
+  doi: https://doi.org/10.1186/s13321-021-00548-6
+- name: mols2grid
+  description: Interactive 2D molecule viewer for Jupyter notebooks
+  github_handle: cbouy/mols2grid
+  docs: https://mols2grid.readthedocs.io/
+  role: Author and maintainer
+  date: 2021
+- name: MDAnalysis
+  description: Python library to analyze molecular dynamics simulations
+  github_handle: MDAnalysis/mdanalysis
+  docs: https://mdanalysis.org/
+  role: Regular Contributor
+  date: 2020
+  paper: Naughton F. B. et al. (2022) Biophysical Journal
+  doi: https://doi.org/10.1016/j.bpj.2021.11.1368

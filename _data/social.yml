@@ -2,14 +2,14 @@
   icon: fas fa-at
   large: fa-lg
   link: mailto:cedric@bouysset.net
-- name: Twitter
-  icon: fab fa-twitter
-  large: fa-lg
-  link: https://twitter.com/cedricbouysset
 - name: LinkedIn
   icon: fab fa-linkedin
   large: fa-lg
   link: https://www.linkedin.com/in/cedric-bouysset/
+- name: GitHub
+  icon: fab fa-github
+  large: fa-lg
+  link: https://github.com/cbouy
 - name: GoogleScholar
   icon: ai ai-google-scholar
   large: ai-lg
@@ -18,7 +18,7 @@
   icon: ai ai-orcid
   large: ai-lg
   link: https://orcid.org/0000-0002-7814-8158
-- name: GitHub
-  icon: fab fa-github
+- name: Twitter
+  icon: fab fa-twitter
   large: fa-lg
-  link: https://github.com/cbouy
+  link: https://twitter.com/cedricbouysset

@@ -9,11 +9,11 @@ on:
 jobs:
   github-pages:
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Clone GitHub repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     
     - name: Cache gems
       uses: actions/cache@v2
@@ -24,13 +24,13 @@ jobs:
           ${{ runner.os }}-vendor-
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: 3.8.5
 
-    - name: Fetch CV
-      run: |
-        wget -O assets/pdf/Bouysset-CV.pdf https://github.com/cbouy/cv/raw/main/cv.pdf
+    # - name: Fetch CV
+    #   run: |
+    #     wget -O assets/pdf/Bouysset-CV.pdf https://github.com/cbouy/cv/raw/main/cv.pdf
     
     - name: Build "tags" pages
       run: python _scripts/tag_generator.py

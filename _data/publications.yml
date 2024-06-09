@@ -1,3 +1,9 @@
+- title: "ChemFlow─From 2D Chemical Libraries to Protein–Ligand Binding Free Energies"
+  first_author: false
+  authors: Barreto Gomes D. E., Galentino K., Sisquellas M., Monari L., Bouysset C., Cecchini M.
+  date: January 2023
+  journal: Journal of Chemical Information and Modeling
+  url: https://doi.org/10.1021/acs.jcim.2c00919
 - title: "MDAnalysis 2.0 and beyond: fast and interoperable, community driven simulation analysis"
   first_author: false
   authors: Naughton F. B., Alibay I., Barnoud J., Barreto-Ojeda E., Beckstein O. Bouysset C., Cohen O., Gowers R. J., MacDermott-Opeskin H., Matta M., Melo M. N., Reddy T., Wang L., Zhuang Y.
