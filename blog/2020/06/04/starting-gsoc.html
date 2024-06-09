@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Starting GSoC with MDAnalysis | Cédric Bouysset</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Starting GSoC with MDAnalysis" />
+<meta name="author" content="Cédric Bouysset" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This week I’m starting my Google Summer of Code (GSoC) project with MDAnalysis 😀 The goal of the project is to make RDKit and MDAnalysis interoperable (i.e. you can go back and forth between an RDKit molecule and an MDAnalysis universe)." />
+<meta property="og:description" content="This week I’m starting my Google Summer of Code (GSoC) project with MDAnalysis 😀 The goal of the project is to make RDKit and MDAnalysis interoperable (i.e. you can go back and forth between an RDKit molecule and an MDAnalysis universe)." />
+<link rel="canonical" href="https://cbouy.github.io/blog/2020/06/04/starting-gsoc" />
+<meta property="og:url" content="https://cbouy.github.io/blog/2020/06/04/starting-gsoc" />
+<meta property="og:site_name" content="Cédric Bouysset" />
+<meta property="og:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/rdkit_interop_banner.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/rdkit_interop_banner.png" />
+<meta property="twitter:title" content="Starting GSoC with MDAnalysis" />
+<meta name="twitter:site" content="@cedricbouysset" />
+<meta name="twitter:creator" content="@Cédric Bouysset" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Cédric Bouysset"},"description":"This week I’m starting my Google Summer of Code (GSoC) project with MDAnalysis 😀 The goal of the project is to make RDKit and MDAnalysis interoperable (i.e. you can go back and forth between an RDKit molecule and an MDAnalysis universe).","headline":"Starting GSoC with MDAnalysis","dateModified":"2020-06-04T00:00:00+00:00","url":"https://cbouy.github.io/blog/2020/06/04/starting-gsoc","datePublished":"2020-06-04T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cbouy.github.io/blog/2020/06/04/starting-gsoc"},"image":"https://cbouy.github.io/assets/blog/2020/gsoc/rdkit_interop_banner.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://cbouy.github.io/assets/img/logo_64.png"},"name":"Cédric Bouysset"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<meta name="keywords" content="gsoc,mdanalysis,rdkit,python"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="shortcut icon" href="/assets/img/logo_64.png"/>
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-139606105-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet'/>
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/flags.min.css"/>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+</head>
+  <body>
+  <!-- Navigation -->
+
+<nav id="topbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <a id="brand" class="navbar-brand" href="https://cbouy.github.io">
+    <img src="/assets/img/logo_64.png" alt="Logo" style="height:40px;" />
+    @blog:~$ <span id="cursor-container">&nbsp;<span id="cursor">&nbsp;</span></span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+		<div class="navbar-nav">
+    
+    
+      <a href="/" class="text-uppercase nav-item nav-link">
+        <i class="fas fa-home"></i>
+      </a>
+    
+    
+    
+      <a href="/cv/" class="text-uppercase nav-item nav-link">
+        CV
+      </a>
+    
+    
+    
+      <a href="/blog/" class="text-uppercase nav-item nav-link">
+        Blog
+      </a>
+    
+    
+		</div>
+    <div class="navbar-nav ml-auto nav-flex-icons">
+      
+      <a href="mailto:cedric@bouysset.net" class="nav-item nav-link">
+        <i class="fas fa-at fa-lg"></i>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/cedric-bouysset/" class="nav-item nav-link">
+        <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+      
+      <a href="https://github.com/cbouy" class="nav-item nav-link">
+        <i class="fab fa-github fa-lg"></i>
+      </a>
+      
+      <a href="https://scholar.google.fr/citations?user=Ao29wE8AAAAJ" class="nav-item nav-link">
+        <i class="ai ai-google-scholar ai-lg"></i>
+      </a>
+      
+      <a href="https://orcid.org/0000-0002-7814-8158" class="nav-item nav-link">
+        <i class="ai ai-orcid ai-lg"></i>
+      </a>
+      
+      <a href="https://twitter.com/cedricbouysset" class="nav-item nav-link">
+        <i class="fab fa-twitter fa-lg"></i>
+      </a>
+      
+    </div>
+	</div>
+</nav>
+
+  <main id="home-container" class="container-fluid">
+    <div id="particles-js"></div>
+  	<div class="container py-3">
+  <div class="card">
+    <div class="card-header">
+      <!-- Share -->
+<div class="card-body a2a_kit a2a_default_style float-right pt-1">
+  <a class="a2a_dd" href="https://www.addtoany.com/share">
+    <i class="fas fa-lg fa-share-alt bg-success text-white rounded px-3 py-2"></i>
+  </a>
+</div>
+<script>
+  var a2a_config = a2a_config || {};
+  a2a_config.onclick = 2;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+      <h1>Starting GSoC with MDAnalysis</h1>
+      <hr>
+      <span class="float-left tags highlighter-rouge">[
+      
+        <a href="/tags/gsoc"><code><nobr>#gsoc</nobr></code></a>
+      
+        <a href="/tags/mdanalysis"><code><nobr>#mdanalysis</nobr></code></a>
+      
+        <a href="/tags/rdkit"><code><nobr>#rdkit</nobr></code></a>
+      
+        <a href="/tags/python"><code><nobr>#python</nobr></code></a>
+      
+      ]</span>
+      <p class="float-right">04 June 2020 - Cédric Bouysset</p>
+    </div>
+
+    
+    <div class="card-body pb-0 text-center">
+      <img class="card-img-top card-img-post" src="/assets/blog/2020/gsoc/rdkit_interop_banner.png" alt="Card image cap">
+    </div>
+    
+
+    <div class="card-body">
+      <p><p>This week I’m starting my Google Summer of Code (GSoC) project with MDAnalysis 😀 The goal of the project is to <strong>make 
+RDKit and MDAnalysis interoperable</strong> (i.e. you can go back and forth between an RDKit molecule and an MDAnalysis 
+universe).</p>
+
+<p>It will allow users to analyse MD trajectories with RDKit, compute 3D molecular descriptors from 
+conformations of ligands in a trajectory, select groups of atoms using SMARTS patterns, display images of AtomGroups in 
+Jupyter notebooks…etc. The <del>sky</del> <code class="highlighter-rouge">Segmentation fault (core dumped)</code> is the limit!</p>
+
+<p>If you have any suggestions of cool RDKit features that should be wrapped in MDAnalysis, don’t hesitate to tell me about
+it in the comment section!</p>
+
+<p> </p>
+<h2 id="what-is-gsoc">What is GSoC?</h2>
+<hr />
+
+<p><img src="/assets/blog/2020/gsoc/GSoC-logo.png" alt="GSoC Logo" style="float: right; margin: 5px; height: 150px; width: 150px;" />GSoC is an opportunity for students to be involved in open source software development.</p>
+
+<p>Every year since 2005, Google hosts this 3 month event by matching students with organizations to write code while 
+getting paid. It’s a first-hand experience in real-world software development which should be extremely valuable for 
+people who are interested in pursuing a career in this direction, like me.</p>
+
+<p>Since its begining, GSoC has gathered 15,000+ students from 109 countries and 686 organizations! This year, we are 1191 students interacting with 199 organizations!</p>
+
+<p> </p>
+<h2 id="mdanalysis">MDAnalysis</h2>
+<hr />
+
+<p><img src="/assets/blog/2020/gsoc/mdanalysis-logo.png" alt="MDA Logo" style="float: right; margin: 5px; height: 133px; width: 300px;" /> MDAnalysis is a Python library used to analyze MD trajectories in many popular formats. For the 2020 edition of GSoC, we are 3 students working on completely different projects:</p>
+<ul>
+  <li><a href="https://hmacdope.github.io/">Hugo MacDermott-Opeskin</a> implementing the much-needed TNG format (a collab’ with GROMACS),</li>
+  <li><a href="https://yuxuanzhuang.github.io/">Yuxuan Zhuang</a> serializing MDAnalysis’ Universe for parallelism,</li>
+  <li>and yours truly, mentored by <a href="https://twitter.com/richardjgowers">Richard Gowers</a>, <a href="https://twitter.com/HighSpeedMode">Irfan Alibay</a> and <a href="https://twitter.com/ExplainedByCats">Fiona Naughton</a></li>
+</ul>
+
+<p>You can learn more about all these projects in <a href="https://www.mdanalysis.org/2020/05/20/gsoc-students/">this blog post</a>.</p>
+
+<p> </p>
+<h2 id="project-timeline">Project timeline</h2>
+<hr />
+
+<p>There are 3 main deliverables in the <em>RDKit interoperability project</em>:</p>
+<ol>
+  <li>RDKitReader 🔵 → 🟠</li>
+  <li>RDKitConverter 🟠 → 🔵</li>
+  <li>RDKitWrapper 🟠 + 🔵 = 💡</li>
+</ol>
+
+<p>Here are the main lines of the project:</p>
+
+<p> </p>
+<h4 id="11--creating-a-topology-with-the-rdkitparser">1.1  Creating a Topology with the RDKitParser</h4>
+<hr />
+<p><em>From June 1st to June 12th</em></p>
+
+<ul>
+  <li>Inherit <code class="highlighter-rouge">TopologyReaderBase</code> and override its <code class="highlighter-rouge">parse</code> method</li>
+  <li>Add topology attributes (use guessers if N.A.):
+    <ul>
+      <li>Atoms (name, type, mass, charge, number)</li>
+      <li>Bonds (indices, bond order)</li>
+      <li>Protein-related attrs (residues, segments, chains…)</li>
+      <li>Others (angles, dihedrals…)</li>
+    </ul>
+  </li>
+  <li>Create new topology attributes:
+    <ul>
+      <li>Aromaticity</li>
+      <li>Partial charges</li>
+    </ul>
+  </li>
+  <li>Tests and docs</li>
+</ul>
+
+<p> </p>
+<h4 id="12--rdkit-to-mda-with-the-rdkitreader">1.2  RDKit to MDA with the RDKitReader</h4>
+<hr />
+<p><em>From June 15th to June 26th</em></p>
+
+<ul>
+  <li>Inherit <code class="highlighter-rouge">MemoryReader</code></li>
+  <li>Add coordinates as a numpy array</li>
+  <li>Tests and docs</li>
+  <li>First tutorial</li>
+</ul>
+
+<p>At this point, users will be able to do the following:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="n">mda</span>
+<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+
+<span class="c1"># RDKit to Universe
+</span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">MolFromMol2File</span><span class="p">(</span><span class="s">"molecule.mol2"</span><span class="p">,</span> <span class="n">removeHs</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="c1"># do something...
+</span></code></pre></div></div>
+
+<p> </p>
+<h4 id="21--creating-a-topology-with-the-rdkitconverter">2.1  Creating a topology with the RDKitConverter</h4>
+<hr />
+<p><em>From June 29th to July 10th</em></p>
+
+<ul>
+  <li>Create an editable molecule with <code class="highlighter-rouge">Chem.RWMol</code></li>
+  <li>Add <code class="highlighter-rouge">Chem.Atom</code> atoms to the molecule
+    <ul>
+      <li>Atomic number</li>
+      <li>Charges (partial and formal)</li>
+      <li>MonomerInfo (residues, segments…)</li>
+      <li>Store other properties with <code class="highlighter-rouge">atom.SetProp(name, value)</code></li>
+    </ul>
+  </li>
+  <li>Add <code class="highlighter-rouge">Chem.Bond</code> bonds to the molecule
+    <ul>
+      <li>Indices</li>
+      <li>Bond type</li>
+    </ul>
+  </li>
+  <li>Tests and docs</li>
+</ul>
+
+<p> </p>
+<h4 id="22--mda-to-rdkit-with-the-rdkitconverter">2.2  MDA to RDKit with the RDKitConverter</h4>
+<hr />
+<p><em>From July 13th to July 24th</em></p>
+
+<ul>
+  <li>Guess bond types and formal charges</li>
+  <li>Sanitization and aromaticity perception</li>
+  <li>Add coordinates
+    <ul>
+      <li>each frame as a conformer</li>
+      <li>only store a single frame by default (to avoid exceeding the memory limit)</li>
+    </ul>
+  </li>
+  <li>Tests and docs</li>
+  <li>Second tutorial</li>
+</ul>
+
+<p>From the user’s standpoint, it will look like this:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="n">mda</span>
+
+<span class="c1"># Universe to RDKit
+</span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">(</span><span class="s">'topology.gro'</span><span class="p">,</span> <span class="s">'trajectory.xtc'</span><span class="p">)</span>
+<span class="n">lig</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">'resname LIG'</span><span class="p">)</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">lig</span><span class="p">.</span><span class="n">convert_to</span><span class="p">(</span><span class="s">'RDKIT'</span><span class="p">)</span>
+<span class="c1"># do something...
+</span></code></pre></div></div>
+
+<p> </p>
+<h4 id="30--wrapper-to-rdkit-functionalities">3.0  Wrapper to RDKit functionalities</h4>
+<hr />
+<p><em>From July 27th to August 21st</em></p>
+
+<ul>
+  <li>New guessers:
+    <ul>
+      <li>Aromaticity</li>
+      <li>Partial and formal charges</li>
+    </ul>
+  </li>
+  <li>Molecular descriptors and fingerprints
+    <blockquote>
+      <p>A wrapper to commonly used descriptors and fingerprints:</p>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lig</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">'resname LIG'</span><span class="p">)</span>
+<span class="n">desc</span> <span class="o">=</span> <span class="n">get_descriptors</span><span class="p">(</span><span class="n">lig</span><span class="p">,</span> <span class="p">[</span><span class="s">'RingCount'</span><span class="p">,</span> <span class="s">'TPSA'</span><span class="p">,</span> <span class="s">'NumRotatableBonds'</span><span class="p">,</span> <span class="s">'GETAWAY'</span><span class="p">])</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="n">get_fingerprint</span><span class="p">(</span><span class="n">lig</span><span class="p">,</span> <span class="s">'Morgan'</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>      </div>
+    </blockquote>
+  </li>
+  <li>Selecting AtomGroups with SMARTS patterns
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">group</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">'[C,S](=O)-O'</span><span class="p">,</span> <span class="n">smarts</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Displaying small molecules as images in Jupyter notebooks
+    <blockquote>
+      <p>Why print a string representation for molecules when you can just show an image instead ?<br />
+  (or for meme connoisseurs, the virgin <code class="highlighter-rouge">__repr__</code> vs the Chad <code class="highlighter-rouge">_repr_png_</code>)</p>
+    </blockquote>
+  </li>
+  <li>Adding more Readers and Writers to MDAnalysis:
+    <ul>
+      <li>SDF</li>
+      <li>MOL</li>
+      <li>MAE (from Maestro)</li>
+      <li>TPL (from Catalyst)</li>
+      <li>HELM (from Pistoia Alliance)</li>
+      <li>Fasta</li>
+      <li>sequence of amino-acids</li>
+    </ul>
+  </li>
+</ul>
+
+<p>These will also come with short tutorials.</p>
+
+<p> <br />
+ </p>
+
+<p>Hopefully you will find all these new features useful! I’ll try to document my journey and post about cool RDKit or MDAnalysis stuff I’ve learned once or twice every 2 weeks.</p>
+
+<p>Stay safe,</p>
+
+<p>Cédric 🤖</p>
+</p>
+    </div>
+
+    <!-- Navigate through posts -->
+    <ul class="pagination justify-content-center">
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2019/06/09/interactive-map">&laquo; Interactive Choropleth Maps with Bokeh</a>
+    </li>
+    
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2020/06/18/gsoc-rdkit-to-universe">From RDKit to the Universe &raquo;</a>
+    </li>
+    
+    </ul>
+
+    <!-- Comments -->
+    
+<!-- Comments -->
+<div class="card-body">
+  <a href="#disqus_thread" data-disqus-identifier="/blog/2020/06/04/starting-gsoc" class="btn btn-info btn-lg btn-block"
+  role="button" data-toggle="collapse" data-target="#comments" aria-expanded="false" aria-controls="comments">Loading comments...</a>
+  <div class="collapse" id="comments">
+    <div id="disqus_thread" class="pt-3"></div>
+    <script src="/assets/js/disqus.js"></script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+<script id="dsq-count-scr" src="//cbouy-github-io.disqus.com/count.js" async></script>
+
+
+  </div>
+</div>
+
+
+    <script src="/assets/js/particles.js"></script>
+    <script src="/assets/js/particles-app.js"></script>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Adding new features to MDAnalysis | Cédric Bouysset</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Adding new features to MDAnalysis" />
+<meta name="author" content="Cédric Bouysset" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This week I’ve been attending my first ever virtual meeting, the International Symposium on Olfaction and Taste (ISOT for short). While technically this means I didn’t have a lot of time to implement new things, I still managed to get some work done and I hope that you will learn a lot of things from this blog post." />
+<meta property="og:description" content="This week I’ve been attending my first ever virtual meeting, the International Symposium on Olfaction and Taste (ISOT for short). While technically this means I didn’t have a lot of time to implement new things, I still managed to get some work done and I hope that you will learn a lot of things from this blog post." />
+<link rel="canonical" href="https://cbouy.github.io/blog/2020/08/07/rdkit-interoperability" />
+<meta property="og:url" content="https://cbouy.github.io/blog/2020/08/07/rdkit-interoperability" />
+<meta property="og:site_name" content="Cédric Bouysset" />
+<meta property="og:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/rdkit-wrapper.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-07T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/rdkit-wrapper.png" />
+<meta property="twitter:title" content="Adding new features to MDAnalysis" />
+<meta name="twitter:site" content="@cedricbouysset" />
+<meta name="twitter:creator" content="@Cédric Bouysset" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Cédric Bouysset"},"description":"This week I’ve been attending my first ever virtual meeting, the International Symposium on Olfaction and Taste (ISOT for short). While technically this means I didn’t have a lot of time to implement new things, I still managed to get some work done and I hope that you will learn a lot of things from this blog post.","headline":"Adding new features to MDAnalysis","dateModified":"2020-08-07T00:00:00+00:00","url":"https://cbouy.github.io/blog/2020/08/07/rdkit-interoperability","datePublished":"2020-08-07T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cbouy.github.io/blog/2020/08/07/rdkit-interoperability"},"image":"https://cbouy.github.io/assets/blog/2020/gsoc/rdkit-wrapper.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://cbouy.github.io/assets/img/logo_64.png"},"name":"Cédric Bouysset"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<meta name="keywords" content="gsoc,mdanalysis,rdkit,python"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="shortcut icon" href="/assets/img/logo_64.png"/>
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-139606105-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet'/>
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/flags.min.css"/>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+</head>
+  <body>
+  <!-- Navigation -->
+
+<nav id="topbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <a id="brand" class="navbar-brand" href="https://cbouy.github.io">
+    <img src="/assets/img/logo_64.png" alt="Logo" style="height:40px;" />
+    @blog:~$ <span id="cursor-container">&nbsp;<span id="cursor">&nbsp;</span></span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+		<div class="navbar-nav">
+    
+    
+      <a href="/" class="text-uppercase nav-item nav-link">
+        <i class="fas fa-home"></i>
+      </a>
+    
+    
+    
+      <a href="/cv/" class="text-uppercase nav-item nav-link">
+        CV
+      </a>
+    
+    
+    
+      <a href="/blog/" class="text-uppercase nav-item nav-link">
+        Blog
+      </a>
+    
+    
+		</div>
+    <div class="navbar-nav ml-auto nav-flex-icons">
+      
+      <a href="mailto:cedric@bouysset.net" class="nav-item nav-link">
+        <i class="fas fa-at fa-lg"></i>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/cedric-bouysset/" class="nav-item nav-link">
+        <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+      
+      <a href="https://github.com/cbouy" class="nav-item nav-link">
+        <i class="fab fa-github fa-lg"></i>
+      </a>
+      
+      <a href="https://scholar.google.fr/citations?user=Ao29wE8AAAAJ" class="nav-item nav-link">
+        <i class="ai ai-google-scholar ai-lg"></i>
+      </a>
+      
+      <a href="https://orcid.org/0000-0002-7814-8158" class="nav-item nav-link">
+        <i class="ai ai-orcid ai-lg"></i>
+      </a>
+      
+      <a href="https://twitter.com/cedricbouysset" class="nav-item nav-link">
+        <i class="fab fa-twitter fa-lg"></i>
+      </a>
+      
+    </div>
+	</div>
+</nav>
+
+  <main id="home-container" class="container-fluid">
+    <div id="particles-js"></div>
+  	<div class="container py-3">
+  <div class="card">
+    <div class="card-header">
+      <!-- Share -->
+<div class="card-body a2a_kit a2a_default_style float-right pt-1">
+  <a class="a2a_dd" href="https://www.addtoany.com/share">
+    <i class="fas fa-lg fa-share-alt bg-success text-white rounded px-3 py-2"></i>
+  </a>
+</div>
+<script>
+  var a2a_config = a2a_config || {};
+  a2a_config.onclick = 2;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+      <h1>Adding new features to MDAnalysis</h1>
+      <hr>
+      <span class="float-left tags highlighter-rouge">[
+      
+        <a href="/tags/gsoc"><code><nobr>#gsoc</nobr></code></a>
+      
+        <a href="/tags/mdanalysis"><code><nobr>#mdanalysis</nobr></code></a>
+      
+        <a href="/tags/rdkit"><code><nobr>#rdkit</nobr></code></a>
+      
+        <a href="/tags/python"><code><nobr>#python</nobr></code></a>
+      
+      ]</span>
+      <p class="float-right">07 August 2020 - Cédric Bouysset</p>
+    </div>
+
+    
+    <div class="card-body pb-0 text-center">
+      <img class="card-img-top card-img-post" src="/assets/blog/2020/gsoc/rdkit-wrapper.png" alt="Card image cap">
+    </div>
+    
+
+    <div class="card-body">
+      <p><p>This week I’ve been attending my first ever virtual meeting, the International Symposium on Olfaction and Taste (ISOT for short).<br />
+While technically this means I didn’t have a lot of time to implement new things, I still managed to get some work done and I hope that you will learn a lot of things from this blog post.</p>
+
+<p> </p>
+<h3 id="bringing-md-trajectories-to-rdkit">Bringing MD trajectories to RDKit</h3>
+<hr />
+
+<p>I finally added <strong>coordinates</strong> to the converter, so you can now properly read a trajectory:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sel</span> <span class="o">=</span> <span class="n">universe</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">"resname LRT"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="p">.</span><span class="n">trajectory</span><span class="p">:</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">sel</span><span class="p">.</span><span class="n">convert_to</span><span class="p">(</span><span class="s">"RDKIT"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The resulting molecule will contain a conformer with the coordinates of the current frame.<br />
+And don’t worry about efficiency, the topology of the molecule is not rebuilt for every frame, it is cached based on the id of the AtomGroup and the arguments that were passed to the converter.</p>
+
+<p>In the end the MDAnalysis AtomGroup is converted to an RDKit molecule once and cached, and to create each conformer the cached molecule is copied and we simply add the current frame’s coordinates.</p>
+
+<p>This pretty much brings an end to the second part of my GSoC project, hooray 🎉</p>
+
+<h4 id="how-to-create-gifs-in-python">How to create GIFs in Python</h4>
+
+<p>Here is a code snippet to create a gif of the trajectory with RDKit:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="n">mda</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">Draw</span>
+<span class="kn">from</span> <span class="nn">nglview.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">XTC</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
+<span class="n">elements</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">topology</span><span class="p">.</span><span class="n">guessers</span><span class="p">.</span><span class="n">guess_types</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">.</span><span class="n">names</span><span class="p">)</span>
+<span class="n">u</span><span class="p">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s">'elements'</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
+<span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">"resname LRT"</span><span class="p">)</span>
+
+<span class="n">pngs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="p">.</span><span class="n">trajectory</span><span class="p">:</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">ag</span><span class="p">.</span><span class="n">convert_to</span><span class="p">(</span><span class="s">"RDKIT"</span><span class="p">)</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">RemoveHs</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Draw</span><span class="p">.</span><span class="n">MolToImage</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">400</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="s">f"Frame </span><span class="si">{</span><span class="n">ts</span><span class="p">.</span><span class="n">frame</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+    <span class="n">pngs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="n">img</span><span class="p">,</span> <span class="o">*</span><span class="n">imgs</span> <span class="o">=</span> <span class="n">pngs</span>
+<span class="n">img</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">fp</span><span class="o">=</span><span class="s">"traj.gif"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s">'GIF'</span><span class="p">,</span> <span class="n">append_images</span><span class="o">=</span><span class="n">imgs</span><span class="p">,</span>
+         <span class="n">save_all</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">img, *imgs = pngs</code> line is the same as writing <code class="highlighter-rouge">img = pngs[0]; imgs = pngs[1:]</code></p>
+
+<p>Here’s the result (you can convert the <code class="highlighter-rouge">.gif</code> to a <code class="highlighter-rouge">.webm</code> video online):</p>
+<video controls="" loop="" src="/assets/blog/2020/gsoc/retinal_traj.webm">
+    <img src="/assets/blog/2020/gsoc/retinal_traj.gif" alt="RDKit depiction of the trajectory" />
+</video>
+
+<p><code class="highlighter-rouge">Draw.MolToImage</code> returns a PNG image through the <code class="highlighter-rouge">PIL</code> library which is automatically installed with RDKit, and PIL can be used for reading and writing images in a variety of formats.<br />
+You can modify the time between each frame with the <code class="highlighter-rouge">duration</code> parameter by either passing an integer in milliseconds, or a list of int for each frame.</p>
+
+<p>If you’d rather use the SVG drawer to highlight some particular atoms, here’s another snippet. We’ll also rotate the trajectory along the z axis to have a clearer view:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">cairosvg</span>
+<span class="kn">import</span> <span class="nn">io</span>
+
+<span class="c1"># add a rotation transformation for every timestep of the trajectory
+</span><span class="n">rotate</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">transformations</span><span class="p">.</span><span class="n">rotate</span><span class="p">.</span><span class="n">rotateby</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">ag</span><span class="o">=</span><span class="n">ag</span><span class="p">)</span>
+<span class="n">u</span><span class="p">.</span><span class="n">trajectory</span><span class="p">.</span><span class="n">add_transformations</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">output_svg</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">atoms</span><span class="o">=</span><span class="p">[],</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,.</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">700</span><span class="p">,</span> <span class="mi">400</span><span class="p">)):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">Draw</span><span class="p">.</span><span class="n">rdMolDraw2D</span><span class="p">.</span><span class="n">MolDraw2DSVG</span><span class="p">(</span><span class="o">*</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">opts</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">drawOptions</span><span class="p">()</span>
+    <span class="n">highlight_atoms</span> <span class="o">=</span> <span class="p">{</span><span class="n">atom</span><span class="p">:</span> <span class="n">color</span> <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">atoms</span><span class="p">}</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">legend</span><span class="o">=</span><span class="n">legend</span><span class="p">,</span>
+        <span class="n">highlightAtoms</span><span class="o">=</span><span class="n">atoms</span><span class="p">,</span>
+        <span class="n">highlightAtomColors</span><span class="o">=</span><span class="n">highlight_atoms</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">Draw</span><span class="p">.</span><span class="n">rdMolDraw2D</span><span class="p">.</span><span class="n">PrepareAndDrawMolecule</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">FinishDrawing</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">d</span><span class="p">.</span><span class="n">GetDrawingText</span><span class="p">().</span><span class="n">replace</span><span class="p">(</span><span class="s">'svg:'</span><span class="p">,</span><span class="s">''</span><span class="p">)</span>
+
+<span class="n">svgs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="p">.</span><span class="n">trajectory</span><span class="p">:</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">ag</span><span class="p">.</span><span class="n">convert_to</span><span class="p">(</span><span class="s">"RDKIT"</span><span class="p">)</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">RemoveHs</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">output_svg</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="s">f"Frame </span><span class="si">{</span><span class="n">ts</span><span class="p">.</span><span class="n">frame</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="n">atoms</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+    <span class="n">svgs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="n">img</span><span class="p">,</span> <span class="o">*</span><span class="n">imgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">Image</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">cairosvg</span><span class="p">.</span><span class="n">svg2png</span><span class="p">(</span><span class="n">bytestring</span><span class="o">=</span><span class="n">f</span><span class="p">)))</span> 
+              <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">svgs</span><span class="p">]</span>
+<span class="n">img</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">fp</span><span class="o">=</span><span class="s">"traj.gif"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s">'GIF'</span><span class="p">,</span> <span class="n">append_images</span><span class="o">=</span><span class="n">imgs</span><span class="p">,</span>
+         <span class="n">save_all</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+<video controls="" loop="" src="/assets/blog/2020/gsoc/retinal_traj_svg.webm">
+    <img src="/assets/blog/2020/gsoc/retinal_traj_svg.gif" alt="RDKit SVG depiction of the trajectory" />
+</video>
+
+<p> </p>
+<h3 id="a-new-api-for-converters">A new API for converters</h3>
+<hr />
+
+<p>I’ve also been working on the new API for converters. We currently have converters for <em>ParmEd</em> and <em>RDKit</em>. <br />
+We wanted something that could be <strong>tab-completed</strong>, while not cluttering the namespace of the AtomGroup class (so we can’t just add <code class="highlighter-rouge">to_rdkit</code>, <code class="highlighter-rouge">to_parmed</code>…etc.) and also keeping the current converter syntax.</p>
+
+<p>Pandas does this really nicely with <code class="highlighter-rouge">df.plot</code>, which can both be called with <code class="highlighter-rouge">df.plot(kind='scatter', ...)</code> or <code class="highlighter-rouge">df.plot.scatter(...)</code>, so I decided to follow the same direction.</p>
+
+<p>The trick to using <code class="highlighter-rouge">plot</code> as both a method and an object of its own is to use what Pandas calls an <strong>accessor</strong>. The accessor gives you access to another class in an object oriented manner, so that you don’t have to call <code class="highlighter-rouge">df.plot.scatter(df, ...)</code>.</p>
+
+<p>Let’s use a simple example to understand how it works, using a very simple molecule class and a class that defines descriptors (based on our favorite chemoinformatics module of course):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">Descriptors</span>
+
+<span class="k">class</span> <span class="nc">DescriptorWrapper</span><span class="p">:</span>
+    <span class="s">"""A class to describe molecules"""</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">molecule</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">molecule</span> <span class="o">=</span> <span class="n">molecule</span>
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">f"I am </span><span class="si">{</span><span class="n">Chem</span><span class="p">.</span><span class="n">MolToInchiKey</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">molecule</span><span class="p">.</span><span class="n">rdmol</span><span class="p">)</span><span class="si">}</span><span class="s">, but you can call me </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">molecule</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">count_atoms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">heavy_only</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">molecule</span><span class="p">.</span><span class="n">rdmol</span><span class="p">.</span><span class="n">GetNumHeavyAtoms</span><span class="p">()</span> <span class="k">if</span> <span class="n">heavy_only</span> <span class="k">else</span> <span class="bp">self</span><span class="p">.</span><span class="n">molecule</span><span class="p">.</span><span class="n">rdmol</span><span class="p">.</span><span class="n">GetNumAtoms</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">f"I have </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="s">'heavy'</span> <span class="k">if</span> <span class="n">heavy_only</span> <span class="k">else</span> <span class="s">''</span><span class="si">}</span><span class="s"> atoms"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">weight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">mw</span> <span class="o">=</span> <span class="n">Descriptors</span><span class="p">.</span><span class="n">MolWt</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">molecule</span><span class="p">.</span><span class="n">rdmol</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">f"I weight </span><span class="si">{</span><span class="n">mw</span><span class="p">:.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s"> g/mol"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Accessor</span><span class="p">:</span>
+    <span class="s">"""Gives access to the wrapper class from the parent class"""</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to_access</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">to_access</span> <span class="o">=</span> <span class="n">to_access</span>
+    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">cls</span><span class="p">):</span>
+        <span class="c1"># pass the object that called the class to the wrapper
+</span>        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">to_access</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Molecule</span><span class="p">:</span>
+    <span class="s">"""A class for molecules"""</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smiles</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">rdmol</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
+    <span class="n">describe</span> <span class="o">=</span> <span class="n">Accessor</span><span class="p">(</span><span class="n">DescriptorWrapper</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">benzene</span> <span class="o">=</span> <span class="n">Molecule</span><span class="p">(</span><span class="s">"c1ccccc1"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"benzene"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">benzene</span><span class="p">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># __call__ method is used
+</span><span class="n">I</span> <span class="n">am</span> <span class="n">UHOVQNZJYSORNB</span><span class="o">-</span><span class="n">UHFFFAOYSA</span><span class="o">-</span><span class="n">N</span><span class="p">,</span> <span class="n">but</span> <span class="n">you</span> <span class="n">can</span> <span class="n">call</span> <span class="n">me</span> <span class="n">benzene</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">benzene</span><span class="p">.</span><span class="n">describe</span><span class="p">.</span><span class="n">weight</span><span class="p">()</span>
+<span class="n">I</span> <span class="n">weight</span> <span class="mf">78.11</span> <span class="n">g</span><span class="o">/</span><span class="n">mol</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">benzene</span><span class="p">.</span><span class="n">describe</span><span class="p">.</span><span class="n">count_atoms</span><span class="p">(</span><span class="n">heavy_only</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">I</span> <span class="n">have</span> <span class="mi">6</span> <span class="n">heavy</span> <span class="n">atoms</span>
+</code></pre></div></div>
+
+<p>Every time you go through <code class="highlighter-rouge">benzene.describe</code>, it calls the <code class="highlighter-rouge">Accessor.__get__(benzene, Molecule)</code> method, which returns <code class="highlighter-rouge">DescriptorWrapper(benzene)</code>. So in the end, calling <code class="highlighter-rouge">benzene.describe()</code> is the same as <code class="highlighter-rouge">DescriptorWrapper(benzene)()</code> and so on.</p>
+
+<p>Using the same <code class="highlighter-rouge">Accessor</code> class and a <code class="highlighter-rouge">ConverterWrapper</code> class which defines the <code class="highlighter-rouge">rdkit</code> and <code class="highlighter-rouge">parmed</code> methods, I was able to move the code of the old <code class="highlighter-rouge">AtomGroup.convert_to</code> method to the <code class="highlighter-rouge">ConverterWrapper.__call__</code> method, and redefine the <code class="highlighter-rouge">convert_to</code> method as <code class="highlighter-rouge">Accessor(ConverterWrapper)</code>. That’s a pretty neat trick to keep methods organized for users!</p>
+
+<p> </p>
+<h3 id="smarts-selection">SMARTS selection</h3>
+<hr />
+
+<p>Something else I’ve been working on: SMARTS selection!<br />
+You can now select atoms based on a <strong>SMARTS query</strong>, and combine the selection with the other MDAnalysis selections:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s">"Nc1cc(C[C@H]([O-])C=O)c[nH]1"</span><span class="p">)</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">.</span><span class="n">convert_to</span><span class="p">.</span><span class="n">rdkit</span><span class="p">()</span>
+<span class="n">mol</span><span class="p">.</span><span class="n">RemoveAllConformers</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="p">.</span><span class="n">GetAtoms</span><span class="p">():</span>
+    <span class="n">atom</span><span class="p">.</span><span class="n">SetProp</span><span class="p">(</span><span class="s">"atomNote"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">GetIdx</span><span class="p">()))</span>
+<span class="n">mol</span>
+</code></pre></div></div>
+<p><img src="/assets/blog/2020/gsoc/smarts_sel.png" alt="A molecule" /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># carbon atoms in a ring
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">"smarts [#6;R]"</span><span class="p">).</span><span class="n">indices</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="c1"># atoms that are not hydrogen, and not in a ring but connected to a ring 
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">"smarts [$([!#1]);$([!R][R])]"</span><span class="p">).</span><span class="n">indices</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="c1"># carbon and next to a ring
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">"type C and smarts [$([!R][R])]"</span><span class="p">).</span><span class="n">indices</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Now keep in mind that this selection combines all the resulting matches into one single match of unique atoms. If you want to iterate other <code class="highlighter-rouge">C=O</code> bonds match by match for instance, you’d have to use the RDKit converter and then iterate over <code class="highlighter-rouge">mol.GetSubstructMatches(Chem.MolFromSmarts('C=O'))</code>.</p>
+
+<p>That’s it for this week, I hope you’ve learnt something new 🤓!</p>
+
+<p>Cheers,</p>
+
+<p>Cédric</p>
+</p>
+    </div>
+
+    <!-- Navigate through posts -->
+    <ul class="pagination justify-content-center">
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2020/07/22/rdkit-converter-part2">&laquo; Creating RDKit molecules from MD simulations</a>
+    </li>
+    
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2020/09/01/end-of-gsoc">Conclusion of my GSoC adventure &raquo;</a>
+    </li>
+    
+    </ul>
+
+    <!-- Comments -->
+    
+<!-- Comments -->
+<div class="card-body">
+  <a href="#disqus_thread" data-disqus-identifier="/blog/2020/08/07/rdkit-interoperability" class="btn btn-info btn-lg btn-block"
+  role="button" data-toggle="collapse" data-target="#comments" aria-expanded="false" aria-controls="comments">Loading comments...</a>
+  <div class="collapse" id="comments">
+    <div id="disqus_thread" class="pt-3"></div>
+    <script src="/assets/js/disqus.js"></script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+<script id="dsq-count-scr" src="//cbouy-github-io.disqus.com/count.js" async></script>
+
+
+  </div>
+</div>
+
+
+    <script src="/assets/js/particles.js"></script>
+    <script src="/assets/js/particles-app.js"></script>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Creating RDKit molecules from MD simulations | Cédric Bouysset</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Creating RDKit molecules from MD simulations" />
+<meta name="author" content="Cédric Bouysset" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Last time, I presented a very simple MDAnalysis to RDKit converter which had quite limited applications. Today, I’m proud to announce that the converter can output an RDKit molecule with bond orders and charges from any type of input accepted by MDAnalysis!" />
+<meta property="og:description" content="Last time, I presented a very simple MDAnalysis to RDKit converter which had quite limited applications. Today, I’m proud to announce that the converter can output an RDKit molecule with bond orders and charges from any type of input accepted by MDAnalysis!" />
+<link rel="canonical" href="https://cbouy.github.io/blog/2020/07/22/rdkit-converter-part2" />
+<meta property="og:url" content="https://cbouy.github.io/blog/2020/07/22/rdkit-converter-part2" />
+<meta property="og:site_name" content="Cédric Bouysset" />
+<meta property="og:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/rdkitconverter-part2.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/rdkitconverter-part2.png" />
+<meta property="twitter:title" content="Creating RDKit molecules from MD simulations" />
+<meta name="twitter:site" content="@cedricbouysset" />
+<meta name="twitter:creator" content="@Cédric Bouysset" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Cédric Bouysset"},"description":"Last time, I presented a very simple MDAnalysis to RDKit converter which had quite limited applications. Today, I’m proud to announce that the converter can output an RDKit molecule with bond orders and charges from any type of input accepted by MDAnalysis!","headline":"Creating RDKit molecules from MD simulations","dateModified":"2020-07-22T00:00:00+00:00","url":"https://cbouy.github.io/blog/2020/07/22/rdkit-converter-part2","datePublished":"2020-07-22T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cbouy.github.io/blog/2020/07/22/rdkit-converter-part2"},"image":"https://cbouy.github.io/assets/blog/2020/gsoc/rdkitconverter-part2.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://cbouy.github.io/assets/img/logo_64.png"},"name":"Cédric Bouysset"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<meta name="keywords" content="gsoc,mdanalysis,rdkit,python"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="shortcut icon" href="/assets/img/logo_64.png"/>
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-139606105-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet'/>
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/flags.min.css"/>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+</head>
+  <body>
+  <!-- Navigation -->
+
+<nav id="topbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <a id="brand" class="navbar-brand" href="https://cbouy.github.io">
+    <img src="/assets/img/logo_64.png" alt="Logo" style="height:40px;">
+    @blog:~$ <span id="cursor-container"> <span id="cursor"> </span></span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+		<div class="navbar-nav">
+    
+    
+      <a href="/" class="text-uppercase nav-item nav-link">
+        <i class="fas fa-home"></i>
+      </a>
+    
+    
+    
+      <a href="/cv/" class="text-uppercase nav-item nav-link">
+        CV
+      </a>
+    
+    
+    
+      <a href="/blog/" class="text-uppercase nav-item nav-link">
+        Blog
+      </a>
+    
+    
+		</div>
+    <div class="navbar-nav ml-auto nav-flex-icons">
+      
+      <a href="mailto:cedric@bouysset.net" class="nav-item nav-link">
+        <i class="fas fa-at fa-lg"></i>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/cedric-bouysset/" class="nav-item nav-link">
+        <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+      
+      <a href="https://github.com/cbouy" class="nav-item nav-link">
+        <i class="fab fa-github fa-lg"></i>
+      </a>
+      
+      <a href="https://scholar.google.fr/citations?user=Ao29wE8AAAAJ" class="nav-item nav-link">
+        <i class="ai ai-google-scholar ai-lg"></i>
+      </a>
+      
+      <a href="https://orcid.org/0000-0002-7814-8158" class="nav-item nav-link">
+        <i class="ai ai-orcid ai-lg"></i>
+      </a>
+      
+      <a href="https://twitter.com/cedricbouysset" class="nav-item nav-link">
+        <i class="fab fa-twitter fa-lg"></i>
+      </a>
+      
+    </div>
+	</div>
+</nav>
+
+  <main id="home-container" class="container-fluid">
+    <div id="particles-js"></div>
+  	<div class="container py-3">
+  <div class="card">
+    <div class="card-header">
+      <!-- Share -->
+<div class="card-body a2a_kit a2a_default_style float-right pt-1">
+  <a class="a2a_dd" href="https://www.addtoany.com/share">
+    <i class="fas fa-lg fa-share-alt bg-success text-white rounded px-3 py-2"></i>
+  </a>
+</div>
+<script>
+  var a2a_config = a2a_config || {};
+  a2a_config.onclick = 2;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+      <h1>Creating RDKit molecules from MD simulations</h1>
+      <hr>
+      <span class="float-left tags highlighter-rouge">[
+      
+        <a href="/tags/gsoc"><code><nobr>#gsoc</nobr></code></a>
+      
+        <a href="/tags/mdanalysis"><code><nobr>#mdanalysis</nobr></code></a>
+      
+        <a href="/tags/rdkit"><code><nobr>#rdkit</nobr></code></a>
+      
+        <a href="/tags/python"><code><nobr>#python</nobr></code></a>
+      
+      ]</span>
+      <p class="float-right">22 July 2020 - Cédric Bouysset</p>
+    </div>
+
+    
+    <div class="card-body pb-0 text-center">
+      <img class="card-img-top card-img-post" src="/assets/blog/2020/gsoc/rdkitconverter-part2.png" alt="Card image cap">
+    </div>
+    
+
+    <div class="card-body">
+      <p></p>
+<p>Last time, I presented a very simple MDAnalysis to RDKit converter which had quite limited applications. 
+Today, I’m proud to announce that the converter can output an RDKit molecule with bond orders and charges from any type of input accepted by MDAnalysis!</p>
+
+<p> </p>
+<h3 id="showcase">Showcase</h3>
+<hr>
+
+<p>The only requirement for this to work is having <strong>explicit hydrogens</strong> in the topology file, which should be the case for most MD simulations.</p>
+
+<p>Let’s start with a simple example: a PDB file.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="n">mda</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="n">nv</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">nglview.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">topology</span><span class="p">.</span><span class="n">guessers</span><span class="p">.</span><span class="n">guess_types</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">.</span><span class="n">names</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s">'elements'</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span>
+<span class="o">&lt;</span><span class="n">Universe</span> <span class="k">with</span> <span class="mi">5547</span> <span class="n">atoms</span><span class="o">&gt;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lig</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">"resname LRT"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="p">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">lig</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">view</span>
+</code></pre></div></div>
+<p><img src="/assets/blog/2020/gsoc/nglview_retinal.png" alt="Retinal-like molecule viewed with NGLView"></p>
+
+<p>This molecule looks like a derivative of retinal, the compound that binds to opsins and is at the molecular basis of our sense of sight.
+Now we simply convert the Universe to RDkit and <em>TADA</em>!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mol</span> <span class="o">=</span> <span class="n">lig</span><span class="p">.</span><span class="n">convert_to</span><span class="p">(</span><span class="s">"RDKIT"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Chem</span><span class="p">.</span><span class="n">RemoveHs</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</code></pre></div></div>
+<p><img src="/assets/blog/2020/gsoc/rdkitconverter_retinal.png" alt="Retinal-like molecule converted to RDKit"></p>
+
+<blockquote>
+  <p>This looks cool, but why would you go through all this when RDKit already reads PDB files ?</p>
+</blockquote>
+
+<p>The reason is simple: since PDB files don’t contain bond orders most of the time, RDKit will infer them only for standard residue names, not for ligands:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">MolFromPDBFile</span><span class="p">(</span><span class="n">PDB</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">SplitMolByPDBResidues</span><span class="p">(</span><span class="n">mol</span><span class="p">)[</span><span class="s">"LRT"</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mol</span><span class="p">.</span><span class="n">RemoveAllConformers</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mol</span>
+</code></pre></div></div>
+<p><img src="/assets/blog/2020/gsoc/rdkit_retinal.png" alt="Retinal-like molecule as read by RDKit"></p>
+
+<p>Another example with a topology file from Amber:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">MDAnalysisTests.datafiles</span> <span class="kn">import</span> <span class="n">PRM</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">topology</span><span class="p">.</span><span class="n">guessers</span><span class="p">.</span><span class="n">guess_types</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">.</span><span class="n">names</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s">'elements'</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span>
+<span class="o">&lt;</span><span class="n">Universe</span> <span class="k">with</span> <span class="mi">252</span> <span class="n">atoms</span><span class="o">&gt;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mol</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">.</span><span class="n">convert_to</span><span class="p">(</span><span class="s">"RDKIT"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Draw</span><span class="p">.</span><span class="n">MolToImage</span><span class="p">(</span><span class="n">Chem</span><span class="p">.</span><span class="n">RemoveHs</span><span class="p">(</span><span class="n">mol</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">700</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+</code></pre></div></div>
+<p><img src="/assets/blog/2020/gsoc/rdkitconverter_prmtop.png" alt="Amber PRMTOP converted to RDKit"></p>
+
+<p> </p>
+<h3 id="how-it-works">How it works</h3>
+<hr>
+
+<p>Since we have a molecule with explicit hydrogens, we can guess the bond orders and charges from this information. For each atom, we compare it’s expected valence with the current valence to get the <strong><em>number of unpaired electrons</em></strong>. Then their are 3 cases:</p>
+<ul>
+  <li>The atom has no unpaired electrons → no need to do anything</li>
+  <li>The atom has a too many paired electrons → it needs a positive charge</li>
+  <li>The atom has <code class="highlighter-rouge">N</code> unpaired electrons. In this case, we look at the number of unpaired electrons for each of the neighbors of this atom. If both the atom and his neighbor have unpaired electrons, we increase the order of the bond between them by the smallest <code class="highlighter-rouge">N</code>. Finally, if the atom still has unpaired electrons after that, we convert this number to a negative formal charge.</li>
+</ul>
+
+<p>Here’s the process in action:</p>
+
+<video controls="" loop="" src="/assets/blog/2020/gsoc/rdkitconverter_gro.webm">
+    <img src="/assets/blog/2020/gsoc/rdkitconverter_gro.gif" alt="Animation of the RDKit converter inferring bond orders and charges">
+</video>
+
+<p>Now the problem with this method is that <strong>the order in which atoms are read might influence the process</strong> and incorrectly charge some atoms. Atoms with several possible valences might also get in the way.<br>
+For example, a sulfate (SO<sub>4</sub><sup>2-</sup>) in a topology would appear as a sulfur atom with 4 connections to the oxygen atoms. Since a valence of 4 is valid for the S atom, we would end up with a sulfur sharing single bonds with 4 negatively charged oxygen atoms.</p>
+
+<p>The way I tackled this problem was to use reactions based on SMARTS patterns to reassign the correct bond orders and charges to atoms.<br>
+Here is an example with an arginine, which had a negatively charged carbon instead of a positively charged nitrogen. The corresponding SMARTS reaction is <code class="highlighter-rouge">[N;H1:1]-[C-;X3;H0:2](-[N;H2:3])-[N;H2:4]&gt;&gt;[N:1]-[C;+0:2](-[N:3])=[N;+1:4]</code></p>
+
+<video controls="" loop="" src="/assets/blog/2020/gsoc/rdkitconverter_arg.webm">
+    <img src="/assets/blog/2020/gsoc/rdkitconverter_arg.gif" alt="Animation of the RDKit converter standardizing functional groups">
+</video>
+
+<p>Another problem which took me some time to solve was with <strong>conjugated systems</strong>. For the same reason as above (atom order), in some cases I ended up with negative charges on the atoms at the edges of a conjugated system, and one double bond less than expected.<br>
+Now this could also be solved by reactions, but it would mean writing a SMARTS pattern for every possible length of conjugated system: one for 2 alternating double bonds, one for 3…etc.</p>
+
+<p>The good thing is that all the badly written conjugated systems share the same pattern: an anion connected by a single bond to an uncharged atom connected by a double bond to another uncharged atom, <em>a.k.a.</em> <code class="highlighter-rouge">[*-]-[*;+0]=[*;+0;!O]</code> as a SMARTS query, then <code class="highlighter-rouge">N</code> alternating single and double bonds, and the same 3-atom pattern the other way around.</p>
+
+<p>The idea here was to iteratively decrease <code class="highlighter-rouge">N</code> by switching the charges and bond orders of atoms that matched the above 3-atom pattern, <em>a bit like moving up a ladder</em>.<br>
+Then at some point we need an end condition to our iterative procedure. It’s triggered when we reach the simplest case where its just 2 anions separated by 2 atoms with a double bond in the middle, which can be solved by a SMARTS reaction.<br>
+With the example of an histidine, here’s how the simple case works:</p>
+
+<video controls="" loop="" src="/assets/blog/2020/gsoc/rdkitconverter_his.webm">
+    <img src="/assets/blog/2020/gsoc/rdkitconverter_his.gif" alt="Animation of the RDKit converter standardizing functional groups">
+</video>
+
+<p>Sometimes unfortunately one of the atoms at the edge of the conjugated system is a nitrogen, which will not be negatively charged since a valence of 3 is expected. We just have to slightly correct the SMARTS query for the end condition.<br>
+To detect automatically this rare scenario, we can simply count the number of unique anions that matched the 3-atom pattern <code class="highlighter-rouge">[*-]-[*;+0]=[*;+0;!O]</code> and change the SMARTS query when it’s odd instead of even.<br>
+Taking our first retinal-like molecule, you will see the carbanion moving up the “ladder” of bonds until it reaches the nitrogen.</p>
+
+<video controls="" loop="" src="/assets/blog/2020/gsoc/rdkitconverter_retinal.webm">
+    <img src="/assets/blog/2020/gsoc/rdkitconverter_retinal.gif" alt="Animation of the RDKit standardizing a conjugated system">
+</video>
+
+<p> </p>
+<h3 id="whats-next">What’s next</h3>
+<hr>
+
+<p>This bond order guessing took quite some time to implement and test, but at least I’m really satisfied with it now. It overlapped a bit with the time I wanted to spend <strong>adding coordinates</strong> to the RDKit molecule but this shouldn’t take too long.</p>
+
+<p>Once this is done (probably just before August), the second part of my <em>Google Summer of Code</em> project will finally be over and I can start experimenting with RDKit inside MDAnalysis to import cool features and new kinds of analysis.<br>
+It’s gonna be awesome! <img class="emoji" title=":robot:" alt=":robot:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f916.png" height="20" width="20"></p>
+
+<p>Until then,</p>
+
+<p>Cédric</p>
+
+    </div>
+
+    <!-- Navigate through posts -->
+    <ul class="pagination justify-content-center">
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2020/07/01/rdkit-converter">« A simple MDAnalysis to RDKit converter</a>
+    </li>
+    
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2020/08/07/rdkit-interoperability">Adding new features to MDAnalysis »</a>
+    </li>
+    
+    </ul>
+
+    <!-- Comments -->
+    
+<!-- Comments -->
+<div class="card-body">
+  <a href="#disqus_thread" data-disqus-identifier="/blog/2020/07/22/rdkit-converter-part2" class="btn btn-info btn-lg btn-block" role="button" data-toggle="collapse" data-target="#comments" aria-expanded="false" aria-controls="comments">Loading comments...</a>
+  <div class="collapse" id="comments">
+    <div id="disqus_thread" class="pt-3"></div>
+    <script src="/assets/js/disqus.js"></script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+  </div>
+</div>
+<script id="dsq-count-scr" src="//cbouy-github-io.disqus.com/count.js" async></script>
+
+
+  </div>
+</div>
+
+
+    <script src="/assets/js/particles.js"></script>
+    <script src="/assets/js/particles-app.js"></script>
+  </main>
+</body>
+
+</html>

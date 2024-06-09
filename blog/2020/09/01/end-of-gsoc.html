@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Conclusion of my GSoC adventure | Cédric Bouysset</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Conclusion of my GSoC adventure" />
+<meta name="author" content="Cédric Bouysset" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="After 3 months of hard work, I’ve reached the end of my journey as a Google Summer of Code student with MDAnalysis." />
+<meta property="og:description" content="After 3 months of hard work, I’ve reached the end of my journey as a Google Summer of Code student with MDAnalysis." />
+<link rel="canonical" href="https://cbouy.github.io/blog/2020/09/01/end-of-gsoc" />
+<meta property="og:url" content="https://cbouy.github.io/blog/2020/09/01/end-of-gsoc" />
+<meta property="og:site_name" content="Cédric Bouysset" />
+<meta property="og:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/gsoc-end.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/gsoc-end.png" />
+<meta property="twitter:title" content="Conclusion of my GSoC adventure" />
+<meta name="twitter:site" content="@cedricbouysset" />
+<meta name="twitter:creator" content="@Cédric Bouysset" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Cédric Bouysset"},"description":"After 3 months of hard work, I’ve reached the end of my journey as a Google Summer of Code student with MDAnalysis.","headline":"Conclusion of my GSoC adventure","dateModified":"2020-09-01T00:00:00+00:00","url":"https://cbouy.github.io/blog/2020/09/01/end-of-gsoc","datePublished":"2020-09-01T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cbouy.github.io/blog/2020/09/01/end-of-gsoc"},"image":"https://cbouy.github.io/assets/blog/2020/gsoc/gsoc-end.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://cbouy.github.io/assets/img/logo_64.png"},"name":"Cédric Bouysset"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<meta name="keywords" content="gsoc,mdanalysis,rdkit,python"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="shortcut icon" href="/assets/img/logo_64.png"/>
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-139606105-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet'/>
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/flags.min.css"/>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+</head>
+  <body>
+  <!-- Navigation -->
+
+<nav id="topbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <a id="brand" class="navbar-brand" href="https://cbouy.github.io">
+    <img src="/assets/img/logo_64.png" alt="Logo" style="height:40px;" />
+    @blog:~$ <span id="cursor-container">&nbsp;<span id="cursor">&nbsp;</span></span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+		<div class="navbar-nav">
+    
+    
+      <a href="/" class="text-uppercase nav-item nav-link">
+        <i class="fas fa-home"></i>
+      </a>
+    
+    
+    
+      <a href="/cv/" class="text-uppercase nav-item nav-link">
+        CV
+      </a>
+    
+    
+    
+      <a href="/blog/" class="text-uppercase nav-item nav-link">
+        Blog
+      </a>
+    
+    
+		</div>
+    <div class="navbar-nav ml-auto nav-flex-icons">
+      
+      <a href="mailto:cedric@bouysset.net" class="nav-item nav-link">
+        <i class="fas fa-at fa-lg"></i>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/cedric-bouysset/" class="nav-item nav-link">
+        <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+      
+      <a href="https://github.com/cbouy" class="nav-item nav-link">
+        <i class="fab fa-github fa-lg"></i>
+      </a>
+      
+      <a href="https://scholar.google.fr/citations?user=Ao29wE8AAAAJ" class="nav-item nav-link">
+        <i class="ai ai-google-scholar ai-lg"></i>
+      </a>
+      
+      <a href="https://orcid.org/0000-0002-7814-8158" class="nav-item nav-link">
+        <i class="ai ai-orcid ai-lg"></i>
+      </a>
+      
+      <a href="https://twitter.com/cedricbouysset" class="nav-item nav-link">
+        <i class="fab fa-twitter fa-lg"></i>
+      </a>
+      
+    </div>
+	</div>
+</nav>
+
+  <main id="home-container" class="container-fluid">
+    <div id="particles-js"></div>
+  	<div class="container py-3">
+  <div class="card">
+    <div class="card-header">
+      <!-- Share -->
+<div class="card-body a2a_kit a2a_default_style float-right pt-1">
+  <a class="a2a_dd" href="https://www.addtoany.com/share">
+    <i class="fas fa-lg fa-share-alt bg-success text-white rounded px-3 py-2"></i>
+  </a>
+</div>
+<script>
+  var a2a_config = a2a_config || {};
+  a2a_config.onclick = 2;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+      <h1>Conclusion of my GSoC adventure</h1>
+      <hr>
+      <span class="float-left tags highlighter-rouge">[
+      
+        <a href="/tags/gsoc"><code><nobr>#gsoc</nobr></code></a>
+      
+        <a href="/tags/mdanalysis"><code><nobr>#mdanalysis</nobr></code></a>
+      
+        <a href="/tags/rdkit"><code><nobr>#rdkit</nobr></code></a>
+      
+        <a href="/tags/python"><code><nobr>#python</nobr></code></a>
+      
+      ]</span>
+      <p class="float-right">01 September 2020 - Cédric Bouysset</p>
+    </div>
+
+    
+    <div class="card-body pb-0 text-center">
+      <img class="card-img-top card-img-post" src="/assets/blog/2020/gsoc/gsoc-end.png" alt="Card image cap">
+    </div>
+    
+
+    <div class="card-body">
+      <p><p>After 3 months of hard work, I’ve reached the end of my journey as a Google Summer of Code student with MDAnalysis.</p>
+
+<p>It has been an extremely valuable experience for me and I hope that it will inspire other people to jump on the GSoC wagon with <a href="https://www.mdanalysis.org/">MDAnalysis</a> or others (like <a href="https://www.openchemistry.org/gsoc/">Open Chemistry</a>), or to contribute to the community by publishing open-source code.</p>
+
+<p>You can find a recap of my whole project on this MDAnalysis <a href="https://www.mdanalysis.org/2020/08/29/gsoc-report-cbouy/">blog post</a>.</p>
+
+<p> </p>
+<h3 id="preview-of-upcoming-features">Preview of upcoming features</h3>
+<hr />
+
+<p>I don’t have a lot of new things to present, I’ve been mainly wrapping everything up before the end of the project. Hopefully you will find these features usefull (<code class="highlighter-rouge">&lt;buzzfeed&gt;you won't believe what's in feature #2&lt;/buzzfeed&gt;</code>) !</p>
+
+<p> </p>
+<h4 id="1-drawing-code">1/ Drawing code</h4>
+
+<p>You can now directly visualize small AtomGroups RDKit-style in Jupyter notebooks. You can also generate images (svg or png) and even gif of trajectories, similarly to what I was showing in my previous post. The rendering can be customized through the <code class="highlighter-rouge">rdkit.Chem.Draw.MolDrawOptions</code> class (documentation <a href="http://rdkit.org/docs/cppapi/structRDKit_1_1MolDrawOptions.html">here</a>)</p>
+
+<video controls="" loop="" src="/assets/blog/2020/gsoc/rdkit-drawer.webm"></video>
+
+<p> </p>
+<h4 id="2-descriptors">2/ Descriptors</h4>
+
+<p>Descriptors can now be computed on an AtomGroup for each frames:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">MDAnalysis.analysis.RDKit</span> <span class="kn">import</span> <span class="n">RDKitDescriptors</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s">"CCO"</span><span class="p">,</span> <span class="n">numConfs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">descriptors</span> <span class="o">=</span> <span class="p">[</span><span class="s">"MolWt"</span><span class="p">,</span> <span class="s">"RadiusOfGyration"</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">RDKitDescriptors</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">,</span> <span class="o">*</span><span class="n">descriptors</span><span class="p">).</span><span class="n">run</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">calc</span><span class="p">.</span><span class="n">results</span>
+<span class="n">array</span><span class="p">([[</span><span class="mf">46.06900000000002</span><span class="p">,</span> <span class="mf">1.161278342193013</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">46.06900000000002</span><span class="p">,</span> <span class="mf">1.175492972121405</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">46.06900000000002</span><span class="p">,</span> <span class="mf">1.173230936577319</span><span class="p">]],</span>
+      <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+</code></pre></div></div>
+<p>There are 305 descriptors (not a currated list) available this way, taken from 8 RDKit modules:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">rdkit.Chem.Descriptors</code>: Molecular descriptors</li>
+  <li><code class="highlighter-rouge">rdkit.Chem.Descriptors3D</code>: Descriptors derived from a molecule’s 3D structure</li>
+  <li><code class="highlighter-rouge">rdkit.Chem.EState.EState</code>: Basic EState definitions</li>
+  <li><code class="highlighter-rouge">rdkit.Chem.EState.EState_VSA</code>: Hybrid EState-VSA descriptors</li>
+  <li><code class="highlighter-rouge">rdkit.Chem.GraphDescriptors</code>: Topological/topochemical descriptors</li>
+  <li><code class="highlighter-rouge">rdkit.Chem.Lipinski</code>: Lipinski parameters for molecules</li>
+  <li><code class="highlighter-rouge">rdkit.Chem.MolSurf</code>: Approximate molecular surface area descriptors</li>
+  <li><code class="highlighter-rouge">rdkit.Chem.rdMolDescriptors</code>: Molecular descriptors (some redundancies with Chem.Descriptors)</li>
+</ul>
+
+<p>More interestingly, you can also pass your own function as long as it takes an RDKit molecule as argument:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">num_conjugated_bonds</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">bond</span><span class="p">.</span><span class="n">GetIsConjugated</span><span class="p">()</span> <span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="n">mol</span><span class="p">.</span><span class="n">GetBonds</span><span class="p">())</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s">"CN1C=NC2=C1C(=O)N(C(=O)N2C)C"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">RDKitDescriptors</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">num_conjugated_bonds</span><span class="p">).</span><span class="n">run</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">calc</span><span class="p">.</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="mi">12</span>
+</code></pre></div></div>
+
+<p>This means that you can use other packages that compute descriptors from RDKit molecules, like <a href="https://github.com/mordred-descriptor/mordred">Mordred</a>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">mordred</span> <span class="kn">import</span> <span class="n">Calculator</span><span class="p">,</span> <span class="n">descriptors</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s">"CN1C=NC2=C1C(=O)N(C(=O)N2C)C"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">RDKitDescriptors</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">Calculator</span><span class="p">(</span><span class="n">descriptors</span><span class="p">)).</span><span class="n">run</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">calc</span><span class="p">.</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])}</span> <span class="c1"># number of descriptors calculated
+</span><span class="mi">1826</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">mordred</span> <span class="kn">import</span> <span class="n">SLogP</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">RDKitDescriptors</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">SLogP</span><span class="p">.</span><span class="n">SLogP</span><span class="p">()).</span><span class="n">run</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">calc</span><span class="p">.</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">-</span><span class="mf">1.0293</span>
+</code></pre></div></div>
+
+<p>Interoperability saves the day: you can now mix MDAnalysis with RDKit-friendly packages 👍</p>
+
+<p> </p>
+<h4 id="3-fingerprints">3/ Fingerprints</h4>
+
+<p>Fingerprints are also accessible now, and the following are available: AtomPair, Morgan, TopologicalTorsion, RDKit (all of these in classical or hashed version) and MACCS.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">MDAnalysis.analysis.RDKit</span> <span class="kn">import</span> <span class="n">get_fingerprint</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">DataStructs</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">nglview.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">XTC</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># load MD
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">topology</span><span class="p">.</span><span class="n">guessers</span><span class="p">.</span><span class="n">guess_types</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">.</span><span class="n">names</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s">'elements'</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">"resname LRT"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># load retinal
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">u2</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s">"CC1=C(C(CCC1)(C)C)/C=C/C(=C/C=C/C(=C/C=O)/C)/C"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># tanimoto
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">fp1</span> <span class="o">=</span> <span class="n">get_fingerprint</span><span class="p">(</span><span class="n">ag</span><span class="p">,</span> <span class="s">"Morgan"</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">hashed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nBits</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fp2</span> <span class="o">=</span> <span class="n">get_fingerprint</span><span class="p">(</span><span class="n">u2</span><span class="p">.</span><span class="n">atoms</span><span class="p">,</span> <span class="s">"Morgan"</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">hashed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nBits</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">DataStructs</span><span class="p">.</span><span class="n">TanimotoSimilarity</span><span class="p">(</span><span class="n">fp1</span><span class="p">,</span> <span class="n">fp2</span><span class="p">)</span>
+<span class="mf">0.6785714285714286</span>
+</code></pre></div></div>
+
+<p> </p>
+<h3 id="lessons-learnt">Lessons learnt</h3>
+<hr />
+
+<p>Aside from learning how to use two great packages in depth, MDAnalysis and RDKit, GSoC has taught me three valuable lessons:</p>
+
+<p> </p>
+<h4 id="a-untested-code-is-or-will-be-broken">A/ Untested code is or will be broken</h4>
+
+<p>While some people will hate to see that the new feature they implemented broke something else in the code, they should be thankful that someone wrote tests to make sure this doesn’t go unnoticed. MDAnalysis uses <a href="https://docs.pytest.org/en/stable/">pytest</a> for that matter and I must say that it’s ten times better than the default <code class="highlighter-rouge">unittest</code> package. They also have a variety of continuous integration pipelines to ensure support for different OS and dependencies versions…etc.</p>
+
+<p> </p>
+<h4 id="b-undocumented-code-will-neither-be-used-nor-maintained">B/ Undocumented code will neither be used nor maintained</h4>
+
+<p>Whether you’re coming back to your code after 3 months or you’re reviewing the code of a colleague or you’re a user trying to understand what a function does and how it works, having a proper documentation can go a long way. <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> makes this super easy by allowing you to automatically build documentation from functions and classes docstrings. You can even add images, code examples and links to other packages Sphinx documentation.</p>
+
+<p> </p>
+<h4 id="c-no-software-development-project-is-a-one-man-project">C/ No software development project is a one-man project</h4>
+
+<p>I’ve kept the most important one for the conclusion! Whether you’ve just started programming or you’re an expert, having someone review your code at the end of the day is immensely valuable to identify flaws or shortcomings or to provide some help.</p>
+
+<p>With that being said, this project wouldn’t have been possible without the help of the following people: my amazing mentors (Irfan Alibay, Fiona Naughton and Richard Gowers) who provided extremely helpful feedback on a daily basis together with the rest of the MDAnalysis team, more specifically Oliver Beckstein, Lily Wang, Jonathan Barnoud and Tyler Reddy.<br />
+I’m also thankful to the RDKit community that contributed to all the tutorials on the <a href="https://www.rdkit.org/docs/Cookbook.html">Cookbook</a> as well as the awesome blog posts (more specifically <a href="https://iwatobipen.wordpress.com/">iwatobipen</a> and <a href="https://practicalcheminformatics.blogspot.com/">Pat Walters</a>), those have been a source of inspiration for me!<br />
+Finally, I want to thank <a href="http://chemosim.unice.fr/">my lab</a> for supporting me continuously during this project.</p>
+
+<p><img src="/assets/blog/2020/gsoc/keanu.gif" alt="Thank You" /></p>
+
+<p>I hope you enjoyed following my adventure so far! I’ll try my best to keep the blog posts coming, although it won’t be as regular.</p>
+
+<p>Best,</p>
+
+<p>Cédric 🤖</p>
+</p>
+    </div>
+
+    <!-- Navigate through posts -->
+    <ul class="pagination justify-content-center">
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2020/08/07/rdkit-interoperability">&laquo; Adding new features to MDAnalysis</a>
+    </li>
+    
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2022/04/08/fine-tuning-notebooks">Fine tuning your Jupyter notebook's displays &raquo;</a>
+    </li>
+    
+    </ul>
+
+    <!-- Comments -->
+    
+<!-- Comments -->
+<div class="card-body">
+  <a href="#disqus_thread" data-disqus-identifier="/blog/2020/09/01/end-of-gsoc" class="btn btn-info btn-lg btn-block"
+  role="button" data-toggle="collapse" data-target="#comments" aria-expanded="false" aria-controls="comments">Loading comments...</a>
+  <div class="collapse" id="comments">
+    <div id="disqus_thread" class="pt-3"></div>
+    <script src="/assets/js/disqus.js"></script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+<script id="dsq-count-scr" src="//cbouy-github-io.disqus.com/count.js" async></script>
+
+
+  </div>
+</div>
+
+
+    <script src="/assets/js/particles.js"></script>
+    <script src="/assets/js/particles-app.js"></script>
+  </main>
+</body>
+
+</html>

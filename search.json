@@ -1,0 +1,84 @@
+[
+  
+    {
+
+      "title"    : "Fine tuning your Jupyter notebook&#39;s displays",
+      "tags"     : "rdkit, python, jupyter",
+      "date"     : "08 April 2022",
+      "url"      : "/blog/2022/04/08/fine-tuning-notebooks"
+
+    } ,
+  
+    {
+
+      "title"    : "Conclusion of my GSoC adventure",
+      "tags"     : "gsoc, mdanalysis, rdkit, python",
+      "date"     : "01 September 2020",
+      "url"      : "/blog/2020/09/01/end-of-gsoc"
+
+    } ,
+  
+    {
+
+      "title"    : "Adding new features to MDAnalysis",
+      "tags"     : "gsoc, mdanalysis, rdkit, python",
+      "date"     : "07 August 2020",
+      "url"      : "/blog/2020/08/07/rdkit-interoperability"
+
+    } ,
+  
+    {
+
+      "title"    : "Creating RDKit molecules from MD simulations",
+      "tags"     : "gsoc, mdanalysis, rdkit, python",
+      "date"     : "22 July 2020",
+      "url"      : "/blog/2020/07/22/rdkit-converter-part2"
+
+    } ,
+  
+    {
+
+      "title"    : "A simple MDAnalysis to RDKit converter",
+      "tags"     : "gsoc, mdanalysis, rdkit, python",
+      "date"     : "01 July 2020",
+      "url"      : "/blog/2020/07/01/rdkit-converter"
+
+    } ,
+  
+    {
+
+      "title"    : "From RDKit to the Universe",
+      "tags"     : "gsoc, mdanalysis, rdkit, python",
+      "date"     : "18 June 2020",
+      "url"      : "/blog/2020/06/18/gsoc-rdkit-to-universe"
+
+    } ,
+  
+    {
+
+      "title"    : "Starting GSoC with MDAnalysis",
+      "tags"     : "gsoc, mdanalysis, rdkit, python",
+      "date"     : "04 June 2020",
+      "url"      : "/blog/2020/06/04/starting-gsoc"
+
+    } ,
+  
+    {
+
+      "title"    : "Interactive Choropleth Maps with Bokeh",
+      "tags"     : "python, bokeh, interactive",
+      "date"     : "09 June 2019",
+      "url"      : "/blog/2019/06/09/interactive-map"
+
+    } ,
+  
+    {
+
+      "title"    : "Welcome to my blog !",
+      "tags"     : "welcome, whoami",
+      "date"     : "01 May 2019",
+      "url"      : "/blog/2019/05/01/welcome"
+
+    } 
+  
+]

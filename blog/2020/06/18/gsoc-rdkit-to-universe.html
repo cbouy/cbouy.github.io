@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>From RDKit to the Universe | Cédric Bouysset</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="From RDKit to the Universe" />
+<meta name="author" content="Cédric Bouysset" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="After almost 2 weeks since my last post, it’s time for me to report on all the cool things I’ve learned and the features I’ve developed so far!" />
+<meta property="og:description" content="After almost 2 weeks since my last post, it’s time for me to report on all the cool things I’ve learned and the features I’ve developed so far!" />
+<link rel="canonical" href="https://cbouy.github.io/blog/2020/06/18/gsoc-rdkit-to-universe" />
+<meta property="og:url" content="https://cbouy.github.io/blog/2020/06/18/gsoc-rdkit-to-universe" />
+<meta property="og:site_name" content="Cédric Bouysset" />
+<meta property="og:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/rdkitreader.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/rdkitreader.png" />
+<meta property="twitter:title" content="From RDKit to the Universe" />
+<meta name="twitter:site" content="@cedricbouysset" />
+<meta name="twitter:creator" content="@Cédric Bouysset" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Cédric Bouysset"},"description":"After almost 2 weeks since my last post, it’s time for me to report on all the cool things I’ve learned and the features I’ve developed so far!","headline":"From RDKit to the Universe","dateModified":"2020-06-18T00:00:00+00:00","url":"https://cbouy.github.io/blog/2020/06/18/gsoc-rdkit-to-universe","datePublished":"2020-06-18T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cbouy.github.io/blog/2020/06/18/gsoc-rdkit-to-universe"},"image":"https://cbouy.github.io/assets/blog/2020/gsoc/rdkitreader.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://cbouy.github.io/assets/img/logo_64.png"},"name":"Cédric Bouysset"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<meta name="keywords" content="gsoc,mdanalysis,rdkit,python"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="shortcut icon" href="/assets/img/logo_64.png"/>
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-139606105-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet'/>
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/flags.min.css"/>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+</head>
+  <body>
+  <!-- Navigation -->
+
+<nav id="topbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <a id="brand" class="navbar-brand" href="https://cbouy.github.io">
+    <img src="/assets/img/logo_64.png" alt="Logo" style="height:40px;">
+    @blog:~$ <span id="cursor-container"> <span id="cursor"> </span></span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+		<div class="navbar-nav">
+    
+    
+      <a href="/" class="text-uppercase nav-item nav-link">
+        <i class="fas fa-home"></i>
+      </a>
+    
+    
+    
+      <a href="/cv/" class="text-uppercase nav-item nav-link">
+        CV
+      </a>
+    
+    
+    
+      <a href="/blog/" class="text-uppercase nav-item nav-link">
+        Blog
+      </a>
+    
+    
+		</div>
+    <div class="navbar-nav ml-auto nav-flex-icons">
+      
+      <a href="mailto:cedric@bouysset.net" class="nav-item nav-link">
+        <i class="fas fa-at fa-lg"></i>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/cedric-bouysset/" class="nav-item nav-link">
+        <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+      
+      <a href="https://github.com/cbouy" class="nav-item nav-link">
+        <i class="fab fa-github fa-lg"></i>
+      </a>
+      
+      <a href="https://scholar.google.fr/citations?user=Ao29wE8AAAAJ" class="nav-item nav-link">
+        <i class="ai ai-google-scholar ai-lg"></i>
+      </a>
+      
+      <a href="https://orcid.org/0000-0002-7814-8158" class="nav-item nav-link">
+        <i class="ai ai-orcid ai-lg"></i>
+      </a>
+      
+      <a href="https://twitter.com/cedricbouysset" class="nav-item nav-link">
+        <i class="fab fa-twitter fa-lg"></i>
+      </a>
+      
+    </div>
+	</div>
+</nav>
+
+  <main id="home-container" class="container-fluid">
+    <div id="particles-js"></div>
+  	<div class="container py-3">
+  <div class="card">
+    <div class="card-header">
+      <!-- Share -->
+<div class="card-body a2a_kit a2a_default_style float-right pt-1">
+  <a class="a2a_dd" href="https://www.addtoany.com/share">
+    <i class="fas fa-lg fa-share-alt bg-success text-white rounded px-3 py-2"></i>
+  </a>
+</div>
+<script>
+  var a2a_config = a2a_config || {};
+  a2a_config.onclick = 2;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+      <h1>From RDKit to the Universe</h1>
+      <hr>
+      <span class="float-left tags highlighter-rouge">[
+      
+        <a href="/tags/gsoc"><code><nobr>#gsoc</nobr></code></a>
+      
+        <a href="/tags/mdanalysis"><code><nobr>#mdanalysis</nobr></code></a>
+      
+        <a href="/tags/rdkit"><code><nobr>#rdkit</nobr></code></a>
+      
+        <a href="/tags/python"><code><nobr>#python</nobr></code></a>
+      
+      ]</span>
+      <p class="float-right">18 June 2020 - Cédric Bouysset</p>
+    </div>
+
+    
+    <div class="card-body pb-0 text-center">
+      <img class="card-img-top card-img-post" src="/assets/blog/2020/gsoc/rdkitreader.png" alt="Card image cap">
+    </div>
+    
+
+    <div class="card-body">
+      <p></p>
+<p>After almost 2 weeks since my last post, it’s time for me to report on all the cool things I’ve learned and the features I’ve developed so far!</p>
+
+<p> </p>
+<h3 id="new-features">New features</h3>
+<hr>
+<p>I added 3 features to MDAnalysis since the begining of my GSoC project:</p>
+
+<h4 id="1-creating-a-universe-from-an-rdkit-molecule">1. Creating a Universe from an RDKit molecule</h4>
+
+<p>Here is a quick example on how to do it:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="n">mda</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">MolFromMol2File</span><span class="p">(</span><span class="s">"docking_poses.mol2"</span><span class="p">,</span> <span class="n">removeHs</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="n">u</span><span class="p">.</span><span class="n">trajectory</span>
+<span class="c1"># &lt;RDKitReader with 10 frames of 42 atoms&gt;
+</span></code></pre></div></div>
+
+<p>Pretty simple, right? Now obviously MDAnalysis already supports MOL2 files, and there are other formats that both libraries support (like PDB files), so the benefit of doing this might not be apparent at first. There are actually two uses for this:</p>
+<ul>
+  <li>
+<strong>Making new formats indirectly available to MDAnalysis</strong><br>
+This concerns mostly SDF and MOL files.</li>
+  <li>
+<strong>Covering all the subtle differences when parsing files</strong><br>
+There are probably as many PDB flavors as there are Linux distributions, and chances are they will be parsed differently by RDKit and MDAnalysis. Now thanks to this feature, if the default PDB parser from MDAnalysis wasn’t doing what you expected, you can <del>blame the developers</del> use RDKit’s parser which will hopefully give you what you expected, and then convert the RDKit molecule to a Universe.</li>
+</ul>
+
+<h4 id="2-constructing-a-universe-from-a-smiles-string">2. Constructing a Universe from a SMILES string</h4>
+
+<p>To create a Universe with 3 different conformations of ethanol (don’t ask me why I chose this molecule):</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s">"CCO"</span><span class="p">,</span> <span class="n">numConfs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">u</span><span class="p">.</span><span class="n">trajectory</span>
+<span class="c1"># &lt;RDKitReader with 3 frames of 9 atoms&gt;
+</span></code></pre></div></div>
+
+<p>By default, this method will add hydrogens and generate coordinates for 1 conformer. Internally, this is equivalent to:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s">"CCO"</span><span class="p">)</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="n">confids</span> <span class="o">=</span> <span class="n">AllChem</span><span class="p">.</span><span class="n">EmbedMultipleConfs</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">numConfs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">EmbedMultipleConfs</code> function has a lot of interesting arguments available, and they are still accessible in the <code class="highlighter-rouge">from_smiles</code> method through the <code class="highlighter-rouge">rdkit_kwargs</code> parameter. For example, to use a different conformer generation algorithm like ETKDGv3:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s">"CCO"</span><span class="p">,</span> <span class="n">rdkit_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">AllChem</span><span class="p">.</span><span class="n">ETKDGv3</span><span class="p">()))</span>
+</code></pre></div></div>
+<p>To fix the seed for conformer generation:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s">"CCO"</span><span class="p">,</span> <span class="n">rdkit_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">randomSeed</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h4 id="3-aromatic-atoms-selection">3. Aromatic atoms selection</h4>
+
+<p>Something else that MDAnalysis wasn’t able to do previously: selecting aromatic atoms. There’s a very simple reason behind this: an aromaticity attribute did not exist and there was no perception of the aromatic nature of bonds and atoms in MDAnalysis. This is now a thing of the past as we can leverage RDKit’s aromaticity perception ability, although currently it’s only available when the Universe was created from an RDKit molecule.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s">"Cc1cNcc1"</span><span class="p">)</span>
+
+<span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">"aromatic"</span><span class="p">)</span>
+<span class="c1"># &lt;AtomGroup with 5 atoms&gt;
+</span>
+<span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">"not aromatic"</span><span class="p">)</span>
+<span class="c1"># &lt;AtomGroup with 1 atom&gt;
+</span>
+<span class="n">u</span><span class="p">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s">"type N and not aromatic"</span><span class="p">)</span>
+<span class="c1"># &lt;AtomGroup with 0 atoms&gt;
+</span></code></pre></div></div>
+
+<p>Support for all formats will come in the late stage of the project, as it depends on over things (mainly the RDKit converter).</p>
+
+<p> </p>
+
+<p>All these features are part of <a href="https://github.com/MDAnalysis/mdanalysis/pull/2707">PR#2707</a> and will be available on the <a href="https://github.com/MDAnalysis/mdanalysis">develop branch</a> of MDAnalysis very soon.</p>
+
+<p> </p>
+<h3 id="what-ive-learned">What I’ve learned</h3>
+<hr>
+<p>This first step was a good way for me to get acquainted with the MDAnalysis library as I had never used it before GSoC. I now have a good overview of how the core parts of the Universe work (topology, topology attributes and trajectory).</p>
+
+<p>I also got more familiar with writing <strong>unit tests</strong> with pytest, which I find much more intuitive and convenient to use than Python’s default library “unittest”. It’s really important to make sure that the code you write returns what you’d expect, but also that you don’t break the previous code when adding new features. This means that a lot of time is spent writing tests that cover almost all possible scenarios: in my case I’d say I spend as much time on tests than on the actual code.</p>
+
+<p><img src="/assets/blog/2020/gsoc/noideawhatimdoing.gif" alt="I have no idea what I'm doing" style="float: right; margin: 5px; width:270px; height: 166px">Another important aspect of software development, and which I’m quite new to, is writing a proper <strong>documentation</strong>. 
+I guess you know how frustrating it can be when you find a library that does what you’re looking for but there’s barely any documentation on how to use it, so you either try to guess how it works, or you just search for another solution.<br>
+The most popular choice for documenting Python code seems to be Sphinx which makes it very easy. The most helpful features I’ve seen so far are the automatic inclusion of docstrings as actual documentation, and the possibility of embedding an ipython shell in the sphinx document. I’ve never used Sphinx before so I’m learning by making mistakes for now, but I’ll make sure to spend some time following tutorials on that!</p>
+
+<p>And lastly the most important part: <strong>code review</strong>. Richard and Irfan have been super helpful and reactive at every commit so I’m really thankful to them for mentoring me <img class="emoji" title=":pray:" alt=":pray:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f64f.png" height="20" width="20">
+They are much more experienced with the library and software development in general so they quickly see things that I missed, especially for tests and docs.</p>
+
+<p> </p>
+<h3 id="whats-next">What’s next</h3>
+<hr>
+<p>I’ll now start working on the most exciting part: converting an MDAnalysis universe to an RDKit molecule! This will open MDAnalysis to all the chemoinformatics analysis and awesome features available in RDKit.</p>
+
+<p>I’m a bit in advance on the schedule that I proposed, which means that I should be able to spend more time on wrapping RDKit functionalities inside MDAnalysis during the month of August.</p>
+
+<p>Until next time,</p>
+
+<p>Cédric</p>
+
+    </div>
+
+    <!-- Navigate through posts -->
+    <ul class="pagination justify-content-center">
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2020/06/04/starting-gsoc">« Starting GSoC with MDAnalysis</a>
+    </li>
+    
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2020/07/01/rdkit-converter">A simple MDAnalysis to RDKit converter »</a>
+    </li>
+    
+    </ul>
+
+    <!-- Comments -->
+    
+<!-- Comments -->
+<div class="card-body">
+  <a href="#disqus_thread" data-disqus-identifier="/blog/2020/06/18/gsoc-rdkit-to-universe" class="btn btn-info btn-lg btn-block" role="button" data-toggle="collapse" data-target="#comments" aria-expanded="false" aria-controls="comments">Loading comments...</a>
+  <div class="collapse" id="comments">
+    <div id="disqus_thread" class="pt-3"></div>
+    <script src="/assets/js/disqus.js"></script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+  </div>
+</div>
+<script id="dsq-count-scr" src="//cbouy-github-io.disqus.com/count.js" async></script>
+
+
+  </div>
+</div>
+
+
+    <script src="/assets/js/particles.js"></script>
+    <script src="/assets/js/particles-app.js"></script>
+  </main>
+</body>
+
+</html>

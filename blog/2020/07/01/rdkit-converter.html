@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>A simple MDAnalysis to RDKit converter | Cédric Bouysset</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="A simple MDAnalysis to RDKit converter" />
+<meta name="author" content="Cédric Bouysset" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Today, a quick update on my progress with the RDKit converter! It’s already working (with very minor tweaks) for MOL2 files, and any other format that contains bond orders or bond types." />
+<meta property="og:description" content="Today, a quick update on my progress with the RDKit converter! It’s already working (with very minor tweaks) for MOL2 files, and any other format that contains bond orders or bond types." />
+<link rel="canonical" href="https://cbouy.github.io/blog/2020/07/01/rdkit-converter" />
+<meta property="og:url" content="https://cbouy.github.io/blog/2020/07/01/rdkit-converter" />
+<meta property="og:site_name" content="Cédric Bouysset" />
+<meta property="og:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/rdkitconverter.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://cbouy.github.io/assets/blog/2020/gsoc/rdkitconverter.png" />
+<meta property="twitter:title" content="A simple MDAnalysis to RDKit converter" />
+<meta name="twitter:site" content="@cedricbouysset" />
+<meta name="twitter:creator" content="@Cédric Bouysset" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Cédric Bouysset"},"description":"Today, a quick update on my progress with the RDKit converter! It’s already working (with very minor tweaks) for MOL2 files, and any other format that contains bond orders or bond types.","headline":"A simple MDAnalysis to RDKit converter","dateModified":"2020-07-01T00:00:00+00:00","url":"https://cbouy.github.io/blog/2020/07/01/rdkit-converter","datePublished":"2020-07-01T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cbouy.github.io/blog/2020/07/01/rdkit-converter"},"image":"https://cbouy.github.io/assets/blog/2020/gsoc/rdkitconverter.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://cbouy.github.io/assets/img/logo_64.png"},"name":"Cédric Bouysset"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<meta name="keywords" content="gsoc,mdanalysis,rdkit,python"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="shortcut icon" href="/assets/img/logo_64.png"/>
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-139606105-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet'/>
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/flags.min.css"/>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+</head>
+  <body>
+  <!-- Navigation -->
+
+<nav id="topbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <a id="brand" class="navbar-brand" href="https://cbouy.github.io">
+    <img src="/assets/img/logo_64.png" alt="Logo" style="height:40px;" />
+    @blog:~$ <span id="cursor-container">&nbsp;<span id="cursor">&nbsp;</span></span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+		<div class="navbar-nav">
+    
+    
+      <a href="/" class="text-uppercase nav-item nav-link">
+        <i class="fas fa-home"></i>
+      </a>
+    
+    
+    
+      <a href="/cv/" class="text-uppercase nav-item nav-link">
+        CV
+      </a>
+    
+    
+    
+      <a href="/blog/" class="text-uppercase nav-item nav-link">
+        Blog
+      </a>
+    
+    
+		</div>
+    <div class="navbar-nav ml-auto nav-flex-icons">
+      
+      <a href="mailto:cedric@bouysset.net" class="nav-item nav-link">
+        <i class="fas fa-at fa-lg"></i>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/cedric-bouysset/" class="nav-item nav-link">
+        <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+      
+      <a href="https://github.com/cbouy" class="nav-item nav-link">
+        <i class="fab fa-github fa-lg"></i>
+      </a>
+      
+      <a href="https://scholar.google.fr/citations?user=Ao29wE8AAAAJ" class="nav-item nav-link">
+        <i class="ai ai-google-scholar ai-lg"></i>
+      </a>
+      
+      <a href="https://orcid.org/0000-0002-7814-8158" class="nav-item nav-link">
+        <i class="ai ai-orcid ai-lg"></i>
+      </a>
+      
+      <a href="https://twitter.com/cedricbouysset" class="nav-item nav-link">
+        <i class="fab fa-twitter fa-lg"></i>
+      </a>
+      
+    </div>
+	</div>
+</nav>
+
+  <main id="home-container" class="container-fluid">
+    <div id="particles-js"></div>
+  	<div class="container py-3">
+  <div class="card">
+    <div class="card-header">
+      <!-- Share -->
+<div class="card-body a2a_kit a2a_default_style float-right pt-1">
+  <a class="a2a_dd" href="https://www.addtoany.com/share">
+    <i class="fas fa-lg fa-share-alt bg-success text-white rounded px-3 py-2"></i>
+  </a>
+</div>
+<script>
+  var a2a_config = a2a_config || {};
+  a2a_config.onclick = 2;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+      <h1>A simple MDAnalysis to RDKit converter</h1>
+      <hr>
+      <span class="float-left tags highlighter-rouge">[
+      
+        <a href="/tags/gsoc"><code><nobr>#gsoc</nobr></code></a>
+      
+        <a href="/tags/mdanalysis"><code><nobr>#mdanalysis</nobr></code></a>
+      
+        <a href="/tags/rdkit"><code><nobr>#rdkit</nobr></code></a>
+      
+        <a href="/tags/python"><code><nobr>#python</nobr></code></a>
+      
+      ]</span>
+      <p class="float-right">01 July 2020 - Cédric Bouysset</p>
+    </div>
+
+    
+    <div class="card-body pb-0 text-center">
+      <img class="card-img-top card-img-post" src="/assets/blog/2020/gsoc/rdkitconverter.png" alt="Card image cap">
+    </div>
+    
+
+    <div class="card-body">
+      <p><p>Today, a quick update on my progress with the RDKit converter! It’s already working (with very minor tweaks) for MOL2 files, and any other format that contains bond orders or bond types.</p>
+
+<p> </p>
+<h3 id="how-it-works">How it works</h3>
+<hr />
+
+<p>RDKit requires 2 things to create a complete molecule from scratch:</p>
+<ul>
+  <li><strong>Elements</strong> (either the symbol of the atom, or the atomic number). This will allow us to create atoms which will also store all the extra information regarding residues, atom names and types, temperature factors…etc.</li>
+  <li><strong>Bonds</strong>, or more specifically the indices of bonded atoms and the bond type.</li>
+</ul>
+
+<p>Once we have our elements, we start by creating the corresponding atoms with the <code class="highlighter-rouge">Chem.Atom</code> class. 
+We add to the atom all the information that is typically available in PDB files through the <code class="highlighter-rouge">Chem.AtomPDBResidueInfo</code> class (atom name, residue name and number, temperature factor…etc.). Other properties (charges, atom types…etc.) are directly stored as an atom property through the <code class="highlighter-rouge">atom.SetProp</code> method. 
+Finally, we create a dictionary mapping MDAnalysis atom indices to the corresponding indices in the RDKit molecule, which we will need when we create bonds. 
+Here is a simplified example of what happens under the hood:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Universe
+</span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">)</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">RWMol</span><span class="p">()</span>
+<span class="n">atom_mapper</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">:</span>
+    <span class="c1"># create atom
+</span>    <span class="n">rdatom</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">Atom</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">element</span><span class="p">)</span>
+    <span class="c1"># add PDB-like properties
+</span>    <span class="n">mi</span> <span class="o">=</span> <span class="n">Chem</span><span class="p">.</span><span class="n">AtomPDBResidueInfo</span><span class="p">()</span>
+    <span class="n">mi</span><span class="p">.</span><span class="n">SetResidueName</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">resname</span><span class="p">)</span>
+    <span class="n">rdatom</span><span class="p">.</span><span class="n">SetMonomerInfo</span><span class="p">(</span><span class="n">mi</span><span class="p">)</span>
+    <span class="c1"># other properties
+</span>    <span class="n">rdatom</span><span class="p">.</span><span class="n">SetProp</span><span class="p">(</span><span class="s">"_MDAnalysis_type"</span><span class="p">,</span> <span class="n">atom</span><span class="p">.</span><span class="nb">type</span><span class="p">)</span>
+    <span class="c1"># add atom to the molecule
+</span>    <span class="n">index</span> <span class="o">=</span> <span class="n">mol</span><span class="p">.</span><span class="n">AddAtom</span><span class="p">(</span><span class="n">rdatom</span><span class="p">)</span>
+    <span class="c1"># map index in universe to index in mol
+</span>    <span class="n">atom_mapper</span><span class="p">[</span><span class="n">atom</span><span class="p">.</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>
+</code></pre></div></div>
+
+<p>Of course the real code is a bit more complex to cover all available topology attributes as well as edge cases.</p>
+
+<p>Then we can add the bonds. If they are not present in the MDAnalysis topology, they are automatically guessed using the same algorithm that VMD uses. We also have to convert whatever bond type or bond order is present in the MDA topology to an RDKit <code class="highlighter-rouge">Chem.BondType</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">RDBONDORDER</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="n">Chem</span><span class="p">.</span><span class="n">BondType</span><span class="p">.</span><span class="n">SINGLE</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="n">Chem</span><span class="p">.</span><span class="n">BondType</span><span class="p">.</span><span class="n">DOUBLE</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="n">Chem</span><span class="p">.</span><span class="n">BondType</span><span class="p">.</span><span class="n">TRIPLE</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">.</span><span class="n">bonds</span><span class="p">:</span>
+    <span class="n">bond_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">atom_mapper</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">bond</span><span class="p">.</span><span class="n">indices</span><span class="p">]</span>
+    <span class="n">bond_type</span> <span class="o">=</span> <span class="n">RDBONDORDER</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">bond</span><span class="p">.</span><span class="n">order</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">Chem</span><span class="p">.</span><span class="n">BondType</span><span class="p">.</span><span class="n">SINGLE</span><span class="p">)</span>
+    <span class="n">mol</span><span class="p">.</span><span class="n">AddBond</span><span class="p">(</span><span class="o">*</span><span class="n">bond_indices</span><span class="p">,</span> <span class="n">bond_type</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Again, this is a simplified version of what happens in the actual code.</p>
+
+<p>Finally, we just add a <code class="highlighter-rouge">Chem.SanitizeMol(mol)</code> and <em>voilà</em>, we have a proper RDKit molecule!</p>
+
+<p>Here is a working example with mol2 files. Since MOL2 files don’t have elements but only atom names and types, we will have to guess the elements first:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="n">mda</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">mol2_molecule</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># guess missing info
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">mda</span><span class="p">.</span><span class="n">topology</span><span class="p">.</span><span class="n">guessers</span><span class="p">.</span><span class="n">guess_types</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">.</span><span class="n">names</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s">'elements'</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># convert
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">mol</span> <span class="o">=</span> <span class="n">u</span><span class="p">.</span><span class="n">atoms</span><span class="p">.</span><span class="n">convert_to</span><span class="p">(</span><span class="s">"RDKIT"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Chem</span><span class="p">.</span><span class="n">MolToSmiles</span><span class="p">(</span><span class="n">Chem</span><span class="p">.</span><span class="n">RemoveHs</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+<span class="s">'CN(C)C(=O)c1ccc(N2CCC(NS(=O)(=O)C=Cc3ccc(Cl)s3)C2=O)c(F)c1'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mol</span>
+</code></pre></div></div>
+<p><img src="/assets/blog/2020/gsoc/rdkitconverter-mol2.png" alt="MOL2 from MDAnalysis to RDKit" style="max-width:500px" /></p>
+
+<p> </p>
+<h3 id="whats-next-">What’s next ?</h3>
+<hr />
+
+<p>Most MD topology files don’t explicitely keep bond orders or bond types, but we need them if we want to do anything more complex than an alkane. Nonetheless, bond types and formal charges can be inferred from the connectivity as long as the topology explicitely contains all the hydrogen atoms. 
+Fortunately, as the name states it, “all-atom” simulations have all their hydrogen atoms explicitely written in the topology so we will be able to build the complete molecule with proper <strong>charges and bond types</strong> from that. This will be the next step once the simple RDKit converter is ready and accepted for merging.</p>
+
+<p>Additionally, the current version doesn’t store any <strong>coordinates</strong> yet, this will be the last step once everything regarding the topology is done.</p>
+
+<p>Once the coordinates are added, we will be able to retrieve the <strong>stereochemistry</strong> information for atoms and bonds (R/S, Z/E) base on the 3D structure.</p>
+
+<p>We’re also currently discussing the future API for converters, <em>i.e.</em> do we keep the current <code class="highlighter-rouge">u.atoms.convert_to("RDKIT")</code> or do we add something more user-friendly ? Most people seem to be in favor of <code class="highlighter-rouge">u.atoms.to_rdkit()</code> for tab-completion, but nothing is decided yet.</p>
+
+<p>You can follow the advancements of this project in <a href="https://github.com/MDAnalysis/mdanalysis/pull/2775">PR#2775</a>, and you can already play with the RDKit parser in the <a href="https://github.com/MDAnalysis/mdanalysis">develop branch</a> of MDAnalysis.</p>
+
+<p>Cédric</p>
+</p>
+    </div>
+
+    <!-- Navigate through posts -->
+    <ul class="pagination justify-content-center">
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2020/06/18/gsoc-rdkit-to-universe">&laquo; From RDKit to the Universe</a>
+    </li>
+    
+    
+    <li class="page-item">
+      <a class="page-link" href="/blog/2020/07/22/rdkit-converter-part2">Creating RDKit molecules from MD simulations &raquo;</a>
+    </li>
+    
+    </ul>
+
+    <!-- Comments -->
+    
+<!-- Comments -->
+<div class="card-body">
+  <a href="#disqus_thread" data-disqus-identifier="/blog/2020/07/01/rdkit-converter" class="btn btn-info btn-lg btn-block"
+  role="button" data-toggle="collapse" data-target="#comments" aria-expanded="false" aria-controls="comments">Loading comments...</a>
+  <div class="collapse" id="comments">
+    <div id="disqus_thread" class="pt-3"></div>
+    <script src="/assets/js/disqus.js"></script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+<script id="dsq-count-scr" src="//cbouy-github-io.disqus.com/count.js" async></script>
+
+
+  </div>
+</div>
+
+
+    <script src="/assets/js/particles.js"></script>
+    <script src="/assets/js/particles-app.js"></script>
+  </main>
+</body>
+
+</html>
